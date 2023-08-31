@@ -1,17 +1,31 @@
-<div class="mt-12">
-	<h1 class="text-slate-800 font-light text-4xl">Daniel Haus</h1>
-	<h2 class="h2 text-slate-500 font-light">IT-Beratung &amp; Softwareentwicklung</h2>
+<script>
+	import Engine from '$lib/engine/Engine.svelte';
+</script>
 
-	<div class="grid grid-cols-3 gap-8 mt-12">
-		<figure class="order-1">
-			<img
-				class="object-contain"
-				src="daniel.png"
+<div class="container mx-auto mt-12 px-12 min-h-screen">
+	<Engine />
+
+	<div class="grid grid-cols-2 gap-8 mt-12 py-12 hidden">
+		<div class="order-1">
+			<h1 class="h1 font-thin tracking-wide uppercase">
+				Daniel <span class="font-light tracking-wide">Haus</span>
+			</h1>
+			<h2 class="h2 font-semibold text-xl">IT-Berater<br />Softwareentwickler</h2>
+		</div>
+
+		<figure>
+			<!-- <img
+				class="object-contain max-w-sm"
+				src="daniel-profile.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
-			/>
+			/> -->
 		</figure>
+	</div>
+</div>
 
-		<div class="prose prose-slate dark:prose-invert col-span-2">
+<div class="bg-white dark:bg-daniel-950">
+	<div class="container mx-auto mx-12 px-12 py-12">
+		<div class="prose prose-daniel dark:prose-invert">
 			<p>
 				Daniel Haus ist <strong>IT-Berater</strong> und <strong>Softwareentwickler</strong>
 				(Full-Stack, Cloud, Web, Mobile, nativ). Als breitgefächerter Spezialist mit Fokus auf
@@ -21,12 +35,10 @@
 			</p>
 
 			<p>
-				Seine Kunden umfassen bekannte Marken und Namen aus den Bereichen IT, Medien/TV, Werbung,
-				Banken/Finanzen, Versicherung, Pharma/Medizin, Unternehmensberatung, High-End Audio,
-				Automotive, Gesundheit, Bildung sowie aus dem öffentlichen Sektor.
+				Seine Kunden umfassen bekannte Namen und Marken aus den Bereichen IT, Medien und TV,
+				Werbung, Banken und Finanzen, Versicherung, Pharma und Medizin, Unternehmensberatung,
+				High-End Audio, Automotive, Gesundheit, Bildung sowie aus dem öffentlichen Sektor.
 			</p>
-
-			<p><a href="/kontakt">Kontakt</a></p>
 		</div>
 	</div>
 </div>
