@@ -42,6 +42,12 @@ export default class Shader {
     this.initUniformLocations(uniforms);
   }
 
+  cleanup() {
+    const { gl } = this;
+
+    gl.deleteProgram(this.program);
+  }
+
   load(type: ShaderType, source: string) {
     const { gl } = this;
 

@@ -1,78 +1,47 @@
 <script lang="ts">
 	import { Engine } from '$lib/engine';
-	import { onMount } from 'svelte';
+	import { afterUpdate, onDestroy, onMount } from 'svelte';
+	// import bunny from 'bunny';
+	import cube from './cube';
+
+	type Mesh = {
+		positions: [number, number, number][];
+		cells: [number, number, number][];
+	};
 
 	if (typeof window != 'undefined' && typeof document != 'undefined') {
+		let engine: Engine | undefined;
+
+		// const mesh = bunny;
+		const mesh = cube as Mesh;
+
 		const init = () => {
-			const positions = [
-				// Front face
-				-1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0,
-
-				// Back face
-				-1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0, -1.0,
-
-				// Top face
-				-1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0,
-
-				// Bottom face
-				-1.0, -1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, -1.0, -1.0, 1.0,
-
-				// Right face
-				1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0,
-
-				// Left face
-				-1.0, -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0
-			];
-
-			const numComponents = 3;
-
-			const indices = [
-				0,
-				1,
-				2,
-				0,
-				2,
-				3, // front
-				4,
-				5,
-				6,
-				4,
-				6,
-				7, // back
-				8,
-				9,
-				10,
-				8,
-				10,
-				11, // top
-				12,
-				13,
-				14,
-				12,
-				14,
-				15, // bottom
-				16,
-				17,
-				18,
-				16,
-				18,
-				19, // right
-				20,
-				21,
-				22,
-				20,
-				22,
-				23 // left
-			];
-
 			const canvas = document.getElementById('canvas');
 			if (canvas != null && canvas instanceof HTMLCanvasElement) {
-				const engine = new Engine(window, canvas, positions, indices);
-				engine.run();
+				engine = new Engine(window, canvas, mesh.positions, mesh.cells);
+				engine.init();
+				engine.start();
 			}
 		};
 
+		const cleanup = () => {
+			engine?.cleanup();
+			engine = undefined;
+		};
+
 		onMount(init);
+		afterUpdate(() => {
+			cleanup();
+			init();
+		});
+		onDestroy(cleanup);
+
+		if (import.meta.hot) {
+			import.meta.hot.dispose((data) => {
+				console.log('dispose <-', data);
+				cleanup();
+			});
+		}
 	}
 </script>
 
@@ -80,11 +49,7 @@
 
 <style>
 	canvas {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 65.25vw;
-		/* background: rgba(0, 0, 0, 0.5); */
+		width: 100%;
+		height: 100%;
 	}
 </style>

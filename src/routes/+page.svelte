@@ -2,29 +2,34 @@
 	import Engine from '$lib/engine/Engine.svelte';
 </script>
 
-<div class="container mx-auto mt-12 px-12 min-h-screen">
+<div class="ecity h-screen w-screen absolute top-0 left-0 z-0">
 	<Engine />
+</div>
 
-	<div class="grid grid-cols-2 gap-8 mt-12 py-12 hidden">
-		<div class="order-1">
-			<h1 class="h1 font-thin tracking-wide uppercase">
-				Daniel <span class="font-light tracking-wide">Haus</span>
+<div class="container min-h-screen relative z-10">
+	<div class="grid grid-cols-2 gap-8 px-12 mx-auto">
+		<div class="pt-6">
+			<h1 class="h1 font-thin text-daniel-250">
+				<span class="">Daniel</span>
+				<span class=" tracking-tighter">Haus</span>
 			</h1>
-			<h2 class="h2 font-semibold text-xl">IT-Berater<br />Softwareentwickler</h2>
+			<h2 class="h2 font-semibold text-xl mt-3 text-daniel-50">
+				IT-Berater<br />Softwareentwickler
+			</h2>
 		</div>
 
-		<figure>
-			<!-- <img
-				class="object-contain max-w-sm"
+		<figure class="-order-1">
+			<img
+				class="object-contain max-w-sm pr-12 hidden"
 				src="daniel-profile.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
-			/> -->
+			/>
 		</figure>
 	</div>
 </div>
 
 <div class="bg-white dark:bg-daniel-950">
-	<div class="container mx-auto mx-12 px-12 py-12">
+	<div class="container mx-auto px-12 py-12">
 		<div class="prose prose-daniel dark:prose-invert">
 			<p>
 				Daniel Haus ist <strong>IT-Berater</strong> und <strong>Softwareentwickler</strong>

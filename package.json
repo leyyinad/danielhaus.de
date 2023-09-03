@@ -40,5 +40,8 @@
 		"vite-plugin-glslify": "^2.0.2",
 		"vitest": "^0.34.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"bunny": "^1.0.1"
+	}
 }
