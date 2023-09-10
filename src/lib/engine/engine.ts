@@ -213,9 +213,7 @@ export default class Engine {
     let z = 0.0;
 
     const speed = 1.0;
-
     const t = (time * 0.001 * speed) % 16.0;
-
 
     x = 0.0;
     z = t * 0.8;

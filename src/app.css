@@ -1,4 +1,3 @@
-/* @import url(./inter.css); */
 @import url(./montserrat.css);
 
 @tailwind base;
@@ -11,7 +10,6 @@ html {
 
 body {
   min-height: 100%;
-  /* bg-white text-daniel-500 dark: bg-daniel-950 dark:text-white bg-gradient-to-b */
 }
 
 .logo {
@@ -21,10 +19,6 @@ body {
 
 @layer components {
   body {
-    @apply antialiased;
-  }
-
-  h1 {
-    @apply text-6xl whitespace-nowrap;
+    @apply antialiased bg-bluebirth-950;
   }
 }

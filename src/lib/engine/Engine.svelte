@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Engine } from '$lib/engine';
 	import { afterUpdate, onDestroy, onMount } from 'svelte';
-	// import bunny from 'bunny';
 	import cube from './cube';
 
 	type Mesh = {
@@ -12,7 +11,6 @@
 	if (typeof window != 'undefined' && typeof document != 'undefined') {
 		let engine: Engine | undefined;
 
-		// const mesh = bunny;
 		const mesh = cube as Mesh;
 
 		const init = () => {

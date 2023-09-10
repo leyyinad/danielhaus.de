@@ -1,11 +1,10 @@
 <script>
+	import Header from '$lib/Header.svelte';
 	import '../app.css';
 </script>
 
-<div class="mb-20 overflow-hidden sm:mb-32 md:mb-40">
-	<header class="container mx-auto px-12 py-12">
-		<img class="dh logo" src="dh-logo.svg" alt="dh logo" />
-	</header>
+<div class="layout">
+	<Header />
 
 	<main>
 		<slot />
@@ -13,3 +12,6 @@
 
 	<footer></footer>
 </div>
+
+<style lang="postcss">
+</style>
