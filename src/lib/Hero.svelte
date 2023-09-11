@@ -50,9 +50,9 @@
 			w-6/12
 		  z-10
 			md:absolute
-			md:top-[50%]
-			md:left-[20%]
-			md:-mt-[15%]
+			md:top-[50vh]
+			md:left-[33%]
+			md:-mt-[15vh]
 			md:w-6/12
 			md:pt-0
 			md:flex
@@ -75,6 +75,7 @@
 			md:relative
 			md:mb-0
 			md:-left-14
+			lg:max-w-[12rem]
 		  /**/;
 	}
 
@@ -108,7 +109,6 @@
 			text-bluebirth-50
 			sm:text-4xl
 			md:mt-8
-			lg:text-6xl
 			/**/;
 	}
 
