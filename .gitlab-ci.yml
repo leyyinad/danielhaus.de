@@ -1,0 +1,13 @@
+image: node:18-alpine
+
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server"
+    - apk add lftp
+    - npm install && npm run build
+    - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $HOST_STAGING; mirror -Rev -X .ht* build/ . --parallel=10"
+  environment:
+    name: staging
+  rules:
+    - if: $CI_COMMIT_BRANCH == "staging"
