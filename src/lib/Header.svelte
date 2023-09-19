@@ -20,10 +20,10 @@
 
 	div {
 		@apply /**/
-			py-4
-			px-2
-			md:mx-auto
+			p-4
 			container
+			mx-auto
+      max-w-screen-lg
 			/**/;
 	}
 

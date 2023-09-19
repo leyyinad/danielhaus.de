@@ -10,7 +10,7 @@
 		<figure class="profile-image">
 			<img
 				class="object-contain"
-				src="daniel-profile.svg"
+				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
 			/>
 		</figure>
@@ -61,21 +61,23 @@
 
 	.signature {
 		@apply /**/
-		 relative
-		 mb-4
-		 md:-left-4
-		 /**/;
+  		opacity-50
+		  relative
+		  mb-4
+		  md:-left-4
+		  /**/;
 	}
 
 	.profile-image {
 		@apply /**/
+			opacity-50
 			mb-8
 			w-full
 			text-center
 			md:relative
 			md:mb-0
 			md:-left-14
-			lg:max-w-[12rem]
+			lg:max-w-[14rem]
 		  /**/;
 	}
 

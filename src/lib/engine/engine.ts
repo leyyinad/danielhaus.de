@@ -1,8 +1,46 @@
 import Shader from "./shader";
 import vert from './shader.vert';
 import frag from './shader.frag';
-import { mat4 } from 'gl-matrix';
+import { mat4, type ReadonlyVec3 } from 'gl-matrix';
 import city from './city';
+
+
+const calcMovementA = (m: mat4, t: number): ReadonlyVec3 => {
+  let x = 0.0;
+  let z = 0.0;
+
+  if (t < 4.0) {
+    x = 0.0;
+    z = t;
+  } else if (t < 8.0) {
+    x = t - 4.0;
+    z = 4.0;
+  } else if (t < 12.0) {
+    x = 4.0;
+    z = 12.0 - t;
+  } else if (t < 16.0) {
+    x = 16.0 - t;
+    z = 0.0;
+  }
+
+  let a = 0.0;
+  if (t >= 3.5 && t <= 4.5) {
+    a = 90.0 * (t - 3.5);
+  } else if (t >= 7.5 && t <= 8.5) {
+    a = 90.0 + 90.0 * (t - 7.5);
+  } else if (t >= 11.5 && t <= 12.5) {
+    a = 90.0 + 90.0 * (t - 7.5);
+  } else if (t > 12.5) {
+    a = 270.0;
+  } else if (t > 7.5) {
+    a = 180.0;
+  } else if (t > 4.5) {
+    a = 90.0;
+  }
+  mat4.rotateY(m, m, degToRad(a));
+
+  return [-x, 0., z];
+};
 
 export default class Engine {
   window: Window;
@@ -17,6 +55,9 @@ export default class Engine {
   indices: Uint16Array;
   barycentric: Float32Array;
   running = false;
+
+  projectionMatrix: mat4;
+  modelViewMatrix: mat4;
 
   listeners: { [name: string]: () => void; };
 
@@ -34,6 +75,9 @@ export default class Engine {
     this.positions = new Float32Array();
     this.indices = new Uint16Array();
     this.barycentric = new Float32Array();
+
+    this.projectionMatrix = mat4.create();
+    this.modelViewMatrix = mat4.create();
 
     this.initGeometry(positions, cells);
 
@@ -199,29 +243,76 @@ export default class Engine {
     const fieldOfView = (45 * Math.PI) / 180;
     const zNear = 0.1;
     const zFar = 100.0;
-    const projectionMatrix = mat4.create();
 
-    mat4.perspective(projectionMatrix, fieldOfView, this.aspect, zNear, zFar);
-    return projectionMatrix;
+    mat4.perspective(this.projectionMatrix, fieldOfView, this.aspect, zNear, zFar);
+    return this.projectionMatrix;
   }
 
   createModelViewMatrix(time: DOMHighResTimeStamp): mat4 {
-    const modelViewMatrix = mat4.create();
+    mat4.identity(this.modelViewMatrix);
 
-    // -4, 0 -> 4, 12
-    let x = 0.0;
-    let z = 0.0;
+    const speed = 0.8;
+    const loopDuration = 16.0;
+    const t = (time * speed * 0.001) % loopDuration;
 
-    const speed = 1.0;
-    const t = (time * 0.001 * speed) % 16.0;
+    const startPos: ReadonlyVec3 = [-0.5, -2.75, -6.0];
 
-    x = 0.0;
-    z = t * 0.8;
+    const degToRad = (deg: number) => deg * Math.PI / 180.0;
 
-    mat4.translate(modelViewMatrix, modelViewMatrix, [-0.5 - x, -2.75, -6.0 + z]);
+    mat4.translate(this.modelViewMatrix, this.modelViewMatrix, startPos);
 
+    const calcMovementB = (m: mat4, t: number) => {
+      const x = 0;
+      const z = t;
 
-    return modelViewMatrix;
+      return [-x, 0., z];
+    };
+
+    // const calcMovement=calcMovementA;
+    const calcMovement = calcMovementB;
+
+    mat4.translate(this.modelViewMatrix, this.modelViewMatrix, calcMovement(
+      this.modelViewMatrix, t));
+
+    // let x = 0.0;
+    // let z = 0.0;
+
+    // if (t < 4.0) {
+    //   x = 0.0;
+    //   z = t;
+    // } else if (t < 8.0) {
+    //   x = t - 4.0;
+    //   z = 4.0;
+    // } else if (t < 12.0) {
+    //   x = 4.0;
+    //   z = 4.0 - (t - 8.0);
+    // } else if (t < 16.0) {
+    //   x = 4.0 - (t - 12.0);
+    //   z = 0.0;
+    // }
+
+    // mat4.translate(this.modelViewMatrix, this.modelViewMatrix, [-0.5 - x, -2.75, -6.0 + z]);
+
+    // let ang = 0.0;
+
+    // if (t < 3.0) {
+    //   ang = 0.0;
+    // } else if (t < 5.0) {
+    //   ang = (t - 3.0) * 0.5 * 90.0;
+    // } else if (t < 7.0) {
+    //   ang = 90.0;
+    // } else if (t < 9.0) {
+    //   ang = (1 + (t - 7.0) * 0.5) * 90.0;
+    // }
+
+    // mat4.rotateY(this.modelViewMatrix, this.modelViewMatrix, ang * Math.PI / 180.0);
+
+    // if t < 8
+    // if t < 12
+    // if t < 20
+    // if t < 24
+
+    return this.modelViewMatrix;
   }
 
   drawScene(time: DOMHighResTimeStamp) {
