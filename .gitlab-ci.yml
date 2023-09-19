@@ -11,3 +11,15 @@ deploy_staging:
     name: Staging
   rules:
     - if: $CI_COMMIT_BRANCH == "staging"
+
+deploy_dev:
+  stage: deploy
+  script:
+    - echo "Deploy to dev server"
+    - apk add lftp
+    - npm install && npm run build
+    - lftp -c "open -u $FTP_USER_DEV,$FTP_PASS_DEV $FTP_HOST_DEV; mirror -Rev -X .ht* build/ . --parallel=10"
+  environment:
+    name: Dev
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
