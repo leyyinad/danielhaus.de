@@ -31,7 +31,7 @@
       /**/;
 
 		/* background: #ccc; */
-		background-image: url(./holz.jpg);
+		background-image: url($lib/images/holz.jpg);
 	}
 
 	article {
