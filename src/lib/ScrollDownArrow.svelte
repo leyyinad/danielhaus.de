@@ -2,7 +2,7 @@
 	let y: number;
 </script>
 
-{#if y < 10}
+{#if y < 20}
 	<div class="arrs">
 		<div class="arr"></div>
 		<div class="arr"></div>
@@ -17,7 +17,8 @@
 		@apply /**/
 			absolute
 			left-[50%]
-			top-[90%]
+			top-[82%]
+			md:top-[90%]
 			scale-75
 			md:scale-100
 			/**/;
