@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Engine } from '$lib/engine';
+	import { Engine } from '$lib/components/engine';
 	import { afterUpdate, onDestroy, onMount } from 'svelte';
 	import cube from './cube';
 

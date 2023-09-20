@@ -1,5 +1,6 @@
 <script>
-	import Engine from '$lib/engine/Engine.svelte';
+	import Engine from '$lib/components/engine/Engine.svelte';
+	// import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
 	const run_engine = true;
@@ -13,6 +14,7 @@
 				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
 			/>
+			<!-- <Leds width={16} height={16} /> -->
 		</figure>
 
 		<div class="title">
@@ -38,7 +40,6 @@
 		@apply /**/
 			relative
 			h-screen
-			w-screen
 			/**/;
 	}
 
@@ -117,8 +118,7 @@
 	.ecity {
 		@apply /**/
 		 	h-screen
-			w-screen
-		  absolute
+			absolute
 		  top-0
 		  left-0
 			z-0

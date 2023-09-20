@@ -1,7 +1,7 @@
 <script>
-	import About from '$lib/About.svelte';
-	import Hero from '$lib/Hero.svelte';
-	import Projects from '$lib/Projects.svelte';
+	import About from '$lib/components/About.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import Projects from '$lib/components/Projects.svelte';
 </script>
 
 <Hero />
