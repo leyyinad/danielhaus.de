@@ -1,60 +1,86 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import { zero } from '$lib/led-anim';
+	import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from '$lib/led-anim/types';
+	import { OFF, ON } from '$lib/led-anim/utils';
 	import { onDestroy, onMount } from 'svelte';
 
 	export let width = 8;
 	export let height = 8;
-	export let fn = (t: number, x: number, y: number) => 0;
+	export let gap = 2.0;
+	export let pw = 8.0;
+	export let ph = 8.0;
+
+	export let fn: LedAnimGeneratorComponent = zero;
 
 	let canvas: HTMLCanvasElement;
 	let context: CanvasRenderingContext2D;
 
 	let count = width * height;
-	let pw = 8.0;
-	let ph = 8.0;
+	let resX = width * pw + (width - 1) * gap;
+	let resY = height * ph + (height - 1) * gap;
 
 	let running = false;
 
-	const loop = (t: number) => {
+	const init = (canvas: HTMLCanvasElement) => {
+		context = canvas.getContext('2d')!;
+
+		canvas.width = resX;
+		canvas.height = resY;
+
+		running = true;
+
+		requestAnimationFrame(loop);
+	};
+
+	const loop = (time: number) => {
 		if (!running) return;
+
+		context.clearRect(0, 0, canvas.width, canvas.height);
+
+		const mx = Array(count);
+		const config: LedAnimComponentConfig = {
+			width,
+			height,
+			time,
+			t: time * 0.001,
+			i: 0
+		};
 
 		for (let i = 0; i < count; i++) {
 			const x = i % width;
 			const y = Math.floor(i / width);
 
-			// console.log(x, y);
-			// const c = fn(t, x, y);
-			// const c = Math.floor(x % 2) === 0 ? 1.0 : 0.0;
-			const c = x % 2;
-
-			context.clearRect(0, 0, canvas.width, canvas.height);
-
-			context.fillStyle = `rgba(255, 255, 255, ${c})`;
-			context.fillRect(x * pw, y * ph, pw, ph);
+			const c = fn(x, y, { ...config, i });
+			if (c >= ON) {
+				mx[i] = ON;
+			} else if (c <= 0.0) {
+				mx[i] = OFF;
+			} else {
+				mx[i] = c;
+			}
 		}
+
+		mx.forEach((c, i) => {
+			context.fillStyle = `rgba(255, 255, 255, ${c})`;
+
+			const x = i % width;
+			const y = Math.floor(i / width);
+			context.fillRect((pw + gap) * x, (ph + gap) * y, pw, ph);
+		});
 
 		requestAnimationFrame(loop);
 	};
 
-	onMount(() => {
-		context = canvas.getContext('2d')!;
-		canvas.width = width * pw;
-		canvas.height = height * ph;
+	if (browser) {
+		onMount(() => {
+			init(canvas);
+		});
 
-		running = true;
-		requestAnimationFrame(loop);
-	});
-
-	onDestroy(() => {
-		running = false;
-	});
+		onDestroy(() => {
+			running = false;
+		});
+	}
 </script>
 
 <canvas bind:this={canvas}></canvas>
-
-<style lang="postcss">
-	canvas {
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.5);
-	}
-</style>

@@ -1,23 +1,24 @@
 <script>
 	import Engine from '$lib/components/engine/Engine.svelte';
-	// import Leds from './Leds.svelte';
+	import anim from '$lib/led-anim';
+	import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
-	const run_engine = true;
+	const run_engine = false;
 </script>
 
 <div class="hero">
 	<div class="content">
 		<figure class="profile-image">
-			<img
+			<!-- <img
 				class="object-contain"
 				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
-			/>
-			<!-- <Leds width={16} height={16} /> -->
+			/> -->
+			<Leds width={64} height={64} pw={4} ph={4} gap={1} fn={anim} />
 		</figure>
 
-		<div class="title">
+		<div class="title hidden">
 			<img src="sig.svg" class="signature" alt="Daniel Haus signature" />
 			<h1>D. Haus</h1>
 			<h2>
@@ -71,7 +72,7 @@
 
 	.profile-image {
 		@apply /**/
-			opacity-50
+			/* opacity-50 */
 			mb-8
 			w-full
 			text-center
