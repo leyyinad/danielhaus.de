@@ -4,7 +4,7 @@
 	import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
-	const run_engine = false;
+	const run_engine = true;
 </script>
 
 <div class="hero">
@@ -15,14 +15,14 @@
 				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
 			/> -->
-			<Leds width={32} height={32} pw={8} ph={8} gap={1} fn={anim} />
+			<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
 		</figure>
 
-		<div class="title hidden">
+		<div class="title">
 			<img src="sig.svg" class="signature" alt="Daniel Haus signature" />
 			<h1>D. Haus</h1>
 			<h2>
-				IT-Berater<span class="opacity-50">,</span><br />Softwareentwickler
+				IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
 			</h2>
 		</div>
 	</div>

@@ -83,8 +83,9 @@ export const image = (
 export const plasma: LedAnimGeneratorComponent = (
   x: number,
   y: number,
-  { t }: LedAnimComponentConfig
+  { t, start }: LedAnimComponentConfig
 ) => {
+  t += start;
   let v = OFF;
 
   x *= 0.025;
@@ -98,7 +99,7 @@ export const plasma: LedAnimGeneratorComponent = (
   const cy = y + 0.5 * Math.cos(t / 3.0);
   v += Math.sin(Math.sqrt(100 * (cx * cx + cy * cy) + 1) + t);
 
-  const c = (Math.sin(t) + 1.25) * 1.1;
+  const c = 0.5 * (Math.sin(t) + 1.25) * 1.1;
 
   return Math.sin(v * c * Math.PI);
 };

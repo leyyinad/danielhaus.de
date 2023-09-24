@@ -1,6 +1,7 @@
+import Footer from "$lib/components/Footer.svelte";
 import danielProfileImg from "$lib/images/daniel-profile-64px.png";
 import { plasma, image, zero, random, one } from "./generators";
-import { translate, time, dim, vignette, speed } from "./modifiers";
+import { translate, time, dim, vignette, speed, scale } from "./modifiers";
 import { add, loop, mix, multiply, sequence, subtract, timeline } from "./operators";
 import { fade } from "./transitions";
 import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from "./types";
@@ -33,14 +34,15 @@ export * from "./operators";
 //   );
 
 const photo = image(danielProfileImg, {
-  width: 64 / 2,
-  height: 64 / 2,
+  width: 64,
+  height: 64,
 });
 
-const logo = image("/dh-logo.svg", {
-  width: 64 / 2,
-  height: 64 / 2
-});
+const logo = scale(
+  image("/dh-logo.svg", {
+    width: 64,
+    height: 64
+  }), { sx: 0.7 });
 
 // export default mul(
 //   plasma,
@@ -49,14 +51,27 @@ const logo = image("/dh-logo.svg", {
 
 // export default vignette(plasma);
 
-export default vignette(
+// export default vignette(logo);
+
+export default
   sequence(
-    [speed(fade(zero, plasma), 1. / 4.), 4.],
-    [plasma, 4.],
-    [speed(fade(plasma, logo), 1. / 4.), 4.],
-    [speed(fade(logo, photo), 1. / 4.), 4.],
-  )
-);
+    [vignette(
+      sequence(
+        [fade(zero, plasma), 1.],
+        [plasma, 2.],
+        [fade(plasma, multiply(plasma, photo)), 1.],
+        [multiply(plasma, photo), 2.],
+        [fade(multiply(fade(plasma, one), photo), photo), 1.],
+        // [fade(multiply(plasma, photo), logo), 5.],
+        // [speed(fade(zero, plasma), 1. / 4.), 1.],
+        // [plasma, 1.],
+        // [speed(fade(plasma, logo), 1. / 4.), 1.],
+        // [speed(fade(logo, plasma), 1. / 4.), 1.],
+        // [speed(fade(plasma, photo), 1. / 4.), 1.],
+      )), 7.],
+    [fade(vignette(photo), photo), 1],
+    [photo, Infinity] // TODO:; glitter
+  );
 
 // export default loop(
 //   timeline(

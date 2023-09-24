@@ -40,7 +40,7 @@ export const sequence = (
   y: number,
   config: LedAnimComponentConfig
 ) => {
-    let { t } = config;
+    let { t, start } = config;
 
     const item = sequence.find(([_c, duration]) => {
       if (t < duration) {
@@ -48,11 +48,12 @@ export const sequence = (
       }
 
       t -= duration;
+      start += duration;
     });
 
     if (item) {
       const component = item[0];
-      return component(x, y, { ...config, t });
+      return component(x, y, { ...config, t, start });
     } else {
       return OFF;
     }

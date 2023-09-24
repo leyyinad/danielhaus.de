@@ -44,7 +44,8 @@
 			height,
 			time,
 			t: time * 0.001,
-			i: 0
+			i: 0,
+			start: 0
 		};
 
 		for (let i = 0; i < count; i++) {

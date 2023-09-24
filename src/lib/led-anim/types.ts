@@ -4,6 +4,7 @@ export type LedAnimComponentConfig = {
   time: number;
   t: number;
   i: number;
+  start: number;
 };
 
 export type LedAnimGeneratorComponent = (

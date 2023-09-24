@@ -28,6 +28,7 @@
       to-black
       bg-cover
 			py-6
+			bg-fixed
       /**/;
 
 		/* background: #ccc; */
