@@ -211,3 +211,45 @@ export const time = (
   y: number,
   config: LedAnimComponentConfig
 ) => component(x, y, { ...config, t: config.t + offset });
+
+export type LedAnimVignetteConfig = {
+  size: LedAnimAnimatableValue;
+};
+
+export const vignetteDefaults: LedAnimVignetteConfig = {
+  size: 1.0 / 8.0,
+};
+
+export const vignette = (
+  component: LedAnimGeneratorComponent,
+  vignetteConfig?: LedAnimVignetteConfig,
+) => (
+  x: number,
+  y: number,
+  config: LedAnimComponentConfig
+) => {
+    const { size } = animate(vignetteDefaults, vignetteConfig, config, ['size']);
+    const { width, height } = config;
+
+    const cx = size * width;
+    const cy = size * height;
+
+    const dx = x / width;
+    const dy = y / height;
+
+    let v = ON;
+
+    if (dx < size) {
+      v *= x / cx;
+    } else if (dx >= 1 - size) {
+      v *= (width - x - 1) / cx;
+    }
+
+    if (dy < size) {
+      v *= y / cy;
+    } else if (dy >= 1 - size) {
+      v *= (height - y - 1) / cy;
+    }
+
+    return v * component(x, y, config);
+  };

@@ -1,6 +1,6 @@
 import danielProfileImg from "$lib/images/daniel-profile-64px.png";
-import { plasma, image, zero, random } from "./generators";
-import { translate, time, dim } from "./modifiers";
+import { plasma, image, zero, random, one } from "./generators";
+import { translate, time, dim, vignette, speed } from "./modifiers";
 import { add, loop, mix, multiply, sequence, subtract, timeline } from "./operators";
 import { fade } from "./transitions";
 import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from "./types";
@@ -17,18 +17,6 @@ export * from "./operators";
 
 // export default scale(image(danielProfileImg), { sx: 0.25, sy: 0.25 });
 
-const fadeIn = (component: LedAnimGeneratorComponent) => translate(
-  component,
-  {
-    x: (t: number, { width }: LedAnimComponentConfig): number => {
-      if (t <= 0) return 0;
-      if (t >= 1) return 1;
-      return 8 * t - width;
-    }
-  }
-);
-
-
 // export default
 //   timeline(
 //     [fade(zero, plasma), 0, 1],
@@ -44,18 +32,32 @@ const fadeIn = (component: LedAnimGeneratorComponent) => translate(
 //     ), 1, Infinity]
 //   );
 
-const photo = image(danielProfileImg);
-const logo = image("/dh-logo.svg", {
-  width: 64,
-  height: 64
+const photo = image(danielProfileImg, {
+  width: 64 / 2,
+  height: 64 / 2,
 });
 
-export default add(
-  dim(
-    plasma
-  ),
-  photo,
+const logo = image("/dh-logo.svg", {
+  width: 64 / 2,
+  height: 64 / 2
+});
+
+// export default mul(
+//   plasma,
+//   photo,
+// );
+
+// export default vignette(plasma);
+
+export default vignette(
+  sequence(
+    [speed(fade(zero, plasma), 1. / 4.), 4.],
+    [plasma, 4.],
+    [speed(fade(plasma, logo), 1. / 4.), 4.],
+    [speed(fade(logo, photo), 1. / 4.), 4.],
+  )
 );
+
 // export default loop(
 //   timeline(
 //     [fade(plasma, photo), 0, 1],

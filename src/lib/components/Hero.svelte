@@ -15,7 +15,7 @@
 				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
 			/> -->
-			<Leds width={64} height={64} pw={4} ph={4} gap={1} fn={anim} />
+			<Leds width={32} height={32} pw={8} ph={8} gap={1} fn={anim} />
 		</figure>
 
 		<div class="title hidden">
