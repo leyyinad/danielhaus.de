@@ -1,10 +1,9 @@
 <script>
-	import Engine from '$lib/components/engine/Engine.svelte';
-	import anim from '$lib/led-anim';
-	import Leds from './Leds.svelte';
+	import Engine from '$lib/engine/Engine.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
 	const run_engine = true;
+	const engine_only = true;
 </script>
 
 <div class="hero">
@@ -15,10 +14,10 @@
 				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
 			/> -->
-			<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
+			<!-- <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} /> -->
 		</figure>
 
-		<div class="title">
+		<div class="title" class:hidden={engine_only}>
 			<img src="sig.svg" class="signature" alt="Daniel Haus signature" />
 			<h1>D. Haus</h1>
 			<h2>
@@ -27,7 +26,9 @@
 		</div>
 	</div>
 
-	<ScrollDownArrow />
+	{#if !engine_only}
+		<ScrollDownArrow />
+	{/if}
 
 	<div class="ecity">
 		{#if run_engine}
@@ -119,6 +120,7 @@
 	.ecity {
 		@apply /**/
 		 	h-screen
+			w-full
 			absolute
 		  top-0
 		  left-0
