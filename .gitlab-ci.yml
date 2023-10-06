@@ -1,25 +1,45 @@
 image: node:18-alpine
 
+stages:
+  - test
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm/
+
+tests:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.38.0-jammy
+  script:
+    - npm install
+    - npm test
+
 deploy_staging:
   stage: deploy
   script:
     - echo "Deploy to staging server"
     - apk add lftp
-    - npm install && npm test && npm run build
+    - npm install
+    - npm run build
     - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $FTP_HOST_STAGING; mirror -Rev -X .ht* build/ . --parallel=10"
   environment:
     name: Staging
-  rules:
-    - if: $CI_COMMIT_BRANCH == "staging"
+  only:
+    refs:
+      - staging
 
 deploy_dev:
   stage: deploy
   script:
     - echo "Deploy to dev server"
     - apk add lftp
-    - npm install && npm test && npm run build
+    - npm install
+    - npm run build
     - lftp -c "open -u $FTP_USER_DEV,$FTP_PASS_DEV $FTP_HOST_DEV; mirror -Rev -X .ht* build/ . --parallel=10"
   environment:
     name: Dev
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+  only:
+    refs:
+      - main
