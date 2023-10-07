@@ -1,9 +1,11 @@
 <script>
 	import Engine from '$lib/components/Engine.svelte';
+	import anim from '$lib/led-anim';
+	import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
 	const run_engine = true;
-	const engine_only = true;
+	const engine_only = false;
 </script>
 
 <div class="hero">
@@ -14,7 +16,7 @@
 				src="daniel-profile-px.png"
 				alt="Stilisiertes Selbstportrait von Daniel Haus"
 			/> -->
-			<!-- <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} /> -->
+			<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
 		</figure>
 
 		<div class="title" class:hidden={engine_only}>

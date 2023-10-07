@@ -1,11 +1,13 @@
-import wireframeMaterial from '$lib/city/materials/wireframe/material';
-import Cube from '$lib/city/models/cube';
-import { Camera, Engine, Environment, Scene, ScriptBehaviour, Time, createObject } from '$lib/engine';
+import { Camera, Engine, Environment, Scene, createObject } from '$lib/engine';
 import MeshFilter from '$lib/engine/components/mesh/mesh-filter';
 import MeshRenderer from '$lib/engine/components/renderer/mesh-renderer';
 import WebGLRenderer from '$lib/engine/drivers/webgl/webgl-renderer';
 import { vec4 } from 'gl-matrix';
+import cityGrid from './city-grid';
+import wireframeMaterial from './materials/wireframe/material';
+import Cube from './models/cube';
 import CameraScript from './scripts/camera-script';
+import CubeScript from './scripts/cube-script';
 
 export default class City {
   engine: Engine;
@@ -22,25 +24,12 @@ export default class City {
   createScene() {
     const scene = new Scene();
 
-    class AnimScript extends ScriptBehaviour {
-      public update(): void {
-        const amt = 3.0 / Time.timeDelta;
-        // this.baseObject.transform.rotateX(0.333 * amt);
-        // this.baseObject.transform.rotateY(amt);
-        this.baseObject.transform.rotateY(-5.0 * amt);
-      }
-    }
+    const w = cityGrid[0].length;
+    const h = cityGrid.length;
 
-    class AnimScript2 extends ScriptBehaviour {
-      public update(): void {
-        const amt = 3.0 / Time.timeDelta;
-        // this.baseObject.transform.rotateX(0.333 * amt);
-        // this.baseObject.transform.rotateY(amt);
-        this.baseObject.transform.rotateX(-1.0 * amt);
-      }
-    }
+    const margin = 0.333;
 
-    const camera = createObject({
+    createObject({
       name: "Camera",
       components: [
         Camera,
@@ -48,61 +37,28 @@ export default class City {
         CameraScript,
       ],
       scene,
-      position: [0.0, -1.0, -10.0],
+      position: [-0.5 * (1.0 + margin) * w + 0.25, -1.8, -20.0],
       rotation: [0.0, 0.0, 0.0],
     });
 
-    const parent = createObject({
-      scene,
-      components: [
-        AnimScript
-      ],
-    });
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const c = cityGrid[y][x];
 
-    const cubeA = createObject({
-      name: "Cube A",
-      components: [
-        [MeshFilter, { mesh: new Cube() }],
-        [MeshRenderer, { materials: [wireframeMaterial] }],
-        AnimScript
-      ],
-      scene,
-      position: [0.0, -3.0, 0.0],
-      // rotation: [45.0, 45.0, 45.0],
-    });
+        if (c === 0.0) continue;
 
-    const cubeB = createObject({
-      name: "Cube B",
-      components: [
-        [MeshFilter, { mesh: new Cube() }],
-        [MeshRenderer, { materials: [wireframeMaterial] }],
-        AnimScript2
-      ],
-      scene,
-      position: [-1.0, 1.0, 0.0],
-      // scale: [0.5, 0.5, 0.5],
-      parent: cubeA,
-      // rotation: [45.0, 45.0, 45.0],
-    });
-
-    // camera.getComponent(Camera)!.transform.lookAt(cubeA.transform.position);
-
-    // for (let j = 0; j < 8; j++) {
-    //   for (let i = 0; i < 8; i++) {
-    //     createObject({
-    //       name: `Cube ${i}, ${j}`,
-    //       components: [
-    //         [MeshFilter, { mesh: new Cube() }],
-    //         [MeshRenderer, { materials: [wireframeMaterial] }],
-    //       ],
-    //       scene,
-    //       position: [(i - 4) * 1.1, 0.0, (j + 1) * 1.1],
-    //       // position: [(i - 4) * 0.5, 0.0, (j + 1) * 0.5],
-    //       scale: [0.5, 0.5, 0.5],
-    //       parent
-    //     });
-    //   }
-    // }
+        createObject({
+          components: [
+            [MeshFilter, { mesh: new Cube() }],
+            [MeshRenderer, { materials: [wireframeMaterial] }],
+            CubeScript,
+          ],
+          scene,
+          position: [x * (1.0 + margin), 0.0, y],
+          scale: [1.0, c * 0.5, 1.0],
+        });
+      }
+    }
 
     return scene;
   }

@@ -9,6 +9,7 @@ import Time from './time';
 export default class Engine {
   scene!: Scene;
   modelView: mat4;
+  throttle: number = 0;
 
   constructor(public renderer: Renderer) {
     renderer.engine = this;

@@ -147,13 +147,18 @@ export default class WebGLRenderer implements Renderer {
   }
 
   loop(callback: FrameRequestCallback) {
-    window.requestAnimationFrame(callback);
+    if (this.engine.throttle === 0) {
+      window.requestAnimationFrame(callback);
+    } else {
+      setTimeout(() => {
+        window.requestAnimationFrame(callback);
+      }, this.engine.throttle);
+    }
   }
 
   render() {
     const camera = Camera.main!;
     mat4.copy(this.projection, camera.projection);
-    // mat4.invert(this.modelView, camera.transform.matrix);
     mat4.copy(this.modelView, camera.transform.matrix);
 
     const { stack } = this;

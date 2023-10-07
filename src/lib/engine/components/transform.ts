@@ -120,6 +120,12 @@ export default class Transform extends Component {
     this._dirty = true;
   }
 
+  public translate(x: number, y: number, z: number) {
+    const pos = vec3.fromValues(x, y, z);
+    vec3.add(pos, this.position, pos);
+    this.position = pos;
+  }
+
   public rotateX(degrees: number) {
     if (degrees === 0.0) {
       return;
