@@ -9,7 +9,8 @@ in vec3 barycentric;
 const float width = 0.006125f;
 
 void main() {
-  float alpha = pow(gl_FragCoord.w + 0.3335f, 3.0f);
+  // float alpha = pow(gl_FragCoord.w + 0.3335f, 3.0f);
+  float alpha = 1.0;
   // float alpha = pow(gl_FragCoord.w + 0.5f, 2.0f);
 
   if (any(lessThan(barycentric, vec3(width)))) {

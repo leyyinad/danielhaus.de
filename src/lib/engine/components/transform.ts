@@ -1,5 +1,5 @@
 import { mat4, quat, vec3, type ReadonlyMat4, type ReadonlyQuat, type ReadonlyVec3 } from "gl-matrix";
-import Component from "./components/component";
+import Component from "./component";
 
 export const PI_BY_180 = Math.PI / 180.0;
 

@@ -1,5 +1,5 @@
-import type { BufferType } from "../../city/wireframe/material";
-import type Mesh from "../../meshes/mesh";
+import type { BufferType } from "../../../city/materials/wireframe/material";
+import type Mesh from "../../geom/mesh";
 
 export default class BufferMap<T> {
   private map: Map<Mesh, Map<BufferType, T>> = new Map();

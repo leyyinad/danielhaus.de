@@ -1,5 +1,5 @@
 <script>
-	import Engine from '$lib/engine/Engine.svelte';
+	import Engine from '$lib/components/Engine.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
 	const run_engine = true;

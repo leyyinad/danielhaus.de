@@ -1,5 +1,5 @@
-import { BufferType } from "../../meshes/mesh";
-import Material from "../../renderer/material";
+import { BufferType } from "../../../engine/geom/mesh";
+import Material from "../../../engine/renderer/material";
 import createShader from "./shader";
 
 export enum UniformType {

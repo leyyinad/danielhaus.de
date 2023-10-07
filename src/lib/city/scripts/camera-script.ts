@@ -1,6 +1,6 @@
 import { vec3 } from "gl-matrix";
-import ScriptBehaviour from "../components/script-behaviour";
-import Time from "../time";
+import ScriptBehaviour from "../../engine/components/script-behaviour";
+import Time from "../../engine/time";
 
 export default class CameraScript extends ScriptBehaviour {
   public update(): void {

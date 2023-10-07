@@ -9,34 +9,16 @@
 
 		const init = () => {
 			if (canvas != null && canvas instanceof HTMLCanvasElement) {
-				city = new City(canvas.getContext('webgl2')!);
+				city = new City(canvas);
 
 				window.addEventListener('resize', resize);
-				window.requestAnimationFrame(loop);
+				window.requestAnimationFrame((t) => city!.engine.loop(t));
 
 				resize();
 			}
 		};
 
-		const loop = (time: DOMHighResTimeStamp) => {
-			if (city != null) {
-				city!.engine.update(time);
-				city!.engine.render();
-
-				window.requestAnimationFrame(loop);
-			}
-		};
-
-		const resize = () => {
-			const w = canvas.clientWidth;
-			const h = canvas.clientHeight;
-			const r = window.devicePixelRatio;
-
-			canvas.width = w * r;
-			canvas.height = h * r;
-
-			city!.engine.viewport(0, 0, w * r, h * r);
-		};
+		const resize = () => city?.engine.resize();
 
 		const cleanup = () => {
 			window.removeEventListener('resize', resize);

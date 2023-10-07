@@ -1,4 +1,4 @@
-import Shader from '../../renderer/shader';
+import Shader from '../../../engine/renderer/shader';
 import type { AttributeMap, UniformMap } from './material';
 import frag from './shader.frag';
 import vert from './shader.vert';

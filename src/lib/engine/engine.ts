@@ -24,6 +24,16 @@ export default class Engine {
     this.renderer.viewport(x, y, width, height);
   }
 
+  loop(time: DOMHighResTimeStamp) {
+    this.update(time);
+    this.render();
+    this.renderer.loop((time: DOMHighResTimeStamp) => this.loop(time));
+  }
+
+  resize() {
+    this.renderer.resize();
+  }
+
   update(time: number) {
     Time.timeDelta = time - Time.time;
     Time.time = time;

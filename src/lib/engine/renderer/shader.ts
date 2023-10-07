@@ -1,4 +1,4 @@
-import type { AttributeMap, UniformMap } from "../city/wireframe/material";
+import type { AttributeMap, UniformMap } from "../../city/materials/wireframe/material";
 
 export enum ShaderType {
   Vertex,

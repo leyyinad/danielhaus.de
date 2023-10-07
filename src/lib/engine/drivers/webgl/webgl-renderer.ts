@@ -1,14 +1,14 @@
 import { mat4 } from "gl-matrix";
-import { UniformType } from "../../city/wireframe/material";
+import { UniformType } from "../../../city/materials/wireframe/material";
 import Camera from "../../components/camera/camera";
 import MeshFilter from "../../components/mesh/mesh-filter";
 import Environment from "../../components/renderer/environment";
 import MeshRenderer from "../../components/renderer/mesh-renderer";
 import RendererComponent from "../../components/renderer/renderer";
 import type Engine from "../../engine";
-import MatrixStack from "../../matrix-stack";
-import type Mesh from "../../meshes/mesh";
-import { BufferType } from "../../meshes/mesh";
+import MatrixStack from "../../geom/matrix-stack";
+import type Mesh from "../../geom/mesh";
+import { BufferType } from "../../geom/mesh";
 import BaseObject from "../../object";
 import type Shader from "../../renderer/shader";
 import type Renderer from "../renderer";
@@ -18,6 +18,7 @@ import ShaderInfo from "./shader-info";
 
 export default class WebGLRenderer implements Renderer {
   engine!: Engine;
+  context: WebGL2RenderingContext;
   shaders: Map<Shader, ShaderInfo> = new Map();
   stack: MatrixStack = new MatrixStack();
   buffers: BufferMap<WebGLBuffer> = new BufferMap();
@@ -25,7 +26,9 @@ export default class WebGLRenderer implements Renderer {
   projection = mat4.create();
   modelView = mat4.create();
 
-  constructor(public context: WebGL2RenderingContext) { }
+  constructor(public canvas: HTMLCanvasElement) {
+    this.context = canvas.getContext('webgl2')!;
+  }
 
   init() {
     this.initShaders();
@@ -109,6 +112,19 @@ export default class WebGLRenderer implements Renderer {
     gl.viewport(x, y, width, height);
   }
 
+  resize() {
+    const { canvas } = this;
+
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    const r = window.devicePixelRatio;
+
+    canvas.width = w * r;
+    canvas.height = h * r;
+
+    this.engine.viewport(0, 0, w * r, h * r);
+  }
+
   clear() {
     const { gl } = this;
 
@@ -128,6 +144,10 @@ export default class WebGLRenderer implements Renderer {
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  }
+
+  loop(callback: FrameRequestCallback) {
+    window.requestAnimationFrame(callback);
   }
 
   render() {

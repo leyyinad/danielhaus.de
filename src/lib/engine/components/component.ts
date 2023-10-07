@@ -1,6 +1,6 @@
 import type { ComponentConstructor } from "../object";
 import type BaseObject from "../object";
-import type Transform from "../transform";
+import type Transform from "./transform";
 
 export default class Component {
   public baseObject!: BaseObject;

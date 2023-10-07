@@ -1,6 +1,6 @@
 import type Component from "./components/component";
 import type Scene from "./scene/scene";
-import Transform from "./transform";
+import Transform from "./components/transform";
 
 export type ComponentConstructor<T extends Component> = (new () => T);
 

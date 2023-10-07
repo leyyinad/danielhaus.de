@@ -1,5 +1,5 @@
 import type { ReadonlyVec3 } from "gl-matrix";
-import Mesh from "../meshes/mesh";
+import Mesh from "../../engine/geom/mesh";
 
 export default class Cube extends Mesh {
   /*
