@@ -67,7 +67,10 @@
 
 			const x = i % width;
 			const y = Math.floor(i / width);
-			context.fillRect((pw + gap) * x, (ph + gap) * y, pw, ph);
+
+			context.beginPath();
+			context.roundRect((pw + gap) * x, (ph + gap) * y, pw, ph, 3);
+			context.fill();
 		});
 
 		requestAnimationFrame(loop);
