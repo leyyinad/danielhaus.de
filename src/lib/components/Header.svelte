@@ -20,7 +20,7 @@
 
 	div {
 		@apply /**/
-			p-4
+			p-8
 			container
 			mx-auto
       max-w-screen-lg
@@ -29,8 +29,9 @@
 
 	.logo {
 		@apply /**/
-			h-12
-			md:h-24
+		  w-auto
+			h-8
+			md:h-16
 			/**/;
 	}
 </style>

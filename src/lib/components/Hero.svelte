@@ -11,11 +11,6 @@
 <div class="hero">
 	<div class="content">
 		<figure class="profile-image">
-			<!-- <img
-				class="object-contain"
-				src="daniel-profile-px.png"
-				alt="Stilisiertes Selbstportrait von Daniel Haus"
-			/> -->
 			<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
 		</figure>
 
@@ -52,8 +47,8 @@
 			container
 			mx-auto
 			pt-32
-			w-6/12
 		  z-10
+			w-6/12
 			md:absolute
 			md:top-[50vh]
 			md:left-[33%]
@@ -75,10 +70,9 @@
 
 	.profile-image {
 		@apply /**/
-			/* opacity-50 */
+  		h-64
 			mb-8
 			w-full
-			text-center
 			md:relative
 			md:mb-0
 			md:-left-14
@@ -100,7 +94,7 @@
 			text-right
 			tracking-tight
 			text-bluebirth-50
-			opacity-50
+			opacity-25
 			-mt-3
 			sm:text-sm
 			sm:-mt-6
