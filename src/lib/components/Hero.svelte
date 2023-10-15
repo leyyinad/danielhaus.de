@@ -1,37 +1,99 @@
-<script>
+<script lang="ts">
 	import Engine from '$lib/components/Engine.svelte';
 	import anim from '$lib/led-anim';
+	import Timeline from '$lib/timeline';
+	import { onDestroy, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
 
 	const run_engine = true;
 	const engine_only = false;
+
+	const trackNames = ['led', 'sig', 'txt', 'cty', 'arr'];
+
+	const timeline = new Timeline();
+
+	for (const name of trackNames) {
+		timeline.addTrack(name);
+	}
+
+	/*
+	 * 1. led anim, centered
+	 * 2. move leds to target position
+	 * 3. swipe signature
+	 * 4. type text with cursor
+	 * 5. fade in city anim
+	 */
+
+	timeline.addClip('led', 0.25, 60, { active: true });
+	timeline.addClip('led', 0, 2, { center: true });
+	timeline.addClip('sig', 5, 60, { active: true });
+	timeline.addClip('txt', 7, 60, { active: true });
+	timeline.addClip('cty', 10, 60, { active: true });
+	timeline.addClip('arr', 15, 60, { active: true });
+
+	timeline.init();
+
+	let state: { [key: string]: { [key: string]: any } } = timeline.state(0);
+
+	let timer: number | undefined;
+	let t0 = 0;
+
+	const tick = () => {
+		state = timeline.state((new Date().getTime() - t0) * 0.001);
+		console.log(state);
+	};
+	const init = () => {
+		t0 = new Date().getTime();
+		timer = window.setInterval(tick, 500);
+	};
+
+	const cleanup = () => {
+		if (timer != null) {
+			clearInterval(timer);
+			timer = undefined;
+		}
+	};
+
+	onMount(init);
+	onDestroy(cleanup);
 </script>
 
 <div class="hero">
 	<div class="content">
-		<figure class="profile-image">
-			<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
-		</figure>
+		{#if state.led.active}
+			<figure class="profile-image" transition:fade class:center={state.led.center || true}>
+				<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
+			</figure>
+		{/if}
 
-		<div class="title" class:hidden={engine_only}>
-			<img src="sig.svg" class="signature" alt="Daniel Haus signature" />
-			<h1>D. Haus</h1>
-			<h2>
-				IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
-			</h2>
-		</div>
-	</div>
-
-	{#if !engine_only}
-		<ScrollDownArrow />
-	{/if}
-
-	<div class="ecity">
-		{#if run_engine}
-			<Engine />
+		{#if !engine_only}
+			<div class="title">
+				{#if state.sig.active}
+					<img src="sig.svg" class="signature" alt="Daniel Haus signature" transition:fade />
+					<h1 transition:fade>D. Haus</h1>
+				{/if}
+				{#if state.txt.active}
+					<h2 transition:fade>
+						IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
+					</h2>
+				{/if}
+			</div>
 		{/if}
 	</div>
+
+	{#if !engine_only && state.arr.active}
+		<span transition:fade>
+			<ScrollDownArrow />
+		</span>
+	{/if}
+
+	{#if run_engine && state.cty.active}
+		<div class="ecity" transition:fade>
+			<Engine />
+		</div>
+	{/if}
 </div>
 
 <style lang="postcss">

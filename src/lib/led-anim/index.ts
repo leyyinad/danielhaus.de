@@ -1,10 +1,12 @@
-import Footer from "$lib/components/Footer.svelte";
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import danielProfileImg from "$lib/images/daniel-profile-64px.png";
 import { plasma, image, zero, random, one } from "./generators";
 import { translate, time, dim, vignette, speed, scale } from "./modifiers";
 import { add, loop, mix, multiply, sequence, subtract, timeline } from "./operators";
 import { fade } from "./transitions";
 import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from "./types";
+import { profile } from "./utils";
 
 export * from "./generators";
 export * from "./modifiers";
