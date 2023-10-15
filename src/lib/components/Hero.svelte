@@ -28,6 +28,8 @@
 
 	timeline.addClip('led', 0.25, 60, { active: true });
 	timeline.addClip('led', 0, 2, { center: true });
+	timeline.addClip('led', 0, 10, { opacity: 0 }, { opacity: 1 });
+
 	timeline.addClip('sig', 5, 60, { active: true });
 	timeline.addClip('txt', 7, 60, { active: true });
 	timeline.addClip('cty', 10, 60, { active: true });
@@ -42,11 +44,11 @@
 
 	const tick = () => {
 		state = timeline.state((new Date().getTime() - t0) * 0.001);
-		console.log(state);
+		// console.log(state);
 	};
 	const init = () => {
 		t0 = new Date().getTime();
-		timer = window.setInterval(tick, 500);
+		timer = window.setInterval(tick, 10);
 	};
 
 	const cleanup = () => {
@@ -63,7 +65,11 @@
 <div class="hero">
 	<div class="content">
 		{#if state.led.active}
-			<figure class="profile-image" transition:fade class:center={state.led.center || true}>
+			<figure
+				class="profile-image"
+				class:center={state.led.center || true}
+				style={`opacity: ${state.led.opacity}`}
+			>
 				<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
 			</figure>
 		{/if}
@@ -84,13 +90,11 @@
 	</div>
 
 	{#if !engine_only && state.arr.active}
-		<span transition:fade>
-			<ScrollDownArrow />
-		</span>
+		<ScrollDownArrow />
 	{/if}
 
 	{#if run_engine && state.cty.active}
-		<div class="ecity" transition:fade>
+		<div class="ecity">
 			<Engine />
 		</div>
 	{/if}

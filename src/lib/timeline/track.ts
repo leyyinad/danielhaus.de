@@ -1,12 +1,17 @@
-import Clip from "./clip";
+import Clip, { type ClipState } from "./clip";
 
 export default class Track {
-  public clips: Clip[] = [];
+  public clips: Clip<ClipState>[] = [];
 
   constructor(public name: string) { }
 
-  public addClip(start: number, length: number, state: object = {}): Clip {
-    const clip = new Clip(start, length, state);
+  public addClip<T extends ClipState>(
+    start: number,
+    end: number,
+    stateBegin: T,
+    stateEnd?: T
+  ): Clip<T> {
+    const clip = new Clip(start, end, stateBegin, stateEnd);
     this.clips.push(clip);
     return clip;
   }
@@ -22,8 +27,14 @@ export default class Track {
     const state = {};
 
     for (const clip of this.clips) {
+      if (time >= clip.end) {
+        Object.assign(state, clip.state(clip.end));
+      }
+    }
+
+    for (const clip of this.clips) {
       if (time >= clip.start && time < clip.end) {
-        Object.assign(state, clip.state);
+        Object.assign(state, clip.state(time));
       }
     }
 

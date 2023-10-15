@@ -1,4 +1,5 @@
 import type Clip from "./clip";
+import type { ClipState } from "./clip";
 import Track from "./track";
 
 export default class Timeline {
@@ -24,8 +25,14 @@ export default class Timeline {
     return track;
   }
 
-  public addClip(track: string, start: number, length: number, state: object = {}): Clip {
-    return this.track(track)!.addClip(start, length, state);
+  public addClip<T extends ClipState>(
+    track: string,
+    start: number,
+    end: number,
+    stateBegin: T,
+    stateEnd?: T
+  ): Clip<T> {
+    return this.track(track)!.addClip(start, end, stateBegin, stateEnd);
   }
 
   public track(key: string): Track | undefined {
