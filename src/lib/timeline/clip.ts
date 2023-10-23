@@ -2,6 +2,14 @@ export type ClipState = {
   [key: string]: number | boolean;
 };
 
+export type ClipDesc<T extends ClipState> =
+  [
+    number, // start
+    number, // end
+    T, // statteBegin
+    T?, // stateEnd
+  ];
+
 export default class Clip<T extends ClipState> {
   public length: number;
 

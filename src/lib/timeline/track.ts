@@ -1,4 +1,4 @@
-import Clip, { type ClipState } from "./clip";
+import Clip, { type ClipDesc, type ClipState } from "./clip";
 
 export default class Track {
   public clips: Clip<ClipState>[] = [];
@@ -13,10 +13,16 @@ export default class Track {
   ): Clip<T> {
     const clip = new Clip(start, end, stateBegin, stateEnd);
     this.clips.push(clip);
+    this.sortClips();
     return clip;
   }
 
-  public sort() {
+  public addClips<T extends ClipState>(...descs: ClipDesc<T>[]): Clip<T>[] {
+    return descs.map(([start, end, stateBegin, stateEnd]) => this.addClip(
+      start, end, stateBegin, stateEnd));
+  }
+
+  public sortClips() {
     this.clips.sort((a, b) => {
       const d = b.end - a.end;
       return d == 0.0 ? b.start - a.start : d;

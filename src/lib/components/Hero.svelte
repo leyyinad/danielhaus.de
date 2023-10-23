@@ -10,13 +10,18 @@
 	const run_engine = true;
 	const engine_only = false;
 
-	const trackNames = ['led', 'sig', 'txt', 'cty', 'arr'];
+	const timeline = new Timeline({
+		led: [
+			[0, 0, { active: false }, { active: true }],
+			[0.25, 60, { active: true }],
+			[0, 10, { opacity: 0 }, { opacity: 1 }]
+		],
 
-	const timeline = new Timeline();
-
-	for (const name of trackNames) {
-		timeline.addTrack(name);
-	}
+		sig: [[5, 60, { active: true }]],
+		txt: [[7, 60, { active: true }]],
+		cty: [[10, 60, { active: true }]],
+		arr: [[15, 60, { active: true }]]
+	});
 
 	/*
 	 * 1. led anim, centered
@@ -25,17 +30,6 @@
 	 * 4. type text with cursor
 	 * 5. fade in city anim
 	 */
-
-	timeline.addClip('led', 0.25, 60, { active: true });
-	timeline.addClip('led', 0, 2, { center: true });
-	timeline.addClip('led', 0, 10, { opacity: 0 }, { opacity: 1 });
-
-	timeline.addClip('sig', 5, 60, { active: true });
-	timeline.addClip('txt', 7, 60, { active: true });
-	timeline.addClip('cty', 10, 60, { active: true });
-	timeline.addClip('arr', 15, 60, { active: true });
-
-	timeline.init();
 
 	let state: { [key: string]: { [key: string]: any } } = timeline.state(0);
 
@@ -65,11 +59,7 @@
 <div class="hero">
 	<div class="content">
 		{#if state.led.active}
-			<figure
-				class="profile-image"
-				class:center={state.led.center || true}
-				style={`opacity: ${state.led.opacity}`}
-			>
+			<figure class="profile-image" style={`opacity: ${state.led.opacity}`}>
 				<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
 			</figure>
 		{/if}
