@@ -19,6 +19,7 @@
 	let count = width * height;
 	let resX = width * pw + (width - 1) * gap;
 	let resY = height * ph + (height - 1) * gap;
+	let offset = 0;
 
 	let running = false;
 
@@ -42,7 +43,7 @@
 		const config: LedAnimComponentConfig = {
 			width,
 			height,
-			time,
+			time: time - offset,
 			t: time * 0.001,
 			i: 0,
 			start: 0

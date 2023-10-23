@@ -37,7 +37,7 @@ export default class City {
         CameraScript,
       ],
       scene,
-      position: [-0.5 * (1.0 + margin) * w + 0.25, -1.8, -20.0],
+      position: [-0.5 * (1.0 + margin) * w + 0.25, -3, -20.0],
       rotation: [0.0, 0.0, 0.0],
     });
 

@@ -3,6 +3,7 @@
 	import anim from '$lib/led-anim';
 	import Timeline from '$lib/timeline';
 	import { onDestroy, onMount } from 'svelte';
+	import { sineInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 	import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
@@ -14,13 +15,14 @@
 		led: [
 			[0, 0, { active: false }, { active: true }],
 			[0.25, 60, { active: true }],
-			[0, 10, { opacity: 0 }, { opacity: 1 }]
+			[0, 7, { centered: true }, { centered: false }],
+			[7, 9, { opacity: 1.0 }, { opacity: 0.8 }]
 		],
 
-		sig: [[5, 60, { active: true }]],
-		txt: [[7, 60, { active: true }]],
-		cty: [[10, 60, { active: true }]],
-		arr: [[15, 60, { active: true }]]
+		sig: [[9, 60, { active: true }]],
+		txt: [[12, 60, { active: true }]],
+		cty: [[15, 60, { active: true }]],
+		arr: [[20, 60, { active: true }]]
 	});
 
 	/*
@@ -40,6 +42,7 @@
 		state = timeline.state((new Date().getTime() - t0) * 0.001);
 		// console.log(state);
 	};
+
 	const init = () => {
 		t0 = new Date().getTime();
 		timer = window.setInterval(tick, 10);
@@ -58,8 +61,12 @@
 
 <div class="hero">
 	<div class="content">
-		{#if state.led.active}
-			<figure class="profile-image" style={`opacity: ${state.led.opacity}`}>
+		{#if state.led.active || true}
+			<figure
+				class="profile-image"
+				class:centered={state.led.centered}
+				style={`opacity: ${state.led.opacity}`}
+			>
 				<Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
 			</figure>
 		{/if}
@@ -84,7 +91,7 @@
 	{/if}
 
 	{#if run_engine && state.cty.active}
-		<div class="ecity">
+		<div class="ecity" transition:fade={{ duration: 1000, easing: sineInOut }}>
 			<Engine />
 		</div>
 	{/if}
@@ -107,9 +114,9 @@
 			w-6/12
 			md:absolute
 			md:top-[50vh]
-			md:left-[33%]
+			/* md:left-[33%] */
+			md:left-1/4
 			md:-mt-[15vh]
-			md:w-6/12
 			md:pt-0
 			md:flex
 		  /**/;
@@ -129,11 +136,31 @@
   		h-64
 			mb-8
 			w-full
-			md:relative
+			left-1/3
+			relative
 			md:mb-0
-			md:-left-14
-			lg:max-w-[14rem]
+			md:left-0
+			md:scale-75
+			md:-translate-x-5
+			md:-translate-y-5
+			max-w-[33%]
 		  /**/;
+
+		transition-property: left, transform;
+		transition-duration: 1s;
+		transition-timing-function: ease-in-out;
+	}
+
+	.profile-image.centered {
+		@apply /**/
+			relative
+			left-1/3
+			translate-x-0
+			translate-y-1/4
+			md:translate-y-0
+			md:scale-100
+			md:left-1/3
+			/**/;
 	}
 
 	.title {
@@ -165,7 +192,7 @@
 			tracking-tight
 			text-bluebirth-50
 			sm:text-4xl
-			md:mt-8
+			md:mt-0
 			/**/;
 	}
 

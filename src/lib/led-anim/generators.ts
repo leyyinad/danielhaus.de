@@ -6,7 +6,34 @@ export const zero: LedAnimGeneratorComponent = () => OFF;
 export const one: LedAnimGeneratorComponent = () => ON;
 export const random: LedAnimGeneratorComponent = () => Math.random();
 
+export const rect = (
+  x0: number,
+  y0: number,
+  w: number,
+  h: number
+): LedAnimGeneratorComponent => (
+  x: number,
+  y: number,
+  { width, height }: LedAnimComponentConfig
+) => {
+    const x_rel = x / width;
+    const y_rel = y / height;
+
+    return (
+      x_rel >= x0 &&
+      x_rel < x0 + w &&
+      y_rel >= y0 &&
+      y_rel < y0 + h
+    ) ? ON : OFF;
+  };
+
 export const blink: LedAnimGeneratorComponent = (
+  x: number,
+  y: number,
+  { t }: LedAnimComponentConfig
+) => Math.floor(t % 2.0) === 0 ? ON : OFF;
+
+export const blinkEveryOther: LedAnimGeneratorComponent = (
   x: number,
   y: number,
   { t }: LedAnimComponentConfig
@@ -20,6 +47,9 @@ export const blink: LedAnimGeneratorComponent = (
 export const ledTest = (x: number, y: number, { t, width }: LedAnimComponentConfig) =>
   Math.floor(t % width) === x ||
     Math.floor(t % width) === y ? ON : OFF;
+
+export const lonelyRunner = (x: number, y: number, { t, i, width, height }: LedAnimComponentConfig) =>
+  i == (Math.floor(t) % (width * height)) ? ON : OFF;
 
 const loadImage = (src: string) => new Promise<HTMLImageElement>((resolve, reject) => {
   if (typeof Image !== 'undefined') {

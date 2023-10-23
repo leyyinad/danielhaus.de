@@ -49,9 +49,14 @@ export default class Clip<T extends ClipState> {
       const v0 = a[key];
       const v1 = b[key];
 
-      const value = +v0 * (t - 1) + +v1 * t;
+      if (v0 == v1) {
+        c[key] = v0;
+        break;
+      }
 
-      if (v0 instanceof Boolean) {
+      const value = +v0 * (1 - t) + +v1 * t;
+
+      if (v0 === true || v0 === false) {
         c[key] = value != 0 ? true : false;
       } else {
         c[key] = value;

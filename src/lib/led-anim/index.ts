@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import danielProfileImg from "$lib/images/daniel-profile-64px.png";
-import { plasma, image, zero, random, one } from "./generators";
-import { translate, time, dim, vignette, speed, scale } from "./modifiers";
+import { plasma, image, zero, random, one, rect, blink, lonelyRunner } from "./generators";
+import { translate, time, dim, vignette, speed, scale, fadeIn, fadeOut } from "./modifiers";
 import { add, loop, mix, multiply, sequence, subtract, timeline } from "./operators";
 import { fade } from "./transitions";
 import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from "./types";
@@ -55,25 +55,59 @@ const logo = scale(
 
 // export default vignette(logo);
 
-export default
-  sequence(
-    [vignette(
-      sequence(
-        [fade(zero, plasma), 1.],
-        [plasma, 2.],
-        [fade(plasma, multiply(plasma, photo)), 1.],
-        [multiply(plasma, photo), 2.],
-        [fade(multiply(fade(plasma, one), photo), photo), 1.],
-        // [fade(multiply(plasma, photo), logo), 5.],
-        // [speed(fade(zero, plasma), 1. / 4.), 1.],
-        // [plasma, 1.],
-        // [speed(fade(plasma, logo), 1. / 4.), 1.],
-        // [speed(fade(logo, plasma), 1. / 4.), 1.],
-        // [speed(fade(plasma, photo), 1. / 4.), 1.],
-      )), 7.],
-    [fade(vignette(photo), photo), 1],
-    [photo, Infinity] // TODO:; glitter
-  );
+export default sequence(
+  [zero, 1.],
+  [fadeIn(vignette(plasma), 2), 3.],
+  [fade(vignette(plasma), multiply(plasma, photo)), 2.],
+  [fade(multiply(plasma, photo), photo), 5.],
+  [loop(
+    sequence(
+      [photo, 20],
+      [fade(photo, multiply(plasma, photo)), 2.],
+      [fade(multiply(plasma, photo), multiply(plasma, logo)), 2.],
+      [fade(multiply(plasma, logo), logo), 1.],
+      [logo, 0.5],
+      [fade(logo, multiply(plasma, logo)), 1.],
+      [fade(multiply(plasma, logo), multiply(plasma, photo)), 2.],
+      [fade(multiply(plasma, photo), photo), 5.],
+      [photo, 60],
+    ), 60
+  )]
+);
+
+// export default speed(lonelyRunner, 1024);
+
+// export default
+//   sequence(
+//     [zero, 1],
+//     [one, 0.1],
+//     [zero, 2],
+//     [
+//       multiply(
+//         rect(0, 0, 0.1, 0.15),
+//         speed(blink, 1.5)
+//       ), 20]
+//   );
+
+// export default
+//   sequence(
+//     [vignette(
+//       sequence(
+//         [fade(zero, plasma), 1.],
+//         [plasma, 2.],
+//         [fade(plasma, multiply(plasma, photo)), 1.],
+//         [multiply(plasma, photo), 2.],
+//         [fade(multiply(fade(plasma, one), photo), photo), 1.],
+//         // [fade(multiply(plasma, photo), logo), 5.],
+//         // [speed(fade(zero, plasma), 1. / 4.), 1.],
+//         // [plasma, 1.],
+//         // [speed(fade(plasma, logo), 1. / 4.), 1.],
+//         // [speed(fade(logo, plasma), 1. / 4.), 1.],
+//         // [speed(fade(plasma, photo), 1. / 4.), 1.],
+//       )), 7.],
+//     [fade(vignette(photo), photo), 1],
+//     [photo, Infinity] // TODO:; glitter
+//   );
 
 // export default loop(
 //   timeline(

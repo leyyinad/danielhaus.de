@@ -34,7 +34,7 @@ export const mix = (
     / components.length;
 
 export const sequence = (
-  ...sequence: [LedAnimGeneratorComponent, number][]
+  ...sequence: [LedAnimGeneratorComponent, number?][]
 ) => (
   x: number,
   y: number,
@@ -43,6 +43,10 @@ export const sequence = (
     let { t, start } = config;
 
     const item = sequence.find(([_c, duration]) => {
+      if (duration == null) {
+        duration = Infinity;
+      }
+
       if (t < duration) {
         return true;
       }
