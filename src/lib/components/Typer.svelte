@@ -47,7 +47,7 @@
 		} else {
 			setTimeout(() => {
 				showCursor = false;
-			}, delay * 20);
+			}, delay * 24);
 			cleanup();
 		}
 	};
@@ -74,7 +74,7 @@
 	}
 
 	i {
-		animation: 1s step-end 0s infinite blink;
+		animation: 1s step-start 0s infinite blink;
 		border-left: 3px solid white;
 		display: inline;
 		height: 1em;
@@ -93,7 +93,7 @@
 
 	@keyframes blink {
 		0% {
-			opacity: 0;
+			opacity: 0.5;
 		}
 
 		50% {
@@ -101,7 +101,7 @@
 		}
 
 		100% {
-			opacity: 0.5;
+			opacity: 0;
 		}
 	}
 </style>
