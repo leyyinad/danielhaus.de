@@ -22,6 +22,10 @@ export default class Track {
       start, end, stateBegin, stateEnd));
   }
 
+  public removeClips() {
+    this.clips = [];
+  }
+
   public sortClips() {
     this.clips.sort((a, b) => {
       const d = b.end - a.end;

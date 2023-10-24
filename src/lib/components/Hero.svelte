@@ -1,28 +1,41 @@
 <script lang="ts">
-	import Engine from '$lib/components/Engine.svelte';
 	import anim from '$lib/led-anim';
 	import Timeline from '$lib/timeline';
 	import { onDestroy, onMount } from 'svelte';
-	import { sineInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
+	import Engine from './Engine.svelte';
 	import Leds from './Leds.svelte';
 	import ScrollDownArrow from './ScrollDownArrow.svelte';
+	import Signature from './Signature.svelte';
+	import Typer from './Typer.svelte';
 
 	const run_engine = true;
 	const engine_only = false;
 
 	const timeline = new Timeline({
 		led: [
-			[0, 0, { active: false }, { active: true }],
+			[0, 1, { active: false }, { active: true }],
 			[0.25, 60, { active: true }],
 			[0, 7, { centered: true }, { centered: false }],
 			[7, 9, { opacity: 1.0 }, { opacity: 0.8 }]
+			// [0, 60, { active: true }],
+			// [0, 60, { active: true }],
+			// [0, 60, { centered: false }],
+			// [0, 60, { opacity: 0.8 }]
 		],
 
 		sig: [[9, 60, { active: true }]],
+		nam: [[12, 60, { active: true }]],
 		txt: [[12, 60, { active: true }]],
-		cty: [[15, 60, { active: true }]],
+		cty: [[12, 60, { active: true }]],
+		// cty: [[0, 60, { active: true }]],
 		arr: [[20, 60, { active: true }]]
+
+		// sig: [[0, 60, { active: true }]],
+		// nam: [[3, 60, { active: true }]],
+		// txt: [[0, 60, { active: true }]],
+		// cty: [[0, 60, { active: true }]],
+		// arr: [[0, 60, { active: true }]]
 	});
 
 	/*
@@ -40,7 +53,6 @@
 
 	const tick = () => {
 		state = timeline.state((new Date().getTime() - t0) * 0.001);
-		// console.log(state);
 	};
 
 	const init = () => {
@@ -61,7 +73,7 @@
 
 <div class="hero">
 	<div class="content">
-		{#if state.led.active || true}
+		{#if state.led.active}
 			<figure
 				class="profile-image"
 				class:centered={state.led.centered}
@@ -74,12 +86,20 @@
 		{#if !engine_only}
 			<div class="title">
 				{#if state.sig.active}
-					<img src="sig.svg" class="signature" alt="Daniel Haus signature" transition:fade />
-					<h1 transition:fade>D. Haus</h1>
+					<Signature />
 				{/if}
+
+				{#if state.nam.active}
+					<h1 transition:fade>D. Haus</h1>
+				{:else}
+					<h1 style="opacity: 0">D. Haus</h1>
+				{/if}
+
 				{#if state.txt.active}
-					<h2 transition:fade>
-						IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
+					<h2>
+						<Typer>
+							IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
+						</Typer>
 					</h2>
 				{/if}
 			</div>
@@ -91,7 +111,7 @@
 	{/if}
 
 	{#if run_engine && state.cty.active}
-		<div class="ecity" transition:fade={{ duration: 1000, easing: sineInOut }}>
+		<div class="ecity" transition:fade={{ duration: 2000 }}>
 			<Engine />
 		</div>
 	{/if}
@@ -119,15 +139,6 @@
 			md:-mt-[15vh]
 			md:pt-0
 			md:flex
-		  /**/;
-	}
-
-	.signature {
-		@apply /**/
-  		opacity-50
-		  relative
-		  mb-4
-		  md:-left-4
 		  /**/;
 	}
 
@@ -165,8 +176,11 @@
 
 	.title {
 		@apply /**/
+			ml-0
 			md:w-8/12
-			md:mx-0
+			md:ml-12
+
+			xl:ml-0
 			xl:w-6/12
 			/**/;
 	}
