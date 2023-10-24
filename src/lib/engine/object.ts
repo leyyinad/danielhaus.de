@@ -60,4 +60,13 @@ export default class BaseObject {
   getComponents<T extends Component>(type: ComponentConstructor<T>): T[] {
     return this.components.filter(c => c instanceof type) as T[];
   }
+
+  getComponentsInChildren<T extends Component>(type: ComponentConstructor<T>): T[] {
+    return this.getComponents(type)
+      .concat(
+        this.children.map(child => child
+          .getComponentsInChildren(type))
+          .reduce((acc, val) => [...acc, ...val], [])
+      );
+  }
 }

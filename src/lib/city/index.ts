@@ -1,19 +1,21 @@
 import { Camera, Engine, Environment, Scene, createObject } from '$lib/engine';
 import MeshFilter from '$lib/engine/components/mesh/mesh-filter';
 import MeshRenderer from '$lib/engine/components/renderer/mesh-renderer';
-import WebGLRenderer from '$lib/engine/drivers/webgl/webgl-renderer';
+import WebGLRenderDriver from '$lib/engine/drivers/webgl/webgl-render-driver';
 import { vec4 } from 'gl-matrix';
 import cityGrid from './city-grid';
 import wireframeMaterial from './materials/wireframe/material';
 import Cube from './models/cube';
 import CameraScript from './scripts/camera-script';
 import CubeScript from './scripts/cube-script';
+import CubeRootScript from './scripts/cube-root-script';
+import Renderer from '$lib/engine/components/renderer/renderer';
 
 export default class City {
   engine: Engine;
 
   constructor(public canvas: HTMLCanvasElement) {
-    const renderer = new WebGLRenderer(canvas);
+    const renderer = new WebGLRenderDriver(canvas);
     const scene = this.createScene();
 
     this.engine = new Engine(renderer);
@@ -41,13 +43,19 @@ export default class City {
       rotation: [0.0, 0.0, 0.0],
     });
 
+    const cubeRoot = createObject({
+      name: "CubeRoot",
+      components: [CubeRootScript],
+      scene,
+    });
+
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
         const c = cityGrid[y][x];
 
         if (c === 0.0) continue;
 
-        createObject({
+        const cube = createObject({
           components: [
             [MeshFilter, { mesh: new Cube() }],
             [MeshRenderer, { materials: [wireframeMaterial] }],
@@ -56,7 +64,10 @@ export default class City {
           scene,
           position: [x * (1.0 + margin), 0.0, y],
           scale: [1.0, c * 0.5, 1.0],
+          parent: cubeRoot,
         });
+
+        cube.getComponent(Renderer)!.enabled = false;
       }
     }
 

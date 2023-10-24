@@ -1,4 +1,4 @@
-import RendererComponent from "./renderer";
+import Renderer from "./renderer";
 
-export default class MeshRenderer extends RendererComponent {
+export default class MeshRenderer extends Renderer {
 }

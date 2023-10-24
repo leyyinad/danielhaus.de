@@ -4,19 +4,19 @@ import Camera from "../../components/camera/camera";
 import MeshFilter from "../../components/mesh/mesh-filter";
 import Environment from "../../components/renderer/environment";
 import MeshRenderer from "../../components/renderer/mesh-renderer";
-import RendererComponent from "../../components/renderer/renderer";
+import Renderer from "../../components/renderer/renderer";
 import type Engine from "../../engine";
 import MatrixStack from "../../geom/matrix-stack";
 import type Mesh from "../../geom/mesh";
 import { BufferType } from "../../geom/mesh";
 import BaseObject from "../../object";
 import type Shader from "../../renderer/shader";
-import type Renderer from "../renderer";
+import type RenderDriver from "../render-driver";
 import BufferMap from "./buffer-map";
 import ShaderCompiler from "./shader-compiler";
 import ShaderInfo from "./shader-info";
 
-export default class WebGLRenderer implements Renderer {
+export default class WebGLRenderDriver implements RenderDriver {
   engine!: Engine;
   context: WebGL2RenderingContext;
   shaders: Map<Shader, ShaderInfo> = new Map();
@@ -39,7 +39,7 @@ export default class WebGLRenderer implements Renderer {
     const compiler = new ShaderCompiler(this);
 
     BaseObject.objects.forEach(o =>
-      o.getComponent(RendererComponent)?.materials
+      o.getComponent(Renderer)?.materials
         .forEach(({ shader }) =>
           this.compileShader(shader, compiler))
     );
@@ -146,6 +146,10 @@ export default class WebGLRenderer implements Renderer {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   }
 
+  run(callback: FrameRequestCallback) {
+    window.requestAnimationFrame(callback);
+  }
+
   loop(callback: FrameRequestCallback) {
     if (this.engine.throttle === 0) {
       window.requestAnimationFrame(callback);
@@ -189,9 +193,14 @@ export default class WebGLRenderer implements Renderer {
   }
 
   renderObject(o: BaseObject) {
+    const renderer = o.getComponent(MeshRenderer);
+    if (!renderer?.enabled) {
+      return;
+    }
+
     // TODO: support submeshes
     const mesh = o.getComponent(MeshFilter)?.mesh;
-    const material = o.getComponent(MeshRenderer)?.material;
+    const material = renderer.material;
 
     if (mesh?.triangles != null && material != null) {
       const info = this.shaders.get(material?.shader);

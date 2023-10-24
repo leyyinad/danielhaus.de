@@ -1,10 +1,10 @@
 import type Shader from "../../renderer/shader";
 import { ShaderType } from "../../renderer/shader";
-import type WebGLRenderer from "./webgl-renderer";
+import type WebGLRenderDriver from "./webgl-render-driver";
 
 export default class ShaderCompiler {
 
-  constructor(public driver: WebGLRenderer) { }
+  constructor(public driver: WebGLRenderDriver) { }
 
   compile(shader: Shader) {
     return this.link(

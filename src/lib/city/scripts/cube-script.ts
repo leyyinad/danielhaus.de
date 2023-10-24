@@ -2,6 +2,8 @@ import ScriptBehaviour from "$lib/engine/components/script-behaviour";
 import Time from "$lib/engine/time";
 
 export default class CubeScript extends ScriptBehaviour {
+  enabled = false;
+
   public update(): void {
     const { transform } = this;
 

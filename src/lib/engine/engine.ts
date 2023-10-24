@@ -1,7 +1,7 @@
 import { mat4 } from 'gl-matrix';
 import Camera from './components/camera/camera';
 import ScriptBehaviour from './components/script-behaviour';
-import type Renderer from './drivers/renderer';
+import type RenderDriver from './drivers/render-driver';
 import BaseObject from './object';
 import type Scene from './scene/scene';
 import Time from './time';
@@ -11,28 +11,28 @@ export default class Engine {
   modelView: mat4;
   throttle: number = 0;
 
-  constructor(public renderer: Renderer) {
-    renderer.engine = this;
+  constructor(public renderDriver: RenderDriver) {
+    renderDriver.engine = this;
     this.modelView = mat4.create();
   }
 
   init() {
-    this.renderer.init();
+    this.renderDriver.init();
   }
 
   viewport(x: number, y: number, width: number, height: number) {
     Camera.main!.aspect = width / Math.max(height, 1);
-    this.renderer.viewport(x, y, width, height);
+    this.renderDriver.viewport(x, y, width, height);
   }
 
   loop(time: DOMHighResTimeStamp) {
     this.update(time);
     this.render();
-    this.renderer.loop((time: DOMHighResTimeStamp) => this.loop(time));
+    this.renderDriver.loop((time: DOMHighResTimeStamp) => this.loop(time));
   }
 
   resize() {
-    this.renderer.resize();
+    this.renderDriver.resize();
   }
 
   update(time: number) {
@@ -43,6 +43,14 @@ export default class Engine {
     for (const o of BaseObject.objects) {
       for (const c of o.getComponents(ScriptBehaviour)) {
         if (c.enabled) {
+          if (!c._started) {
+            c.start();
+            c._started = true;
+
+            if (!c.enabled)
+              continue;
+          }
+
           c.update();
         }
       }
@@ -50,7 +58,7 @@ export default class Engine {
   }
 
   render() {
-    this.renderer.clear();
-    this.renderer.render();
+    this.renderDriver.clear();
+    this.renderDriver.render();
   }
 }

@@ -1,5 +1,5 @@
 import type { UniformType } from "../../../city/materials/wireframe/material";
-import type { BufferType } from "./webgl-renderer";
+import type { BufferType } from "./webgl-render-driver";
 
 export default class ShaderInfo {
   program?: WebGLProgram;
