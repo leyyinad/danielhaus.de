@@ -31,7 +31,6 @@
 			bg-fixed
       /**/;
 
-		/* background: #ccc; */
 		background-image: url($lib/images/holz.jpg);
 	}
 
