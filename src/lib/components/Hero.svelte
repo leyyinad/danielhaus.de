@@ -18,33 +18,14 @@
 			[0.25, 60, { active: true }],
 			[0, 7, { centered: true }, { centered: false }],
 			[7, 9, { opacity: 1.0 }, { opacity: 0.8 }]
-			// [0, 60, { active: true }],
-			// [0, 60, { active: true }],
-			// [0, 60, { centered: false }],
-			// [0, 60, { opacity: 0.8 }]
 		],
 
 		sig: [[9, 60, { active: true }]],
 		nam: [[12, 60, { active: true }]],
 		txt: [[12, 60, { active: true }]],
 		cty: [[12, 60, { active: true }]],
-		// cty: [[0, 60, { active: true }]],
 		arr: [[20, 60, { active: true }]]
-
-		// sig: [[0, 60, { active: true }]],
-		// nam: [[3, 60, { active: true }]],
-		// txt: [[0, 60, { active: true }]],
-		// cty: [[0, 60, { active: true }]],
-		// arr: [[0, 60, { active: true }]]
 	});
-
-	/*
-	 * 1. led anim, centered
-	 * 2. move leds to target position
-	 * 3. swipe signature
-	 * 4. type text with cursor
-	 * 5. fade in city anim
-	 */
 
 	let state: { [key: string]: { [key: string]: any } } = timeline.state(0);
 
@@ -122,6 +103,7 @@
 		@apply /**/
 			relative
 			h-screen
+			min-h-[56.25vw]
 			/**/;
 	}
 
@@ -134,7 +116,6 @@
 			w-6/12
 			md:absolute
 			md:top-[50vh]
-			/* md:left-[33%] */
 			md:left-1/4
 			md:-mt-[15vh]
 			md:pt-0
@@ -179,7 +160,6 @@
 			ml-0
 			md:w-8/12
 			md:ml-12
-
 			xl:ml-0
 			xl:w-6/12
 			/**/;
