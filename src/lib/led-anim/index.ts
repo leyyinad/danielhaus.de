@@ -59,14 +59,14 @@ export default sequence(
     sequence(
       [photo, 5.],
       [fade(photo, multiply(plasma, photo)), 2.],
-      [fade(multiply(plasma, photo), multiply(plasma, scaledLogo)), 1.],
-      [fade(multiply(plasma, scaledLogo), scaledLogo), 1.],
-      [fade(scaledLogo, multiply(plasma, scaledLogo)), 1.],
-      [fade(multiply(plasma, scaledLogo), multiply(plasma, photo)), 1.],
-      [fade(multiply(plasma, photo), photo), 1.],
+      [fade(multiply(plasma, photo), multiply(plasma, scaledLogo)), 2.],
+      [fade(multiply(plasma, scaledLogo), scaledLogo), 2.],
+      [fade(scaledLogo, multiply(plasma, scaledLogo)), 2.],
+      [fade(multiply(plasma, scaledLogo), multiply(plasma, photo)), 2.],
+      [fade(multiply(plasma, photo), photo), 2.],
       [photo, 15],
-      [add(photo, speed(ledTest, 80)), 0.8],
-      [subtract(photo, speed(ledTest, 80)), 0.8],
+      [add(photo, speed(ledTest, 50)), .5],
+      [subtract(photo, speed(ledTest, 50)), .5],
       [photo, 60],
     ), 60
   )]
