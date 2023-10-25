@@ -23,6 +23,8 @@
 
 	let running = false;
 
+	const delay = 10;
+
 	const init = (canvas: HTMLCanvasElement) => {
 		context = canvas.getContext('2d')!;
 
@@ -74,7 +76,9 @@
 			context.fill();
 		});
 
-		requestAnimationFrame(loop);
+		setTimeout(() => {
+			requestAnimationFrame(loop);
+		}, delay);
 	};
 
 	if (browser) {
