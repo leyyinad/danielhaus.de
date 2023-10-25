@@ -66,7 +66,7 @@ export default sequence(
       [fade(multiply(plasma, photo), photo), 2.],
       [photo, 15],
       [add(photo, speed(ledTest, 40)), 1.6],
-      [subtract(photo, speed(ledTest, 40)), 1.6],
+      [subtract(photo, speed(ledTest, 80)), 0.8],
       [photo, 60],
     ), 60
   )]
