@@ -65,8 +65,8 @@ export default sequence(
       [fade(multiply(plasma, scaledLogo), multiply(plasma, photo)), 2.],
       [fade(multiply(plasma, photo), photo), 2.],
       [photo, 15],
-      [add(photo, speed(ledTest, 50)), .5],
-      [subtract(photo, speed(ledTest, 50)), .5],
+      [add(photo, speed(ledTest, 40)), 1.6],
+      [subtract(photo, speed(ledTest, 40)), 1.6],
       [photo, 60],
     ), 60
   )]
