@@ -1,6 +1,6 @@
 <section>
 	<article>
-		<h4>Zur Person</h4>
+		<h4>Person</h4>
 
 		<div class="columns-2">
 			<div class="column">
