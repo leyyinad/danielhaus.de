@@ -26,48 +26,37 @@
 
 <style lang="postcss">
 	section {
-		@apply /**/
-			/**/
- 			bg-white
-			dark:bg-black;
+		@apply bg-black;
 	}
 
 	article {
-		@apply /**/
-			/**/
-			container
+		@apply container
 			prose
+			prose-invert
 			mx-auto
 			max-w-screen-lg
 			hyphens-auto
 			px-6
 			py-2
 			text-base
-			dark:prose-invert
 			sm:text-xl
 			lg:max-w-5xl;
 	}
 
 	h4 {
-		@apply /**/
-			/**/
-			mb-0
+		@apply mb-0
 			mt-5
 			text-3xl;
 	}
 
 	.columns-2 {
-		@apply /**/
-			/**/
-			grid
+		@apply grid
 			gap-4
 			md:grid-cols-2;
 	}
 
 	.column:not(:first-child) {
-		@apply /**/
-			/**/
-			-mt-8
+		@apply -mt-8
 			md:mt-0;
 	}
 </style>

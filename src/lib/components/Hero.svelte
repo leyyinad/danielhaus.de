@@ -150,7 +150,7 @@
 	.title {
 		@apply ml-0
 			md:ml-12
-			md:w-8/12
+			md:w-10/12
 			xl:ml-0
 			xl:w-6/12;
 	}
@@ -173,7 +173,9 @@
 			tracking-tight
 			text-bluebirth-50
 			sm:text-4xl
-			md:mt-0;
+			md:mt-0
+			md:text-3xl
+			lg:text-4xl;
 	}
 
 	.ecity {
