@@ -26,7 +26,8 @@
 
 <style lang="postcss">
 	section {
-		@apply bg-black;
+		@apply bg-black
+			py-8;
 	}
 
 	article {

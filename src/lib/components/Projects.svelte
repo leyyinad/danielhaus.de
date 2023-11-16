@@ -20,44 +20,37 @@
 
 <style lang="postcss">
 	section {
-		@apply /**/
-      /**/
-      bg-bluebirth-950
+		@apply bg-bluebirth-950
       bg-gradient-to-br
       from-bluebirth-950
       to-black
       bg-cover
 			bg-fixed
-			py-6
+			py-8
       text-bluebirth-50;
 
 		background-image: url($lib/images/holz.jpg);
 	}
 
 	article {
-		@apply /**/
-      /**/
-		 	container
+		@apply container
 			mx-auto
       max-w-screen-lg
-      text-center;
+      py-6
+			text-center;
 
 		text-shadow: 1px 1px 3px black;
 	}
 
 	h4 {
-		@apply /**/
-      /**/
-      mb-3
+		@apply mb-3
       text-3xl
       font-semibold
 		  opacity-80;
 	}
 
 	h5 {
-		@apply /**/
-      /**/
-			mb-8
+		@apply mb-8
 			mt-3
       text-sm
       font-semibold
@@ -65,9 +58,7 @@
 	}
 
 	.projects {
-		@apply /**/
-      /**/
-      flex
+		@apply flex
       flex-row
       flex-wrap
       px-6
@@ -76,9 +67,7 @@
 	}
 
 	.projects li {
-		@apply /**/
-      /**/
-      basis-1/2
+		@apply basis-1/2
       pb-4
       pr-2
       sm:basis-1/2
@@ -87,16 +76,12 @@
 	}
 
 	.projects .title {
-		@apply /**/
-      /**/
-      block
+		@apply block
       font-semibold;
 	}
 
 	.projects .client {
-		@apply /**/
-      /**/
-      block
+		@apply block
       opacity-50;
 	}
 </style>
