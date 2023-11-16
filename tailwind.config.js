@@ -64,7 +64,14 @@ export default {
 			white: '#ffffff',
 			black: '#000000'
 		},
-		extend: {}
+		extend: {
+			transitionDuration: {
+				3000: '3000ms'
+			},
+			transitionDelay: {
+				5000: '5000ms'
+			}
+		}
 	},
 	plugins: [require('@tailwindcss/typography')]
 };
