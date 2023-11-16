@@ -22,6 +22,12 @@
 			"options": {
 				"parser": "glsl-parser"
 			}
+		},
+		{
+			"files": "*.json",
+			"options": {
+				"tabWidth": 2
+			}
 		}
 	]
 }
