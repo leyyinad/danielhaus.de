@@ -3,11 +3,11 @@
 	import Timeline from '$lib/timeline';
 	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import Engine from './Engine.svelte';
-	import Leds from './Leds.svelte';
-	import ScrollDownArrow from './ScrollDownArrow.svelte';
 	import Signature from './Signature.svelte';
-	import Typer from './Typer.svelte';
+	import Engine from './widgets/Engine.svelte';
+	import Leds from './widgets/Leds.svelte';
+	import ScrollDownArrow from './widgets/ScrollDownArrow.svelte';
+	import Typer from './widgets/Typer.svelte';
 
 	const run_engine = true;
 	const engine_only = false;
