@@ -27,47 +27,47 @@
 <style lang="postcss">
 	section {
 		@apply /**/
-			bg-white
- 			dark:bg-black
-			/**/;
+			/**/
+ 			bg-white
+			dark:bg-black;
 	}
 
 	article {
 		@apply /**/
+			/**/
 			container
 			prose
-			dark:prose-invert
 			mx-auto
 			max-w-screen-lg
-			py-2
-			px-6
-			text-base
 			hyphens-auto
+			px-6
+			py-2
+			text-base
+			dark:prose-invert
 			sm:text-xl
-			lg:max-w-5xl
-			/**/;
+			lg:max-w-5xl;
 	}
 
 	h4 {
 		@apply /**/
-			text-3xl
-			mt-5
+			/**/
 			mb-0
-			/**/;
+			mt-5
+			text-3xl;
 	}
 
 	.columns-2 {
 		@apply /**/
+			/**/
 			grid
 			gap-4
-			md:grid-cols-2
-			/**/;
+			md:grid-cols-2;
 	}
 
 	.column:not(:first-child) {
 		@apply /**/
+			/**/
 			-mt-8
-			md:mt-0
-			/**/;
+			md:mt-0;
 	}
 </style>

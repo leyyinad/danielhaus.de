@@ -1,31 +1,26 @@
 export type LedAnimComponentConfig = {
-  width: number;
-  height: number;
-  time: number;
-  t: number;
-  i: number;
-  start: number;
+	width: number;
+	height: number;
+	time: number;
+	t: number;
+	i: number;
+	start: number;
 };
 
 export type LedAnimGeneratorComponent = (
-  x: number,
-  y: number,
-  config: LedAnimComponentConfig,
+	x: number,
+	y: number,
+	config: LedAnimComponentConfig
 ) => number;
 
 export type LedAnimModifierComponent = (
-  component: LedAnimGeneratorComponent,
+	component: LedAnimGeneratorComponent
 ) => LedAnimGeneratorComponent;
 
 export type LedAnimComponentComposer = (
-  ...composers: LedAnimGeneratorComponent[]
+	...composers: LedAnimGeneratorComponent[]
 ) => LedAnimGeneratorComponent;
 
-export type LedAnimAnimataableValueFunction = (
-  t: number,
-  config: LedAnimComponentConfig
-) => number;
+export type LedAnimAnimataableValueFunction = (t: number, config: LedAnimComponentConfig) => number;
 
-export type LedAnimAnimatableValue =
-  | LedAnimAnimataableValueFunction
-  | number;
+export type LedAnimAnimatableValue = LedAnimAnimataableValueFunction | number;

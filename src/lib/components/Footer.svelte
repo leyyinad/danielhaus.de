@@ -17,26 +17,26 @@
 <style lang="postcss">
 	footer {
 		@apply /**/
-      bg-black
-      text-bluebirth-200
+      /**/
       h-96
-      /**/;
+      bg-black
+      text-bluebirth-200;
 	}
 
 	footer > div {
 		@apply /**/
+      /**/
       container
       mx-auto
-      max-w-screen-lg
+			max-w-screen-lg
 			px-6
-			py-12
-      /**/;
+      py-12;
 	}
 
 	.imprint {
 		@apply /**/
+			/**/
 			prose
-			dark:prose-invert
-      /**/;
+      dark:prose-invert;
 	}
 </style>

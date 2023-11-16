@@ -11,7 +11,7 @@ uniform mat4 u_model_view_matrix;
 uniform mat4 u_projection_matrix;
 
 void main() {
-  vertex_position = a_vertex_position;
-  barycentric = a_normal;
-  gl_Position = u_projection_matrix * u_model_view_matrix * a_vertex_position;
+	vertex_position = a_vertex_position;
+	barycentric = a_normal;
+	gl_Position = u_projection_matrix * u_model_view_matrix * a_vertex_position;
 }

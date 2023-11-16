@@ -1,6 +1,5 @@
-import type Shader from "./shader";
+import type Shader from './shader';
 
 export default class Material {
-  constructor(public shader: Shader) {
-  }
+	constructor(public shader: Shader) {}
 }

@@ -10,28 +10,28 @@
 <style lang="postcss">
 	header {
 		@apply /**/
+			/**/
 			absolute
-			top-0
 			left-0
+			top-0
 			z-30
-			w-full
-			/**/;
+			w-full;
 	}
 
 	div {
 		@apply /**/
-			p-8
+			/**/
 			container
 			mx-auto
       max-w-screen-lg
-			/**/;
+			p-8;
 	}
 
 	.logo {
 		@apply /**/
-		  w-auto
+		  /**/
 			h-8
-			md:h-16
-			/**/;
+			w-auto
+			md:h-16;
 	}
 </style>

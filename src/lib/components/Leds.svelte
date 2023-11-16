@@ -97,9 +97,9 @@
 <style lang="postcss">
 	canvas {
 		@apply /**/
+			/**/
 			absolute
 			left-1/2
-			-translate-x-1/2
-			/**/;
+			-translate-x-1/2;
 	}
 </style>

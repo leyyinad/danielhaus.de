@@ -21,82 +21,82 @@
 <style lang="postcss">
 	section {
 		@apply /**/
-      text-bluebirth-50
+      /**/
       bg-bluebirth-950
       bg-gradient-to-br
       from-bluebirth-950
       to-black
       bg-cover
-			py-6
 			bg-fixed
-      /**/;
+			py-6
+      text-bluebirth-50;
 
 		background-image: url($lib/images/holz.jpg);
 	}
 
 	article {
 		@apply /**/
-      container
-		 	mx-auto
-			max-w-screen-lg
-      text-center
-      /**/;
+      /**/
+		 	container
+			mx-auto
+      max-w-screen-lg
+      text-center;
 
 		text-shadow: 1px 1px 3px black;
 	}
 
 	h4 {
 		@apply /**/
+      /**/
+      mb-3
       text-3xl
       font-semibold
-      opacity-80
-      mb-3
-		  /**/;
+		  opacity-80;
 	}
 
 	h5 {
 		@apply /**/
-      text-sm
-			font-semibold
+      /**/
+			mb-8
 			mt-3
-      mb-8
-      opacity-40
-		  /**/;
+      text-sm
+      font-semibold
+		  opacity-40;
 	}
 
 	.projects {
 		@apply /**/
+      /**/
       flex
       flex-row
       flex-wrap
-      text-sm
-      text-left
-			px-6
-      /**/;
+      px-6
+			text-left
+      text-sm;
 	}
 
 	.projects li {
 		@apply /**/
+      /**/
       basis-1/2
-      sm:basis-1/2
-      md:basis-1/3
-      lg:basis-1/4
+      pb-4
       pr-2
-			pb-4
-      /**/;
+      sm:basis-1/2
+			md:basis-1/3
+      lg:basis-1/4;
 	}
 
 	.projects .title {
 		@apply /**/
+      /**/
       block
-      font-semibold
-      /**/;
+      font-semibold;
 	}
 
 	.projects .client {
 		@apply /**/
+      /**/
       block
-      opacity-50
-      /**/;
+      opacity-50;
 	}
 </style>

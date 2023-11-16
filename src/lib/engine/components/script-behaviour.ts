@@ -1,11 +1,11 @@
-import Behaviour from "./behaviour";
+import Behaviour from './behaviour';
 
 export default class ScriptBehaviour extends Behaviour {
-  public start() {
-    //
-  }
+	public start() {
+		//
+	}
 
-  public update() {
-    //
-  }
+	public update() {
+		//
+	}
 }

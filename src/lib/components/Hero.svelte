@@ -101,42 +101,42 @@
 <style lang="postcss">
 	.hero {
 		@apply /**/
+			/**/
 			relative
 			h-screen
-			min-h-[56.25vw]
-			/**/;
+			min-h-[56.25vw];
 	}
 
 	.content {
 		@apply /**/
+			/**/
 			container
-			mx-auto
-			pt-32
-		  z-10
+			z-10
+		  mx-auto
 			w-6/12
+			pt-32
 			md:absolute
-			md:top-[50vh]
 			md:left-1/4
+			md:top-[50vh]
 			md:-mt-[15vh]
-			md:pt-0
 			md:flex
-		  /**/;
+		  md:pt-0;
 	}
 
 	.profile-image {
 		@apply /**/
-  		h-64
-			mb-8
-			w-full
-			left-1/3
+  		/**/
 			relative
-			md:mb-0
+			left-1/3
+			mb-8
+			h-64
+			w-full
+			max-w-[33%]
 			md:left-0
-			md:scale-75
+			md:mb-0
 			md:-translate-x-5
 			md:-translate-y-5
-			max-w-[33%]
-		  /**/;
+		  md:scale-75;
 
 		transition-property: left, transform;
 		transition-duration: 1s;
@@ -145,59 +145,59 @@
 
 	.profile-image.centered {
 		@apply /**/
+			/**/
 			relative
 			left-1/3
 			translate-x-0
 			translate-y-1/4
-			md:translate-y-0
-			md:scale-100
 			md:left-1/3
-			/**/;
+			md:translate-y-0
+			md:scale-100;
 	}
 
 	.title {
 		@apply /**/
+			/**/
 			ml-0
-			md:w-8/12
 			md:ml-12
+			md:w-8/12
 			xl:ml-0
-			xl:w-6/12
-			/**/;
+			xl:w-6/12;
 	}
 
 	h1 {
 		@apply /**/
-			text-xs
+			/**/
+			-mt-3
 			text-right
+			text-xs
 			tracking-tight
 			text-bluebirth-50
 			opacity-25
-			-mt-3
-			sm:text-sm
 			sm:-mt-6
-  	  /**/;
+  	  sm:text-sm;
 	}
 
 	h2 {
 		@apply /**/
-			font-semibold
-			text-2xl
+			/**/
 			mt-4
+			text-2xl
+			font-semibold
 			tracking-tight
 			text-bluebirth-50
 			sm:text-4xl
-			md:mt-0
-			/**/;
+			md:mt-0;
 	}
 
 	.ecity {
 		@apply /**/
-		 	h-screen
-			w-full
+		 	/**/
 			absolute
+			left-0
 		  top-0
-		  left-0
-			z-0
-			/**/;
+		  z-0
+			h-screen
+			w-full;
 	}
 </style>

@@ -3,12 +3,12 @@
 <style lang="postcss">
 	.signature {
 		@apply /**/
-  		opacity-50
-			max-w-xs
-		  relative
+  		/**/
+			relative
 		  mb-4
-		  md:-left-4
-		  /**/;
+		  max-w-xs
+		  opacity-50
+		  md:-left-4;
 
 		clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 

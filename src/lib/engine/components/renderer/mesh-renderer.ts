@@ -1,4 +1,3 @@
-import Renderer from "./renderer";
+import Renderer from './renderer';
 
-export default class MeshRenderer extends Renderer {
-}
+export default class MeshRenderer extends Renderer {}
