@@ -33,8 +33,6 @@ build:
   stage: build
   script:
     - npm run build
-  needs:
-    - npm
   artifacts:
     paths:
       - build/
@@ -50,11 +48,9 @@ deploy_dev:
   environment:
     name: Develop
   script:
-    - echo "Deploying to dev server"
+    - echo "Deploying to DEV"
     - apk add lftp
     - lftp -c "open -u $FTP_USER_DEV,$FTP_PASS_DEV $FTP_HOST_DEV; mirror -Revp -X .ht* build/ . --parallel=10"
-  needs:
-    - build
   only:
     refs:
       - main
@@ -64,11 +60,9 @@ deploy_staging:
   environment:
     name: Staging
   script:
-    - echo "Deploying to staging server"
+    - echo "Deploying to STAGING"
     - apk add lftp
     - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $FTP_HOST_STAGING; mirror -Revp -X .ht* build/ . --parallel=10"
-  needs:
-    - build
   only:
     refs:
       - staging
