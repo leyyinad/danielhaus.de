@@ -12,7 +12,8 @@
 		"lint": "prettier . --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"prepare": "husky install"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.39.0",
@@ -41,7 +42,8 @@
 		"typescript": "^5.2.2",
 		"vite": "^4.5.0",
 		"vite-plugin-glslify": "^2.0.2",
-		"vitest": "^0.34.6"
+		"vitest": "^0.34.6",
+		"husky": "^8.0.0"
 	},
 	"type": "module"
 }
