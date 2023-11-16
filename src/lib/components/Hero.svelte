@@ -27,7 +27,7 @@
 		arr: [[20, 60, { active: true }]]
 	});
 
-	let state: { [key: string]: object } = timeline.state(0);
+	let state = timeline.state(0);
 
 	let timer: number | undefined;
 	let t0 = 0;
@@ -100,17 +100,13 @@
 
 <style lang="postcss">
 	.hero {
-		@apply /**/
-			/**/
-			relative
+		@apply relative
 			h-screen
 			min-h-[56.25vw];
 	}
 
 	.content {
-		@apply /**/
-			/**/
-			container
+		@apply container
 			z-10
 		  mx-auto
 			w-6/12
@@ -124,9 +120,7 @@
 	}
 
 	.profile-image {
-		@apply /**/
-  		/**/
-			relative
+		@apply relative
 			left-1/3
 			mb-8
 			h-64
@@ -144,9 +138,7 @@
 	}
 
 	.profile-image.centered {
-		@apply /**/
-			/**/
-			relative
+		@apply relative
 			left-1/3
 			translate-x-0
 			translate-y-1/4
@@ -156,9 +148,7 @@
 	}
 
 	.title {
-		@apply /**/
-			/**/
-			ml-0
+		@apply ml-0
 			md:ml-12
 			md:w-8/12
 			xl:ml-0
@@ -166,9 +156,7 @@
 	}
 
 	h1 {
-		@apply /**/
-			/**/
-			-mt-3
+		@apply -mt-3
 			text-right
 			text-xs
 			tracking-tight
@@ -179,9 +167,7 @@
 	}
 
 	h2 {
-		@apply /**/
-			/**/
-			mt-4
+		@apply mt-4
 			text-2xl
 			font-semibold
 			tracking-tight

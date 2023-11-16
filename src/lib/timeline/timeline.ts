@@ -2,6 +2,9 @@ import type Clip from './clip';
 import type { ClipDesc, ClipState } from './clip';
 import Track from './track';
 
+export type TimelineTrackState = { [key: string]: object };
+export type TimelineState = { [key: string]: TimelineTrackState };
+
 export default class Timeline {
 	public tracks: { [key: string]: Track } = {};
 
@@ -51,8 +54,8 @@ export default class Timeline {
 		return this.tracks[key];
 	}
 
-	state(time: number) {
-		const state: { [key: string]: object } = {};
+	state(time: number): TimelineState {
+		const state: TimelineState = {};
 
 		for (const trackName in this.tracks) {
 			const track = this.tracks[trackName];
