@@ -21,6 +21,7 @@ npm:
     expire_in: 1 days
     when: on_success
     paths:
+      - .svelte-kit/
       - node_modules/
 
 lint:
@@ -32,9 +33,10 @@ build:
   stage: build
   script:
     - npm run build
+  needs:
+    - npm
   artifacts:
     paths:
-      - .svelte-kit/
       - build/
 
 test:
