@@ -43,27 +43,32 @@ test:
   script:
     - npm test
 
-deploy_staging:
-  stage: deploy
-  environment:
-    name: Staging
-  script:
-    - echo "Deploy to staging server"
-    - apk add lftp
-    - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $FTP_HOST_STAGING; mirror -Rev -X .ht* build/ . --parallel=10"
-  only:
-    refs:
-      - staging
-
 deploy_dev:
   stage: deploy
   environment:
     name: Develop
   script:
-    - echo "Deploy to dev server"
+    - echo "Deploying to dev server ($FTP_HOST_DEV)"
+    - pwd
+    - ls -l build/
     - apk add lftp
-    - ls -l
     - lftp -c "open -u $FTP_USER_DEV,$FTP_PASS_DEV $FTP_HOST_DEV; mirror -Rev -X .ht* build/ . --parallel=10"
+  needs:
+    - build
   only:
     refs:
       - main
+
+deploy_staging:
+  stage: deploy
+  environment:
+    name: Staging
+  script:
+    - echo "Deploying to staging server ($FTP_HOST_STAGING)"
+    - apk add lftp
+    - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $FTP_HOST_STAGING; mirror -Rev -X .ht* build/ . --parallel=10"
+  needs:
+    - build
+  only:
+    refs:
+      - staging
