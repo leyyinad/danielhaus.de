@@ -2,7 +2,7 @@ const ON = 1.0;
 const OFF = 0.0;
 const toggle = (state: number) => ON - state;
 
-const blink = (t: number, x: number, y: number, w: number, h: number) => {
+const blink = (t: number, x: number, y: number) => {
 	const light = Math.floor(t % 2.0) === 0 ? ON : OFF;
 	const dark = toggle(light);
 
@@ -14,7 +14,7 @@ const ledTest = (t: number, x: number, y: number, w: number, h: number) => {
 	return Math.floor(t % w) === x && Math.floor((t % (w * h)) / h) === y ? ON : OFF;
 };
 
-const ledTest2 = (t: number, x: number, y: number, w: number, h: number) =>
+const ledTest2 = (t: number, x: number, y: number, w: number) =>
 	Math.floor(t % w) === x || Math.floor(t % w) === y ? ON : OFF;
 
 // const swoosh = (t: number, x: number, y: number) => {
@@ -24,11 +24,11 @@ const ledTest2 = (t: number, x: number, y: number, w: number, h: number) =>
 const anim = (t: number, x: number, y: number, w: number, h: number) => {
 	t = t % 48;
 	if (t < 16) {
-		return blink(t, x, y, w, h);
+		return blink(t, x, y);
 	} else if (t < 32) {
 		return ledTest(t, x, y, w, h);
 	} else {
-		return ledTest2(t, x, y, w, h);
+		return ledTest2(t, x, y, w);
 	}
 };
 

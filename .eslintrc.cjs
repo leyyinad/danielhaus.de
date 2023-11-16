@@ -24,10 +24,20 @@ module.exports = {
 			parser: 'svelte-eslint-parser',
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
-			},
+			}
+		},
+		{
+			files: ['*.ts', '*.svelte'],
 			rules: {
-				'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-				'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+				'no-unused-vars': 'off',
+				'@typescript-eslint/no-unused-vars': [
+					'warn',
+					{
+						argsIgnorePattern: '^_',
+						varsIgnorePattern: '^_',
+						caughtErrorsIgnorePattern: '^_'
+					}
+				]
 			}
 		}
 	]

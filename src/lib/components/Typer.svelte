@@ -63,6 +63,8 @@
 	onDestroy(cleanup);
 </script>
 
+<!-- eslint-disable svelte/no-at-html-tags -->
+
 <span bind:this={container}><slot /></span>
 <span class="typer"
 	>{@html currentText}{#if showCursor}<i></i>{/if}</span

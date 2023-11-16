@@ -1,8 +1,4 @@
-import type {
-	LedAnimAnimatableValue,
-	LedAnimComponentConfig,
-	LedAnimGeneratorComponent
-} from './types';
+import type { LedAnimAnimatableValue, LedAnimComponentConfig } from './types';
 
 export const ON = 1.0;
 export const OFF = 0.0;
@@ -25,5 +21,3 @@ export function animate<T>(
 
 	return cfg as { [key in keyof T]: number };
 }
-
-export const profile = (component: LedAnimGeneratorComponent, count: number) => component;

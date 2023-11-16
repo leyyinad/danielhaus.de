@@ -27,7 +27,7 @@
 		arr: [[20, 60, { active: true }]]
 	});
 
-	let state: { [key: string]: { [key: string]: any } } = timeline.state(0);
+	let state: { [key: string]: object } = timeline.state(0);
 
 	let timer: number | undefined;
 	let t0 = 0;
