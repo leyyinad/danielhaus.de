@@ -6,9 +6,11 @@ stages:
   - deploy
 
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
+  key:
+    files:
+      - package-lock.json
+  untracked: true
   paths:
-    - .npm/
     - node_modules/
 
 tests:
