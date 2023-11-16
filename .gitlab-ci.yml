@@ -2,12 +2,14 @@ image: node:18-alpine
 
 stages:
   - test
+  - build
   - deploy
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - .npm/
+    - node_modules/
 
 tests:
   stage: test
@@ -16,30 +18,42 @@ tests:
     - npm install
     - npm test
 
+builds:
+  stage: build
+  script:
+    - echo "Building"
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - build
+
 deploy_staging:
   stage: deploy
+  environment:
+    name: Staging
   script:
     - echo "Deploy to staging server"
     - apk add lftp
-    - npm install
-    - npm run build
     - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $FTP_HOST_STAGING; mirror -Rev -X .ht* build/ . --parallel=10"
-  environment:
-    name: Staging
+  artifacts:
+    paths:
+      - build
   only:
     refs:
       - staging
 
 deploy_dev:
   stage: deploy
+  environment:
+    name: Develop
   script:
     - echo "Deploy to dev server"
     - apk add lftp
-    - npm install
-    - npm run build
     - lftp -c "open -u $FTP_USER_DEV,$FTP_PASS_DEV $FTP_HOST_DEV; mirror -Rev -X .ht* build/ . --parallel=10"
-  environment:
-    name: Dev
+  artifacts:
+    paths:
+      - build
   only:
     refs:
       - main
