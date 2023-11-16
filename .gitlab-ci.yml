@@ -48,9 +48,7 @@ deploy_dev:
   environment:
     name: Develop
   script:
-    - echo "Deploying to dev server ($FTP_HOST_DEV)"
-    - pwd
-    - ls -l build/
+    - echo "Deploying to dev server"
     - apk add lftp
     - lftp -c "open -u $FTP_USER_DEV,$FTP_PASS_DEV $FTP_HOST_DEV; mirror -Rev -X .ht* build/ . --parallel=10"
   needs:
@@ -64,7 +62,7 @@ deploy_staging:
   environment:
     name: Staging
   script:
-    - echo "Deploying to staging server ($FTP_HOST_STAGING)"
+    - echo "Deploying to staging server"
     - apk add lftp
     - lftp -c "open -u $FTP_USER_STAGING,$FTP_PASS_STAGING $FTP_HOST_STAGING; mirror -Rev -X .ht* build/ . --parallel=10"
   needs:
