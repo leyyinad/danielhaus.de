@@ -60,7 +60,11 @@
     "client": "Phoenix"
   },
   {
-    "title": "Quiz",
+    "title": "Frauen-WM-Quiz",
+    "client": "Phoenix"
+  },
+  {
+    "title": "Papst-Quiz",
     "client": "Phoenix"
   },
   {
@@ -88,7 +92,7 @@
     "client": "Open Source"
   },
   {
-    "title": "IT Inftrastruktur",
+    "title": "IT-Infrastruktur",
     "client": "Business Tools"
   },
   {
