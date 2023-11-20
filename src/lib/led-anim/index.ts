@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import danielProfileImg from '$lib/images/daniel-profile-64px.png';
 import { image, ledTest, plasma, zero } from './generators';
 import { fadeIn, scale, speed, vignette } from './modifiers';
@@ -9,29 +7,6 @@ import { fade } from './transitions';
 export * from './generators';
 export * from './modifiers';
 export * from './operators';
-
-// export default speed(reverb(ledTest), 32);
-// export default speed(reverb(translate(image(danielProfileImg), { x: 32, y: 32 })), 32);
-// export default translate(image(danielProfileImg), { x: 32, y: 32, rotate: true });
-// export default image("/dh-logo.svg", { width: 64, height: 64 });
-// export default add(dim(random, 0.25), multiply(image(danielProfileImg), random));
-
-// export default scale(image(danielProfileImg), { sx: 0.25, sy: 0.25 });
-
-// export default
-//   timeline(
-//     [fade(zero, plasma), 0, 1],
-//     [loop(
-//       timeline(
-//         [plasma, 1, 2],
-//         [fade(plasma, dh), 2, 3],
-//         [dh, 3, 5],
-//         [fade(dh, plasma), 5, 6],
-//         [plasma, 6, 10],
-//       ),
-//       10
-//     ), 1, Infinity]
-//   );
 
 const photo = image(danielProfileImg, {
   width: 64,
@@ -48,8 +23,6 @@ const logo = scale(
 
 const scaledLogo = scale(logo, { sx: 0.87 });
 
-// export default photo;
-
 export default sequence(
   [zero, 1],
   [fadeIn(vignette(plasma), 2), 3],
@@ -62,6 +35,7 @@ export default sequence(
         [fade(photo, multiply(plasma, photo)), 2],
         [fade(multiply(plasma, photo), multiply(plasma, scaledLogo)), 2],
         [fade(multiply(plasma, scaledLogo), scaledLogo), 2],
+        [scale(scaledLogo, { sx: (t) => Math.cos(t * 5.0), sy: 1.0 }), (2 * Math.PI) / 5.0],
         [fade(scaledLogo, multiply(plasma, scaledLogo)), 2],
         [fade(multiply(plasma, scaledLogo), multiply(plasma, photo)), 2],
         [fade(multiply(plasma, photo), photo), 2],
