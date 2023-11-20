@@ -1,6 +1,6 @@
 <script lang="ts">
-	const email = import.meta.env.VITE_CONTACT_EMAIL;
-	const phone = import.meta.env.VITE_CONTACT_PHONE;
+	const email = import.meta.env.CONTACT_EMAIL;
+	const phone = import.meta.env.CONTACT_PHONE;
 </script>
 
 <footer>
@@ -16,13 +16,15 @@
 				65510 Idstein
 			</address>
 
-			<div class="kontakt">
+			<div class="kontakt skramble">
 				<h5>Kontakt</h5>
 				<p>
 					<span>E-Mail</span>
-					{email}<br />
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+					{@html email}<br />
 					<span>Tel.</span>
-					{phone}
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+					{@html phone}
 				</p>
 			</div>
 		</div>
@@ -34,6 +36,25 @@
 </footer>
 
 <style lang="postcss">
+	.skramble :global(i) {
+		display: inline-block;
+		overflow: hidden;
+		height: 1px;
+		width: 1px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.01;
+		user-select: none;
+	}
+
+	.skramble :global(u),
+	.skramble :global(b) {
+		text-decoration: inherit;
+		font-weight: inherit;
+		user-select: text;
+	}
+
 	footer {
 		@apply bg-black
       text-bluebirth-200;
