@@ -29,7 +29,12 @@
 <footer>
   <div>
     <div class="imprint">
-      <h4>IT-Beratung und Softwareentwicklung</h4>
+      <h4>Impressum</h4>
+
+      <p>
+        Daniel Haus<br />
+        IT-Beratung &amp; Softwareentwicklung
+      </p>
 
       <h5>Inhaltlich verantwortlich</h5>
 
@@ -115,8 +120,9 @@
   }
 
   h4 {
-    @apply text-2xl
-			font-light
+    @apply mb-4
+			text-2xl
+      font-light
 			opacity-50;
   }
 
