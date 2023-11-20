@@ -1,12 +1,35 @@
 <script lang="ts">
   const email = import.meta.env.CONTACT_EMAIL;
   const phone = import.meta.env.CONTACT_PHONE;
+
+  function unskramble(el: HTMLElement) {
+    return [...el.querySelectorAll('u, b')].map((n) => n.textContent).join('');
+  }
+
+  function autolink(event: Event) {
+    const a = event.currentTarget as HTMLAnchorElement;
+
+    if (a.classList.contains('autolink')) {
+      const value = unskramble(a).replaceAll(/\s+/gi, '');
+
+      let proto = '';
+      if (a.classList.contains('autolink-email')) {
+        proto = 'mailto:';
+      } else if (a.classList.contains('autolink-phone')) {
+        proto = 'tel:';
+      }
+
+      a.href = proto + value;
+
+      a.classList.remove('autolink');
+    }
+  }
 </script>
 
 <footer>
   <div>
     <div class="imprint">
-      <h4>Daniel Haus – IT-Beratung und Softwareentwicklung</h4>
+      <h4>IT-Beratung und Softwareentwicklung</h4>
 
       <h5>Inhaltlich verantwortlich</h5>
 
@@ -17,15 +40,19 @@
       </address>
 
       <div class="kontakt skramble">
+        <!-- eslint-disable svelte/no-at-html-tags -->
         <h5>Kontakt</h5>
         <p>
           <span>E-Mail</span>
-          <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-          {@html email}<br />
-          <span>Tel.</span>
-          <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-          {@html phone}
+          <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-email"
+            >{@html email}</a
+          ><br />
+          <span>Telefon</span>
+          <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-phone"
+            >{@html phone}</a
+          >
         </p>
+        <!-- eslint-enable svelte/no-at-html-tags -->
       </div>
     </div>
 
@@ -55,6 +82,10 @@
     user-select: text;
   }
 
+  .skramble a:hover {
+    @apply underline underline-offset-2;
+  }
+
   footer {
     @apply bg-black
       text-bluebirth-200;
@@ -71,11 +102,11 @@
   .footer-note {
     @apply mt-5
 			border-t
-			border-bluebirth-300/25
+			border-bluebirth-400/25
 			py-4
 			text-center
 			text-sm
-			opacity-80;
+			opacity-75;
   }
 
   .imprint {
@@ -84,17 +115,15 @@
   }
 
   h4 {
-    @apply text-xl
-			font-semibold
+    @apply text-2xl
+			font-light
 			opacity-50;
   }
 
   h5 {
-    @apply mb-2
-			mt-6
-			text-lg
-			font-bold
-			opacity-50;
+    @apply mt-6
+			font-normal
+			opacity-60;
   }
 
   p {
@@ -109,8 +138,8 @@
 
   .kontakt p span {
     @apply inline-block
-		  w-14
+		  w-16
 			whitespace-nowrap
-			opacity-50;
+			opacity-40;
   }
 </style>
