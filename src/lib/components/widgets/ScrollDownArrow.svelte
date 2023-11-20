@@ -14,9 +14,7 @@
 
 <style lang="postcss">
   .arrs {
-    @apply /**/
-			/**/
-			absolute
+    @apply absolute
 			left-[50%]
 			top-[82%]
 			scale-75
@@ -25,9 +23,7 @@
   }
 
   .arr {
-    @apply /**/
-			/**/
-			absolute
+    @apply absolute
 			opacity-0;
 
     animation: 7s linear 1.6s infinite down-anim;
@@ -44,9 +40,7 @@
 
   .arr::before,
   .arr::after {
-    @apply /**/
-      /**/
-      block
+    @apply block
       h-2
       w-9
       -translate-x-7
@@ -58,9 +52,7 @@
   }
 
   .arr::after {
-    @apply /**/
-      /**/
-      -translate-x-2
+    @apply -translate-x-2
       -translate-y-2
       -rotate-45;
   }

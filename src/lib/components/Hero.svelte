@@ -109,8 +109,8 @@
     @apply container
       z-10
       mx-auto
-      w-6/12
-      pt-32
+      w-8/12
+      pt-28
       md:absolute
       md:left-1/4
       md:top-[50vh]
@@ -155,21 +155,22 @@
   .title {
     @apply ml-0
       flex-shrink-0
+      -translate-y-5
       md:ml-12
       md:w-8/12
+      md:translate-y-0
       xl:ml-0
       xl:w-6/12;
   }
 
   h1 {
-    @apply -mt-3
-      text-right
+    @apply text-right
       text-xs
       tracking-tight
       text-bluebirth-50
       opacity-25
-      sm:-mt-6
-      sm:text-sm;
+      sm:text-sm
+      md:-mt-3;
   }
 
   h2 {
