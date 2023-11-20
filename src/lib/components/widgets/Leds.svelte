@@ -10,6 +10,7 @@
 	export let gap = 2.0;
 	export let pw = 8.0;
 	export let ph = 8.0;
+	export let delay = 10;
 
 	export let fn: LedAnimGeneratorComponent = zero;
 
@@ -22,8 +23,6 @@
 	let offset = 0;
 
 	let running = false;
-
-	const delay = 10;
 
 	const init = (canvas: HTMLCanvasElement) => {
 		context = canvas.getContext('2d')!;
