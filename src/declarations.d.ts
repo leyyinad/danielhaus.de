@@ -5,6 +5,6 @@ declare module '*.frag';
 declare module '*.vert';
 
 declare module 'bunny' {
-	export const positions: Array<[number, number, number]>;
-	export const cells: Array<[number, number, number]>;
+  export const positions: Array<[number, number, number]>;
+  export const cells: Array<[number, number, number]>;
 }

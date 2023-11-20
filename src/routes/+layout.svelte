@@ -1,15 +1,15 @@
 <script>
-	import Footer from '$lib/components/layout/Footer.svelte';
-	import Header from '$lib/components/layout/Header.svelte';
-	import '../app.css';
+  import Footer from '$lib/components/layout/Footer.svelte';
+  import Header from '$lib/components/layout/Header.svelte';
+  import '../app.css';
 </script>
 
 <div class="layout">
-	<Header />
+  <Header />
 
-	<main>
-		<slot />
-	</main>
+  <main>
+    <slot />
+  </main>
 
-	<Footer />
+  <Footer />
 </div>

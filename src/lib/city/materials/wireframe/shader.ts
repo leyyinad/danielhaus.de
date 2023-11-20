@@ -4,4 +4,4 @@ import frag from './shader.frag';
 import vert from './shader.vert';
 
 export default (attribs: AttributeMap, uniforms: UniformMap) =>
-	new Shader(vert, frag, attribs, uniforms);
+  new Shader(vert, frag, attribs, uniforms);

@@ -4,8 +4,8 @@ import { defineConfig } from 'vitest/config';
 import { skramble } from './skramble';
 
 export default defineConfig(({ mode }) => ({
-	plugins: [sveltekit(), glslify(), skramble({ mode, vars: ['CONTACT_EMAIL', 'CONTACT_PHONE'] })],
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	}
+  plugins: [sveltekit(), glslify(), skramble({ mode, vars: ['CONTACT_EMAIL', 'CONTACT_PHONE'] })],
+  test: {
+    include: ['src/**/*.{test,spec}.{js,ts}']
+  }
 }));
