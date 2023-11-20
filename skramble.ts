@@ -7,7 +7,6 @@ interface Options {
   config?: Partial<SkrambleConfig>;
 }
 export interface SkrambleConfig {
-  at: string;
   fillers: string;
   minChunkLength: number;
   maxChunkLength: number;
@@ -19,7 +18,6 @@ export interface SkrambleConfig {
 }
 
 export const defaults: SkrambleConfig = {
-  at: '<i>at</i>',
   fillers: 'skramble-spam-protection-1234567890',
   minChunkLength: 2,
   maxChunkLength: 5,
