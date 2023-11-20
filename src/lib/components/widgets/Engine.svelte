@@ -4,6 +4,7 @@
 
   let canvas: HTMLCanvasElement;
   let visible = true;
+  let observer: IntersectionObserver;
 
   if (typeof window != 'undefined' && typeof document != 'undefined') {
     let city: City | undefined;
@@ -17,14 +18,22 @@
         city.engine.visible = visible;
 
         resize();
+
+        observer = new IntersectionObserver(updateVisibility);
+        observer.observe(canvas);
       }
     };
 
     const resize = () => city?.engine.resize();
 
     const cleanup = () => {
+      observer.disconnect();
       window.removeEventListener('resize', resize);
       city = undefined;
+    };
+
+    const updateVisibility = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => (visible = entry.intersectionRatio > 0));
     };
 
     onMount(init);
