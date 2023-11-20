@@ -146,7 +146,7 @@
   .profile-image.centered {
     @apply relative
       left-1/4
-      translate-x-0
+      translate-x-1/4
       translate-y-1/4
       md:translate-y-0
       md:scale-100;

@@ -36,28 +36,32 @@
         IT-Beratung &amp; Softwareentwicklung
       </p>
 
-      <h5>Inhaltlich verantwortlich</h5>
+      <div class="columns">
+        <div>
+          <h5>Inhaltlich verantwortlich</h5>
 
-      <span>Daniel Haus</span>
-      <address>
-        Limburger Str. 36<br />
-        65510 Idstein
-      </address>
+          <span>Daniel Haus</span>
+          <address>
+            Limburger Str. 36<br />
+            65510 Idstein
+          </address>
+        </div>
 
-      <div class="kontakt skramble">
-        <!-- eslint-disable svelte/no-at-html-tags -->
-        <h5>Kontakt</h5>
-        <p>
-          <span>E-Mail</span>
-          <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-email"
-            >{@html email}</a
-          ><br />
-          <span>Telefon</span>
-          <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-phone"
-            >{@html phone}</a
-          >
-        </p>
-        <!-- eslint-enable svelte/no-at-html-tags -->
+        <div class="kontakt skramble">
+          <!-- eslint-disable svelte/no-at-html-tags -->
+          <h5>Kontakt</h5>
+          <p>
+            <span>E-Mail</span>
+            <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-email"
+              >{@html email}</a
+            ><br />
+            <span>Telefon</span>
+            <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-phone"
+              >{@html phone}</a
+            >
+          </p>
+          <!-- eslint-enable svelte/no-at-html-tags -->
+        </div>
       </div>
     </div>
 
@@ -91,9 +95,25 @@
     @apply underline underline-offset-2;
   }
 
+  .columns {
+    @apply md:flex;
+  }
+
+  .columns > div {
+    @apply w-full
+      md:w-1/2;
+  }
+
   footer {
     @apply bg-black
-      text-bluebirth-200;
+      bg-gradient-to-b
+      from-black
+      from-0%
+      via-black
+      via-80%
+			to-bluebirth-950
+      to-100%
+			text-bluebirth-200;
   }
 
   footer > div {
@@ -109,9 +129,9 @@
 			border-t
 			border-bluebirth-400/25
 			py-4
-			text-center
-			text-sm
-			opacity-75;
+      text-center
+      text-sm
+      opacity-75;
   }
 
   .imprint {
