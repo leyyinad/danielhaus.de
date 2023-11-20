@@ -24,3 +24,9 @@
     </g>
   </svg>
 {/if}
+
+<style lang="postcss">
+  svg {
+    @apply opacity-50;
+  }
+</style>
