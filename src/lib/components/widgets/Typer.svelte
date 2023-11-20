@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 
+	export let delay = 100;
+	export let pauseDelay = 1200;
+	export let showCursor = true;
+
 	let container: HTMLSpanElement;
 	let text = '';
 	let count = 0;
 	let currentText = '';
-	let delay = 100;
-	let waitDelay = 1200;
 	let timer: number | undefined = undefined;
-	let showCursor = true;
 
 	const init = () => {
 		text = container.innerText;
@@ -40,7 +41,7 @@
 			let d = delay;
 
 			if (text[count] === ',') {
-				d += waitDelay;
+				d += pauseDelay;
 			}
 
 			timer = window.setTimeout(loop, d);
