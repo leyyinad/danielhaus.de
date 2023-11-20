@@ -10,6 +10,7 @@ export default class Engine {
   scene!: Scene;
   modelView: mat4;
   throttle: number = 0;
+  visible = true;
 
   constructor(public renderDriver: RenderDriver) {
     renderDriver.engine = this;
@@ -27,7 +28,9 @@ export default class Engine {
 
   loop(time: DOMHighResTimeStamp) {
     this.update(time);
-    this.render();
+    if (this.visible) {
+      this.render();
+    }
     this.renderDriver.loop((time: DOMHighResTimeStamp) => this.loop(time));
   }
 

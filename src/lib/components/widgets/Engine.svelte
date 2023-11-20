@@ -3,6 +3,7 @@
   import { onDestroy, onMount } from 'svelte';
 
   let canvas: HTMLCanvasElement;
+  let visible = true;
 
   if (typeof window != 'undefined' && typeof document != 'undefined') {
     let city: City | undefined;
@@ -13,6 +14,7 @@
 
         window.addEventListener('resize', resize);
         window.requestAnimationFrame((t) => city!.engine.loop(t));
+        city.engine.visible = visible;
 
         resize();
       }
