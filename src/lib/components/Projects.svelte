@@ -26,7 +26,6 @@
       to-black
       bg-cover
 			bg-fixed
-			py-8
       text-bluebirth-50;
 
     background-image: url($lib/images/holz.jpg);
@@ -36,7 +35,7 @@
     @apply container
 			mx-auto
       max-w-screen-lg
-      py-6
+      py-14
 			text-center;
 
     text-shadow: 1px 1px 3px black;
