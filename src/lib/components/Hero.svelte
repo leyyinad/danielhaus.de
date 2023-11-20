@@ -179,9 +179,7 @@
 	}
 
 	.ecity {
-		@apply /**/
-		 	/**/
-			absolute
+		@apply absolute
 			left-0
 		  top-0
 		  z-0
