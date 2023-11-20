@@ -111,6 +111,7 @@
       mx-auto
       w-8/12
       pt-28
+      sm:w-6/12
       md:absolute
       md:left-1/4
       md:top-[50vh]
@@ -131,11 +132,11 @@
       max-w-[33%]
       md:left-0
       md:mb-0
-      md:-translate-x-5
       md:-translate-y-5
+      md:translate-x-5
       md:scale-75
-      lg:translate-x-0
-      lg:translate-y-0;
+      lg:translate-y-0
+      xl:-translate-x-5;
 
     transition-property: left, transform;
     transition-duration: 1s;
@@ -144,10 +145,9 @@
 
   .profile-image.centered {
     @apply relative
-      left-1/3
+      left-1/4
       translate-x-0
       translate-y-1/4
-      md:left-1/3
       md:translate-y-0
       md:scale-100;
   }
@@ -157,7 +157,7 @@
       flex-shrink-0
       -translate-y-5
       md:ml-12
-      md:w-8/12
+      md:w-6/12
       md:translate-y-0
       xl:ml-0
       xl:w-6/12;
@@ -175,7 +175,7 @@
 
   h2 {
     @apply mt-4
-      text-2xl
+      text-3xl
       font-semibold
       tracking-tight
       text-bluebirth-50
