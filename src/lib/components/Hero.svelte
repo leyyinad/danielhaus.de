@@ -92,7 +92,7 @@
   {/if}
 
   {#if run_engine && state.cty.active}
-    <div class="ecity" transition:fade={{ duration: 2000 }}>
+    <div class="ecity" transition:fade={{ duration: 7000 }}>
       <Engine />
     </div>
   {/if}
@@ -179,7 +179,6 @@
       tracking-tight
       text-bluebirth-50
       sm:text-4xl
-      md:mt-0
       md:text-3xl
       lg:text-4xl;
   }

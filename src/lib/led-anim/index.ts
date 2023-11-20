@@ -25,7 +25,7 @@ const scaledLogo = scale(logo, { sx: 0.87 });
 
 export default sequence(
   [zero, 1],
-  [fadeIn(vignette(plasma), 2), 3],
+  [fadeIn(vignette(plasma), 4), 4],
   [fade(vignette(plasma), multiply(plasma, photo)), 2],
   [fade(multiply(plasma, photo), photo), 5],
   [
