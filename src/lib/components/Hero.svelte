@@ -101,26 +101,24 @@
 <style lang="postcss">
   .hero {
     @apply relative
-      h-screen
-      min-h-[56.25vw];
+      h-auto
+      min-h-screen
+      md:h-screen
+      md:min-h-[56.25vw];
   }
 
   .content {
     @apply container
       z-10
       mx-auto
+      min-h-[40rem]
       w-8/12
+      max-w-[16rem]
       pt-28
       sm:w-6/12
-      md:absolute
-      md:left-1/4
-      md:top-[50vh]
-      md:-mt-[15vh]
       md:flex
-      md:pt-0
-      lg:left-1/2
-      lg:max-w-2xl
-      lg:-translate-x-1/2;
+      md:max-w-none
+      md:pt-[35vh];
   }
 
   .profile-image {
@@ -187,10 +185,10 @@
 
   .ecity {
     @apply absolute
+      bottom-0
       left-0
+      right-0
       top-0
-      z-0
-      h-screen
-      w-full;
+      z-0;
   }
 </style>
