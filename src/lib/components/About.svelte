@@ -47,7 +47,8 @@
   h4 {
     @apply mb-0
 			mt-5
-			text-3xl;
+			text-4xl
+      font-black;
   }
 
   .columns-2 {
