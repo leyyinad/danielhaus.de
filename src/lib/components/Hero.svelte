@@ -179,6 +179,7 @@
       font-semibold
       tracking-tight
       text-bluebirth-50
+      drop-shadow-[0_0_16px_rgba(241,243,255,.25)]
       sm:text-4xl
       md:text-3xl
       lg:text-4xl;
