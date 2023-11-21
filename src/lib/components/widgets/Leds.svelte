@@ -65,7 +65,7 @@
     }
 
     mx.forEach((c, i) => {
-      context.fillStyle = `rgba(255, 255, 255, ${c})`;
+      context.fillStyle = `rgba(255 255 255 / ${c})`;
 
       const x = i % width;
       const y = Math.floor(i / width);
