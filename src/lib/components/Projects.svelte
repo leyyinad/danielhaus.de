@@ -5,7 +5,6 @@
 <section>
   <article>
     <h4>Projekte</h4>
-    <h5>(Auszug)</h5>
 
     <ul class="projects">
       {#each projects as project}
@@ -24,8 +23,6 @@
       bg-gradient-to-br
       from-bluebirth-950
       to-black
-      bg-cover
-			bg-fixed
       text-bluebirth-50;
 
     background-image: url($lib/images/holz.jpg);
@@ -35,32 +32,25 @@
     @apply container
 			mx-auto
       max-w-screen-lg
-      py-14
-			text-center;
+      px-6
+      py-14;
 
     text-shadow: 1px 1px 3px black;
   }
 
   h4 {
-    @apply mb-3
-      text-3xl
-      font-semibold
-		  opacity-80;
-  }
-
-  h5 {
     @apply mb-8
-			mt-3
-      text-sm
-      font-semibold
-		  opacity-40;
+      text-3xl
+      font-black
+      opacity-80
+      drop-shadow-xl
+		  md:text-4xl;
   }
 
   .projects {
     @apply flex
       flex-row
       flex-wrap
-      px-6
 			text-left
       text-sm;
   }
