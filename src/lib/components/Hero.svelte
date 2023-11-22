@@ -12,6 +12,14 @@
   const run_engine = true;
   const engine_only = false;
 
+  interface TimelineState {
+    [key: string]: {
+      active?: boolean;
+      centered?: boolean;
+      opacity?: number;
+    };
+  }
+
   const timeline = new Timeline({
     led: [
       [0, 1, { active: false }, { active: true }],
@@ -20,14 +28,19 @@
       [7, 9, { opacity: 1.0 }, { opacity: 0.8 }]
     ],
 
-    sig: [[9, 60, { active: true }]],
+    sig: [
+      [9, 60, { active: true }],
+      [9, 9, { opacity: 1.0 }],
+      [11, 13, { opacity: 1.0 }, { opacity: 0.5 }]
+    ],
+
     nam: [[12, 60, { active: true }]],
     txt: [[12, 60, { active: true }]],
     cty: [[12, 60, { active: true }]],
     arr: [[20, 60, { active: true }]]
   });
 
-  let state = timeline.state(0);
+  let state: TimelineState = timeline.state(0) as unknown as TimelineState;
 
   let timer: number | undefined;
   let t0 = 0;
@@ -67,7 +80,7 @@
     {#if !engine_only}
       <div class="title">
         {#if state.sig.active}
-          <Signature />
+          <Signature opacity={state.sig.opacity} />
         {/if}
 
         {#if state.nam.active}

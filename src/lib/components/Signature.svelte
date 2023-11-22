@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import { sineIn } from 'svelte/easing';
   import { draw } from 'svelte/transition';
 
-  let visible = false;
+  export let opacity: number = 1.0;
+  export let visible: boolean = false;
 
   onMount(() => {
     visible = true;
@@ -11,7 +12,11 @@
 </script>
 
 {#if visible}
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 685.214 301.195">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 685.214 301.195"
+    style={`opacity: ${opacity}`}
+  >
     <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5">
       <path
         transition:draw={{ duration: 300 }}
@@ -24,9 +29,3 @@
     </g>
   </svg>
 {/if}
-
-<style lang="postcss">
-  svg {
-    @apply opacity-50;
-  }
-</style>
