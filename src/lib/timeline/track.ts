@@ -29,7 +29,7 @@ export default class Track {
 
   public sortClips() {
     this.clips.sort((a, b) => {
-      const d = b.end - a.end;
+      const d = a.end - b.end;
       return d == 0.0 ? b.start - a.start : d;
     });
   }
