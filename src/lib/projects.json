@@ -60,6 +60,10 @@
     "client": "Phoenix"
   },
   {
+    "title": "Kandidatenscanner",
+    "client": "Phoenix"
+  },
+  {
     "title": "Frauen-WM-Quiz",
     "client": "Phoenix"
   },
@@ -72,7 +76,7 @@
     "client": "Accenture"
   },
   {
-    "title": "Deine digitale Seite",
+    "title": "Recruiting App",
     "client": "BSI"
   },
   {
@@ -80,7 +84,7 @@
     "client": "SITaaS"
   },
   {
-    "title": "WeDoWebSphere",
+    "title": "WebSphere-Portal",
     "client": "GoertzConsult"
   },
   {
