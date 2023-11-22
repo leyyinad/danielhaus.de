@@ -1,0 +1,65 @@
+<section>
+  <article>
+    <h4>Dienstleistungen</h4>
+
+    <ul>
+      <li><strong>Effiziente</strong> und <strong>effektive</strong> IT-Lösungen</li>
+      <li><strong>Ganzheitliche</strong>, strategische Perspektive</li>
+      <li>Schnelle, <strong>nachhaltige</strong> Softwareentwicklung</li>
+      <li><strong>UI/UX</strong>, 2D/3D Grafikprogrammierung</li>
+      <li>Audiovisuelle, <strong>interaktive</strong> Anwendungen</li>
+      <li><strong>Cloud-native</strong>, Web, Mobile, Desktop, Server</li>
+      <li>CMS, APIs, Datenbanken, Python, PHP, HTML5, JS/TS, CSS, WebGL</li>
+      <li><strong>IT-Security</strong> und <strong>Datenschutz/DSGVO</strong> tiefenintegriert</li>
+    </ul>
+  </article>
+</section>
+
+<style lang="postcss">
+  section {
+    @apply bg-[rgb(46,21,45)]
+      text-white
+      drop-shadow-xl;
+  }
+
+  article {
+    @apply container
+      mx-auto
+			max-w-screen-lg
+      px-6
+      py-14;
+  }
+
+  h4 {
+    @apply mb-8
+      text-3xl
+      font-black
+      md:text-4xl;
+  }
+
+  ul {
+    @apply grid
+      grid-flow-row
+      auto-rows-auto
+      gap-x-4
+			gap-y-1
+			pl-5
+      md:grid-cols-2;
+  }
+
+  ul > li {
+    @apply relative;
+  }
+
+  ul > li::before {
+    @apply absolute
+      -left-5
+      inline-block
+      -translate-y-[0.75]
+      text-4xl
+      leading-5
+      opacity-25;
+
+    content: '•';
+  }
+</style>
