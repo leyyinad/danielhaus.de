@@ -26,8 +26,9 @@
     @apply container
       mx-auto
 			max-w-screen-lg
-      px-6
-      py-14;
+			px-6
+      py-14
+      sm:text-xl;
   }
 
   h4 {
@@ -38,28 +39,26 @@
   }
 
   ul {
-    @apply grid
-      grid-flow-row
-      auto-rows-auto
-      gap-x-4
-			gap-y-1
-			pl-5
-      md:grid-cols-2;
+    @apply md:columns-2;
   }
 
   ul > li {
-    @apply relative;
+    @apply relative
+      break-inside-avoid-column
+      pl-5;
   }
 
   ul > li::before {
     @apply absolute
-      -left-5
-      inline-block
-      -translate-y-[0.75]
-      text-4xl
-      leading-5
+      left-0
+      top-2.5
+      block
+      h-2
+      w-2
+      rounded-full
+      bg-white
       opacity-25;
 
-    content: '•';
+    content: '';
   }
 </style>
