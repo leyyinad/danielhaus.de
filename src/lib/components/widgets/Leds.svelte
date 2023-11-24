@@ -11,6 +11,7 @@
   export let pw = 8.0;
   export let ph = 8.0;
   export let delay = 10;
+  export let isInViewport = true;
 
   export let fn: LedAnimGeneratorComponent = zero;
 
@@ -38,42 +39,44 @@
   const loop = (time: number) => {
     if (!running) return;
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    if (isInViewport) {
+      context.clearRect(0, 0, canvas.width, canvas.height);
 
-    const mx = Array(count);
-    const config: LedAnimComponentConfig = {
-      width,
-      height,
-      time: time - offset,
-      t: time * 0.001,
-      i: 0,
-      start: 0
-    };
+      const mx = Array(count);
+      const config: LedAnimComponentConfig = {
+        width,
+        height,
+        time: time - offset,
+        t: time * 0.001,
+        i: 0,
+        start: 0
+      };
 
-    for (let i = 0; i < count; i++) {
-      const x = i % width;
-      const y = Math.floor(i / width);
+      for (let i = 0; i < count; i++) {
+        const x = i % width;
+        const y = Math.floor(i / width);
 
-      const c = fn(x, y, { ...config, i });
-      if (c >= ON) {
-        mx[i] = ON;
-      } else if (c <= 0.0) {
-        mx[i] = OFF;
-      } else {
-        mx[i] = c;
+        const c = fn(x, y, { ...config, i });
+        if (c >= ON) {
+          mx[i] = ON;
+        } else if (c <= 0.0) {
+          mx[i] = OFF;
+        } else {
+          mx[i] = c;
+        }
       }
+
+      mx.forEach((c, i) => {
+        context.fillStyle = `rgba(255 255 255 / ${c})`;
+
+        const x = i % width;
+        const y = Math.floor(i / width);
+
+        context.beginPath();
+        context.roundRect((pw + gap) * x, (ph + gap) * y, pw, ph, 3);
+        context.fill();
+      });
     }
-
-    mx.forEach((c, i) => {
-      context.fillStyle = `rgba(255 255 255 / ${c})`;
-
-      const x = i % width;
-      const y = Math.floor(i / width);
-
-      context.beginPath();
-      context.roundRect((pw + gap) * x, (ph + gap) * y, pw, ph, 3);
-      context.fill();
-    });
 
     setTimeout(() => {
       requestAnimationFrame(loop);

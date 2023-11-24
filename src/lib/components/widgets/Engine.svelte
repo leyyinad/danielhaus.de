@@ -2,38 +2,33 @@
   import City from '$lib/city/index';
   import { onDestroy, onMount } from 'svelte';
 
+  export let active = true;
+
   let canvas: HTMLCanvasElement;
-  let visible = true;
-  let observer: IntersectionObserver;
+  let city: City | undefined;
+
+  $: if (city?.engine != null) city.engine.active = active;
 
   if (typeof window != 'undefined' && typeof document != 'undefined') {
-    let city: City | undefined;
-
     const init = () => {
       if (canvas != null && canvas instanceof HTMLCanvasElement) {
         city = new City(canvas);
 
-        window.addEventListener('resize', resize);
-        window.requestAnimationFrame((t) => city!.engine.loop(t));
-        city.engine.visible = visible;
+        if (city?.engine != null) {
+          window.addEventListener('resize', resize);
+          window.requestAnimationFrame((t) => city?.engine?.loop(t));
+          city.engine.active = active;
 
-        resize();
-
-        observer = new IntersectionObserver(updateVisibility);
-        observer.observe(canvas);
+          resize();
+        }
       }
     };
 
-    const resize = () => city?.engine.resize();
+    const resize = () => city?.engine?.resize();
 
     const cleanup = () => {
-      observer.disconnect();
       window.removeEventListener('resize', resize);
       city = undefined;
-    };
-
-    const updateVisibility = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => (visible = entry.intersectionRatio > 0));
     };
 
     onMount(init);

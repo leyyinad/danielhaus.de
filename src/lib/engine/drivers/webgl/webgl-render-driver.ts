@@ -18,7 +18,7 @@ import ShaderInfo from './shader-info';
 
 export default class WebGLRenderDriver implements RenderDriver {
   engine!: Engine;
-  context: WebGL2RenderingContext;
+  context: WebGL2RenderingContext | undefined;
   shaders: Map<Shader, ShaderInfo> = new Map();
   stack: MatrixStack = new MatrixStack();
   buffers: BufferMap<WebGLBuffer> = new BufferMap();
@@ -27,7 +27,15 @@ export default class WebGLRenderDriver implements RenderDriver {
   modelView = mat4.create();
 
   constructor(public canvas: HTMLCanvasElement) {
-    this.context = canvas.getContext('webgl2')!;
+    try {
+      this.context = canvas.getContext('webgl2')!;
+    } catch (e) {
+      return;
+    }
+  }
+
+  isSupported() {
+    return this.context != null;
   }
 
   init() {
@@ -251,6 +259,6 @@ export default class WebGLRenderDriver implements RenderDriver {
   }
 
   get gl() {
-    return this.context;
+    return this.context!;
   }
 }

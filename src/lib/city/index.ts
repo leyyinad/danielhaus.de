@@ -12,15 +12,19 @@ import CubeRootScript from './scripts/cube-root-script';
 import CubeScript from './scripts/cube-script';
 
 export default class City {
-  engine: Engine;
+  engine: Engine | undefined;
 
   constructor(public canvas: HTMLCanvasElement) {
     const renderer = new WebGLRenderDriver(canvas);
-    const scene = this.createScene();
+    if (renderer.isSupported()) {
+      const scene = this.createScene();
 
-    this.engine = new Engine(renderer);
-    this.engine.scene = scene;
-    this.engine.init();
+      this.engine = new Engine(renderer);
+      this.engine.scene = scene;
+      this.engine.init();
+    } else {
+      console.warn(renderer.constructor.name, 'not supported.');
+    }
   }
 
   createScene() {

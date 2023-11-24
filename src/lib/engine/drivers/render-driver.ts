@@ -2,6 +2,7 @@ import type Engine from '../engine';
 
 export default interface RenderDriver {
   engine: Engine;
+  isSupported(): boolean;
   init(): void;
   viewport(x: number, y: number, width: number, height: number): void;
   resize(): void;

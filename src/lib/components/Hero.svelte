@@ -5,6 +5,7 @@
   import { fade } from 'svelte/transition';
   import Signature from './Signature.svelte';
   import Engine from './widgets/Engine.svelte';
+  import InViewport from './widgets/InViewport.svelte';
   import Leds from './widgets/Leds.svelte';
   import ScrollDownArrow from './widgets/ScrollDownArrow.svelte';
   import Typer from './widgets/Typer.svelte';
@@ -63,6 +64,8 @@
 
   onMount(init);
   onDestroy(cleanup);
+
+  let engineIsInViewport: boolean;
 </script>
 
 <div class="hero">
@@ -73,7 +76,9 @@
         class:centered={state.led.centered}
         style={`opacity: ${state.led.opacity}`}
       >
-        <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
+        <InViewport>
+          <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
+        </InViewport>
       </figure>
     {/if}
 
@@ -105,9 +110,11 @@
   {/if}
 
   {#if run_engine && state.cty.active}
-    <div class="ecity" transition:fade={{ duration: 7000 }}>
-      <Engine />
-    </div>
+    <InViewport on:viewport={(event) => (engineIsInViewport = event.detail.isInViewport)}>
+      <div class="ecity" transition:fade={{ duration: 7000 }}>
+        <Engine active={engineIsInViewport} />
+      </div>
+    </InViewport>
   {/if}
 </div>
 
