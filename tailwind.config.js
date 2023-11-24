@@ -2,7 +2,6 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  // darkMode: 'class',
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     fontFamily: {
@@ -35,19 +34,6 @@ export default {
         900: '#744c0f',
         950: '#442804'
       },
-      // 'violetshirt': {
-      //   '50': '#fff1f3',
-      //   '100': '#ffe3e7',
-      //   '200': '#ffc0cb',
-      //   '300': '#ffa2b3',
-      //   '400': '#fe6e8b',
-      //   '500': '#f83b66',
-      //   '600': '#e51951',
-      //   '700': '#c20e43',
-      //   '800': '#a20f40',
-      //   '900': '#8a113c',
-      //   '950': '#4d041c',
-      // },
       violetshirt: {
         50: '#fcf7fc',
         100: '#f8eef9',
@@ -61,6 +47,33 @@ export default {
         900: '#5f305c',
         950: '#3c1639'
       },
+      fungreen: {
+        50: '#edfff3',
+        100: '#d5ffe4',
+        200: '#adffca',
+        300: '#6effa1',
+        400: '#28ff71',
+        500: '#00ea4e',
+        600: '#00c33d',
+        700: '#009833',
+        800: '#04782d',
+        900: '#066128',
+        950: '#003713'
+      },
+      kashmirgrey: {
+        50: '#f6f7f9',
+        100: '#eceef2',
+        200: '#d5dae2',
+        300: '#b0bac9',
+        400: '#8594ab',
+        500: '#607088',
+        600: '#516078',
+        700: '#434d61',
+        800: '#3a4352',
+        900: '#333a47',
+        950: '#22262f'
+      },
+
       white: '#ffffff',
       black: '#000000'
     },

@@ -32,12 +32,12 @@
       <h4>Impressum</h4>
 
       <p>
-        Daniel Haus<br />
+        <strong>Daniel Haus</strong><br />
         IT-Beratung &amp; Softwareentwicklung
       </p>
 
       <div class="columns">
-        <div>
+        <div class="editor">
           <h5>Inhaltlich verantwortlich</h5>
 
           <span>Daniel Haus</span>
@@ -61,6 +61,21 @@
             >
           </p>
           <!-- eslint-enable svelte/no-at-html-tags -->
+        </div>
+
+        <div class="links">
+          <ul>
+            <li>
+              <a href="https://github.com/leyyinad" target="_blank" rel="noopener"
+                ><strong>github</strong>.com/<em>leyyinad</em></a
+              >
+            </li>
+            <li>
+              <a href="https://gitlab.com/leyyinad" target="_blank" rel="noopener"
+                ><strong>gitlab</strong>.com/<em>leyyinad</em></a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -89,10 +104,6 @@
     text-decoration: inherit;
     font-weight: inherit;
     user-select: text;
-  }
-
-  .skramble a:hover {
-    @apply underline underline-offset-2;
   }
 
   .columns {
@@ -135,25 +146,34 @@
   }
 
   .imprint {
-    @apply text-bluebirth-100
-			opacity-100;
+    @apply text-bluebirth-100;
   }
 
   h4 {
     @apply mb-4
-			text-2xl
-      font-light
-			opacity-50;
+			text-3xl
+      font-black;
   }
 
   h5 {
-    @apply mt-6
-			font-normal
-			opacity-60;
+    @apply mt-6;
   }
 
   p {
-    @apply m-0 p-0;
+    @apply m-0
+      p-0;
+  }
+
+  p,
+  .editor {
+    @apply font-light
+      text-kashmirgrey-300;
+  }
+
+  h5,
+  strong {
+    @apply font-bold
+      text-kashmirgrey-100;
   }
 
   address {
@@ -166,6 +186,25 @@
     @apply inline-block
 		  w-16
 			whitespace-nowrap
-			opacity-40;
+      text-kashmirgrey-500;
+  }
+
+  .links {
+    @apply mt-6
+      md:mt-12;
+  }
+
+  .links a {
+    @apply text-kashmirgrey-500;
+  }
+
+  .links a em {
+    @apply not-italic
+      text-kashmirgrey-200;
+  }
+
+  a:hover {
+    @apply underline
+      underline-offset-2;
   }
 </style>
