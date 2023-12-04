@@ -34,14 +34,14 @@
 
   .logo {
     @apply relative
-		h-8
-		w-auto
-		opacity-100
-		transition-opacity
-		delay-5000
-		duration-3000
-		ease-in
-		md:h-16;
+      h-8
+      w-auto
+      opacity-100
+      transition-opacity
+      delay-5000
+      duration-3000
+      ease-in
+      md:h-16;
   }
 
   .logo.logo-hidden {
