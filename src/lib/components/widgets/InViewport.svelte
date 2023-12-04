@@ -5,7 +5,6 @@
 
   let observer: IntersectionObserver | undefined;
   let target: HTMLElement;
-  let entry: IntersectionObserverEntry | undefined;
 
   const dispatch = createEventDispatcher();
 
@@ -22,7 +21,6 @@
 
   const updateIsInViewport = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((currentEntry) => {
-      entry = currentEntry;
       const inViewport = currentEntry.intersectionRatio > 0;
       if (isInViewport !== inViewport) {
         isInViewport = inViewport;
