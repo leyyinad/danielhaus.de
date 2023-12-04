@@ -84,15 +84,17 @@
 
     {#if !engine_only}
       <div class="title">
-        {#if state.sig.active}
-          <Signature opacity={state.sig.opacity} />
-        {/if}
+        <div class="signature">
+          {#if state.sig.active}
+            <Signature opacity={state.sig.opacity} />
+          {/if}
 
-        {#if state.nam.active}
-          <h1 transition:fade>D. Haus</h1>
-        {:else}
-          <h1 style="opacity: 0">D. Haus</h1>
-        {/if}
+          {#if state.nam.active}
+            <h1 transition:fade>D. Haus</h1>
+          {:else}
+            <h1 style="opacity: 0">D. Haus</h1>
+          {/if}
+        </div>
 
         {#if state.txt.active}
           <h2>
@@ -121,40 +123,27 @@
 <style lang="postcss">
   .hero {
     @apply relative
-      h-auto
-      min-h-screen
-      md:h-screen
-      md:min-h-[56.25vw];
+      h-[100vh];
   }
 
   .content {
     @apply container
-      z-10
       mx-auto
-      min-h-[40rem]
-      w-8/12
-      max-w-[16rem]
-      pt-28
-      sm:w-6/12
-      md:flex
-      md:max-w-none
-      md:pt-[35vh];
+      max-w-screen-sm
+      translate-y-[16vh]
+      sm:flex
+      sm:translate-y-[33vh];
   }
 
   .profile-image {
     @apply relative
-      left-1/3
-      mb-8
-      h-64
-      w-full
-      max-w-[33%]
-      md:left-0
-      md:mb-0
-      md:-translate-y-5
-      md:translate-x-5
-      md:scale-75
-      lg:translate-y-0
-      xl:-translate-x-5;
+      left-[16.6666667%]
+      aspect-square
+      w-2/3
+      translate-y-0
+      sm:left-0
+      sm:aspect-square
+      sm:w-[38.2%];
 
     transition-property: left, transform;
     transition-duration: 1s;
@@ -162,24 +151,27 @@
   }
 
   .profile-image.centered {
-    @apply relative
-      left-1/4
-      translate-x-1/4
-      translate-y-1/4
-      md:translate-y-0
-      md:scale-100;
+    @apply translate-y-20
+      sm:left-1/2
+      sm:-translate-x-1/2
+      sm:translate-y-0;
   }
 
   .title {
-    @apply ml-0
-      max-w-xs
-      flex-shrink-0
-      -translate-y-5
-      md:ml-12
-      md:w-6/12
-      md:translate-y-0
-      xl:ml-0
-      xl:w-6/12;
+    @apply relative
+      left-[12.5%]
+      w-3/4
+      sm:left-0
+      sm:w-[61.8%]
+      sm:pl-4
+      sm:pr-12;
+  }
+
+  .signature {
+    @apply mb-6
+      sm:-translate-x-4;
+
+    aspect-ratio: 2.28;
   }
 
   h1 {
@@ -188,19 +180,18 @@
       tracking-tight
       text-bluebirth-50
       opacity-25
-      sm:text-sm
-      md:-mt-3;
+      sm:-mt-3
+      sm:text-sm;
   }
 
   h2 {
     @apply mt-4
-      text-2xl
+      text-3xl
       font-semibold
       tracking-tight
       text-bluebirth-50
       drop-shadow-[0_0_16px_rgba(241,243,255,.25)]
-      sm:text-4xl
-      lg:text-4xl;
+      sm:text-4xl;
   }
 
   .ecity {
