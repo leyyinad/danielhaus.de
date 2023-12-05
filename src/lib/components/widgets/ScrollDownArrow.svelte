@@ -45,9 +45,9 @@
       w-9
       -translate-x-7
       rotate-45
-      bg-white;
+      bg-white
+      content-[''];
 
-    content: '';
     border-radius: 0.25rem;
   }
 

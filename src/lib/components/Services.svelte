@@ -47,20 +47,15 @@
   ul > li {
     @apply relative
       break-inside-avoid-column
-      pl-5;
-  }
-
-  ul > li::before {
-    @apply absolute
-      left-0
-      top-2.5
-      block
-      h-2
-      w-2
-      rounded-full
-      bg-white
-      opacity-25;
-
-    content: '';
+      pl-5
+      before:absolute
+      before:left-0
+      before:top-2.5
+      before:block
+      before:h-2
+      before:w-2
+      before:rounded-full
+      before:bg-white
+      before:opacity-25;
   }
 </style>
