@@ -10,7 +10,8 @@
       <li><strong>UI/UX</strong>, 2D/3D Grafikprogrammierung</li>
       <li>Audiovisuelle, <strong>interaktive</strong> Anwendungen</li>
       <li><strong>Cloud-native</strong>, Web, Mobile, Desktop, Server</li>
-      <li>CMS-Systeme, APIs, Datenbanken, Python, PHP, HTML5, JS/TS, CSS, WebGL</li>
+      <li>CMS-Systeme, APIs, Datenbanken</li>
+      <li>Python, PHP, HTML5, JS/TS, CSS, WebGL</li>
       <li><strong>IT-Security</strong> und <strong>Datenschutz/DSGVO</strong> tiefenintegriert</li>
     </ul>
   </article>
