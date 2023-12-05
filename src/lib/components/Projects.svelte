@@ -25,7 +25,7 @@
       to-black
       text-bluebirth-50;
 
-    background-image: url($lib/images/holz.jpg);
+    background-image: url('$lib/images/holz.jpg');
   }
 
   article {
