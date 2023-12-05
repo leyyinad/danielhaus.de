@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SquarePattern from '../widgets/SquarePattern.svelte';
+
   const email = import.meta.env.CONTACT_EMAIL;
   const phone = import.meta.env.CONTACT_PHONE;
 
@@ -67,12 +69,12 @@
           <ul>
             <li>
               <a href="https://github.com/leyyinad" target="_blank" rel="noopener"
-                ><strong>github</strong>.com/<em>leyyinad</em></a
+                ><strong>github</strong>.com/leyyinad</a
               >
             </li>
             <li>
               <a href="https://gitlab.com/leyyinad" target="_blank" rel="noopener"
-                ><strong>gitlab</strong>.com/<em>leyyinad</em></a
+                ><strong>gitlab</strong>.com/leyyinad</a
               >
             </li>
           </ul>
@@ -84,6 +86,7 @@
       <p>Es gelten die Regeln des gesunden Menschenverstands.</p>
     </div>
   </div>
+  <SquarePattern />
 </footer>
 
 <style lang="postcss">
@@ -116,15 +119,7 @@
   }
 
   footer {
-    @apply bg-black
-      bg-gradient-to-b
-      from-black
-      from-0%
-      via-black
-      via-80%
-			to-bluebirth-950
-      to-100%
-			text-bluebirth-200;
+    @apply bg-black;
   }
 
   footer > div {
@@ -195,12 +190,7 @@
   }
 
   .links a {
-    @apply text-kashmirgrey-500;
-  }
-
-  .links a em {
-    @apply not-italic
-      text-kashmirgrey-200;
+    @apply text-kashmirgrey-300;
   }
 
   a:hover {
