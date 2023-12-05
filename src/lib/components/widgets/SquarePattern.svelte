@@ -12,7 +12,8 @@
 
       objs += diamond(s, -s, y0, i0, sx);
       objs += diamond(s, s, y0, i0, sx);
-      objs += diamond(s, 0, y0 - s * 0.75, s * 1.5, sx);
+
+      objs += diamond(s, 0, y0 - s * 0.75 + 0.25 * i0, 1.5 * (s + i - 4), sx);
     }
 
     return `<svg viewBox="0 0 ${sx * s * 2} ${s * 8}" xmlns="http://www.w3.org/2000/svg">
@@ -39,8 +40,6 @@
   }
 
   let pattern: string | undefined;
-
-  console.log(generateSvg());
 
   onMount(() => {
     setTimeout(() => (pattern = btoa(generateSvg())), 10);
