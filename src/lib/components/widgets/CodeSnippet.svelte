@@ -26,6 +26,8 @@
   section {
     @apply relative
       h-32
+      cursor-default
+      select-none
       overflow-hidden
       bg-black
       bg-gradient-to-r
