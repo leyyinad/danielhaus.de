@@ -42,6 +42,6 @@ export default class ShaderCompiler {
   }
 
   get gl() {
-    return this.driver.context;
+    return this.driver.context!;
   }
 }
