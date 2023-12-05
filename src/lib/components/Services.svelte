@@ -12,6 +12,7 @@
       <li><strong>Cloud-native</strong>, Web, Mobile, Desktop, Server</li>
       <li>CMS-Systeme, APIs, Datenbanken</li>
       <li>Python, PHP, HTML5, JS/TS, CSS, WebGL</li>
+      <li>DevSecOps, TDD</li>
       <li><strong>IT-Security</strong> und <strong>Datenschutz/DSGVO</strong> tiefenintegriert</li>
     </ul>
   </article>
