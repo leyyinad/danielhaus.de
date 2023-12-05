@@ -4,16 +4,20 @@
     "client": "Klickrhein"
   },
   {
-    "title": "Oestrich-Winkel",
-    "client": "Klickrhein"
-  },
-  {
     "title": "Online-Shop",
     "client": "Klickrhein"
   },
   {
     "title": "Kundenportal",
     "client": "Klickrhein"
+  },
+  {
+    "title": "Oestrich-Winkel",
+    "client": "Klickrhein"
+  },
+  {
+    "title": "Kippelemente",
+    "client": "Arte/Planet Schule"
   },
   {
     "title": "ZDF Quartett",
@@ -24,36 +28,8 @@
     "client": "ZDF Digital"
   },
   {
-    "title": "Kippelemente",
-    "client": "Arte/Planet Schule"
-  },
-  {
     "title": "Machtfaktor Erde",
     "client": "Claus Kleber"
-  },
-  {
-    "title": "Netmail Monitor",
-    "client": "Netmail"
-  },
-  {
-    "title": "Algeco.de",
-    "client": "Algeco"
-  },
-  {
-    "title": "Algeco.com",
-    "client": "Algeco"
-  },
-  {
-    "title": "WBS Acoustics",
-    "client": "WBS"
-  },
-  {
-    "title": "Beratungshilfe",
-    "client": "R+V Versicherung"
-  },
-  {
-    "title": "RESI Rechenkern",
-    "client": "R+V Versicherung"
   },
   {
     "title": "Sparda Absicherung",
@@ -86,6 +62,30 @@
   {
     "title": "AESG iPad-App",
     "client": "Accenture"
+  },
+  {
+    "title": "Netmail Monitor",
+    "client": "Netmail"
+  },
+  {
+    "title": "Algeco.de",
+    "client": "Algeco"
+  },
+  {
+    "title": "Algeco.com",
+    "client": "Algeco"
+  },
+  {
+    "title": "WBS Acoustics",
+    "client": "WBS"
+  },
+  {
+    "title": "Beratungshilfe",
+    "client": "R+V Versicherung"
+  },
+  {
+    "title": "RESI Rechenkern",
+    "client": "R+V Versicherung"
   },
   {
     "title": "SKL.de",
