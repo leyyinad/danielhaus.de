@@ -16,6 +16,6 @@
       bg-no-repeat
       lg:bg-auto;
 
-    background-image: url($lib/images/code-persp.jpg);
+    background-image: url('$lib/images/code-persp.png');
   }
 </style>
