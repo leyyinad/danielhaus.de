@@ -132,7 +132,9 @@
       max-w-screen-sm
       translate-y-[16vh]
       sm:flex
-      sm:translate-y-[33vh];
+      md:translate-y-[33vh]
+      landscape:translate-y-[18vh]
+      landscape:md:translate-y-[33vh];
   }
 
   .profile-image {
