@@ -1,11 +1,19 @@
 [
   {
-    "title": "SKL.de",
-    "client": "SKL"
+    "title": "Rheingau.de",
+    "client": "Klickrhein"
   },
   {
-    "title": "Machtfaktor Erde",
-    "client": "Claus Kleber"
+    "title": "Oestrich-Winkel",
+    "client": "Klickrhein"
+  },
+  {
+    "title": "Online-Shop",
+    "client": "Klickrhein"
+  },
+  {
+    "title": "Kundenportal",
+    "client": "Klickrhein"
   },
   {
     "title": "ZDF Quartett",
@@ -20,6 +28,10 @@
     "client": "Arte/Planet Schule"
   },
   {
+    "title": "Machtfaktor Erde",
+    "client": "Claus Kleber"
+  },
+  {
     "title": "Netmail Monitor",
     "client": "Netmail"
   },
@@ -32,24 +44,20 @@
     "client": "Algeco"
   },
   {
+    "title": "WBS Acoustics",
+    "client": "WBS"
+  },
+  {
+    "title": "Beratungshilfe",
+    "client": "R+V Versicherung"
+  },
+  {
     "title": "RESI Rechenkern",
     "client": "R+V Versicherung"
   },
   {
     "title": "Sparda Absicherung",
-    "client": "Sparda Hessen"
-  },
-  {
-    "title": "Rheingau.de",
-    "client": "Klickrhein"
-  },
-  {
-    "title": "Oestrich-Winkel",
-    "client": "Klickrhein"
-  },
-  {
-    "title": "Kundenportal",
-    "client": "Klickrhein"
+    "client": "Sparda-Bank"
   },
   {
     "title": "Korrespondentennetz",
@@ -64,6 +72,10 @@
     "client": "Phoenix"
   },
   {
+    "title": "Landtagswahlen 2016",
+    "client": "Phoenix"
+  },
+  {
     "title": "Frauen-WM-Quiz",
     "client": "Phoenix"
   },
@@ -72,16 +84,16 @@
     "client": "Phoenix"
   },
   {
-    "title": "iPad-App",
+    "title": "AESG iPad-App",
     "client": "Accenture"
+  },
+  {
+    "title": "SKL.de",
+    "client": "SKL"
   },
   {
     "title": "Recruiting App",
     "client": "BSI"
-  },
-  {
-    "title": "Koexistenzmanager",
-    "client": "SITaaS"
   },
   {
     "title": "WebSphere-Portal",
@@ -132,7 +144,19 @@
     "client": "Business Tools"
   },
   {
-    "title": "WBS Acoustics",
-    "client": "WBS"
+    "title": "Kedas intl. Websites",
+    "client": "Detektei Bormann"
+  },
+  {
+    "title": "Online-Speisekarte",
+    "client": "Mykonos Grill"
+  },
+  {
+    "title": "Koexistenzmanager",
+    "client": "SITaaS"
+  },
+  {
+    "title": "ECM Assessment Tool",
+    "client": "Fink & Fuchs"
   }
 ]
