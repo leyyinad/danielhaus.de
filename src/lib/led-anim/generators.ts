@@ -119,3 +119,38 @@ export const plasma: LedAnimGeneratorComponent = (
 
   return Math.sin(v * c * Math.PI);
 };
+
+export const fract = (n: number) => n - Math.floor(n);
+export const rand = (n: number) => fract(Math.sin(n) * 43758.5453123);
+
+function snowFrame(x: number, y: number): number {
+  let v = rand(x * y);
+  v = v * v;
+
+  let v2 = rand(Math.tan(x * y));
+  v2 = v2 * v2;
+
+  v = v * v2;
+  v = v * v;
+
+  return v;
+}
+
+export const snow: LedAnimGeneratorComponent = (
+  x: number,
+  y: number,
+  { t, start }: LedAnimComponentConfig
+) => {
+  t += start;
+
+  const x0 = x;
+  const y0 = y - Math.round(t * 24);
+
+  let v = OFF;
+  v += snowFrame(x0, y0);
+  v += snowFrame(x0, y0 + 1) * 0.5;
+  v += snowFrame(x0, y0 + 2) * 0.4;
+  v += snowFrame(x0, y0 + 3) * 0.3;
+
+  return v * v;
+};
