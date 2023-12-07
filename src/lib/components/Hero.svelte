@@ -143,13 +143,12 @@
       aspect-square
       w-2/3
       translate-y-0
+      transition-[left,transform]
+      duration-1000
+      ease-in-out
       sm:left-0
       sm:aspect-square
       sm:w-[38.2%];
-
-    transition-property: left, transform;
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
   }
 
   .profile-image.centered {
@@ -171,9 +170,9 @@
 
   .signature {
     @apply mb-6
-      sm:-translate-x-4;
-
-    aspect-ratio: 2.28;
+      aspect-[2.28]
+      -translate-x-3
+      sm:-translate-x-8;
   }
 
   h1 {
@@ -188,11 +187,12 @@
 
   h2 {
     @apply mt-4
-      text-3xl
+      text-4xl
       font-semibold
       tracking-tight
       text-bluebirth-50
       drop-shadow-[0_0_16px_rgba(241,243,255,.25)]
+      max-[380px]:text-3xl
       sm:text-4xl;
   }
 
