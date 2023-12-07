@@ -14,7 +14,7 @@
     Mesh
   ].map(reformat);
 
-  function reformat(obj: object): string {
+  function reformat(obj: object | string): string {
     return obj
       .toString()
       .replaceAll(/\s+/g, ' ')
