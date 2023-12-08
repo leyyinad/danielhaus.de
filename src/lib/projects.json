@@ -4,7 +4,7 @@
     "client": "Klickrhein"
   },
   {
-    "title": "Online-Shop",
+    "title": "Shop-System",
     "client": "Klickrhein"
   },
   {
@@ -12,20 +12,16 @@
     "client": "Klickrhein"
   },
   {
-    "title": "Oestrich-Winkel",
-    "client": "Klickrhein"
-  },
-  {
-    "title": "Kippelemente",
-    "client": "Arte/Planet Schule"
+    "title": "Das Adlon",
+    "client": "ZDF Digital"
   },
   {
     "title": "ZDF Quartett",
     "client": "ZDF Digital"
   },
   {
-    "title": "Das Adlon",
-    "client": "ZDF Digital"
+    "title": "Kippelemente",
+    "client": "Arte/Planet Schule"
   },
   {
     "title": "Machtfaktor Erde",
@@ -48,7 +44,7 @@
     "client": "Phoenix"
   },
   {
-    "title": "Landtagswahlen 2016",
+    "title": "Landtagswahlen",
     "client": "Phoenix"
   },
   {
@@ -80,36 +76,32 @@
     "client": "WBS"
   },
   {
-    "title": "Beratungshilfe",
+    "title": "Rechenkern",
     "client": "R+V Versicherung"
   },
   {
-    "title": "RESI Rechenkern",
+    "title": "Beitragsrechner",
     "client": "R+V Versicherung"
-  },
-  {
-    "title": "SKL.de",
-    "client": "SKL"
   },
   {
     "title": "Recruiting App",
     "client": "BSI"
   },
   {
-    "title": "WebSphere-Portal",
+    "title": "SKL.de",
+    "client": "SKL"
+  },
+  {
+    "title": "WeDoWebSphere.de",
     "client": "GoertzConsult"
   },
   {
-    "title": "Gesundheitsberufe",
+    "title": "Gesundheitsberufe.de",
     "client": "GoertzConsult"
   },
   {
     "title": "Elixir (Python)",
     "client": "Open Source"
-  },
-  {
-    "title": "IT-Infrastruktur",
-    "client": "Business Tools"
   },
   {
     "title": "Video Service Tool",
@@ -124,28 +116,16 @@
     "client": "Atrikom"
   },
   {
-    "title": "Klimagipfel Paris 2015",
+    "title": "Klimagipfel Paris",
     "client": "Phoenix"
   },
   {
-    "title": "US-Wahlen 2016",
+    "title": "US-Wahlen",
     "client": "Phoenix"
-  },
-  {
-    "title": "US-Präsidenten-Quartett",
-    "client": "ZDF Digital"
   },
   {
     "title": "Mein Virobi",
     "client": "Vileda"
-  },
-  {
-    "title": "IT Infrastruktur",
-    "client": "Business Tools"
-  },
-  {
-    "title": "Kedas intl. Websites",
-    "client": "Detektei Bormann"
   },
   {
     "title": "Online-Speisekarte",
