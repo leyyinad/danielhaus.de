@@ -56,9 +56,10 @@
   }
 
   .projects li {
-    @apply basis-1/2
+    @apply basis-full
       pb-4
       pr-2
+      min-[380px]:basis-1/2
       sm:basis-1/2
 			md:basis-1/3
       lg:basis-1/4;

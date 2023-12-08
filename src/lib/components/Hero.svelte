@@ -187,12 +187,12 @@
 
   h2 {
     @apply mt-4
-      text-4xl
+      text-3xl
       font-semibold
       tracking-tight
       text-bluebirth-50
       drop-shadow-[0_0_16px_rgba(241,243,255,.25)]
-      max-[380px]:text-3xl
+      min-[380px]:text-4xl
       sm:text-4xl;
   }
 
