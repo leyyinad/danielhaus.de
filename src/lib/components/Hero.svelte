@@ -155,7 +155,8 @@
     @apply translate-y-20
       sm:left-1/2
       sm:-translate-x-1/2
-      sm:translate-y-0;
+      sm:translate-y-0
+      landscape:md:translate-y-10;
   }
 
   .title {
@@ -172,7 +173,8 @@
     @apply mb-6
       aspect-[2.28]
       -translate-x-3
-      sm:-translate-x-8;
+      sm:-translate-x-8
+      landscape:md:-translate-x-5;
   }
 
   h1 {
