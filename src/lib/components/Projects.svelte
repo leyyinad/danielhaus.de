@@ -23,6 +23,7 @@
       bg-gradient-to-br
       from-bluebirth-950
       to-black
+      bg-cover
       text-bluebirth-50;
 
     background-image: url('$lib/images/holz.jpg');
