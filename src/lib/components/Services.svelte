@@ -20,9 +20,12 @@
 
 <style lang="postcss">
   section {
-    @apply bg-[rgb(46,21,45)]
+    @apply bg-kashmirgrey-950
+      bg-cover
       text-white
       drop-shadow-xl;
+
+    background-image: url(/circuit.png);
   }
 
   article {
