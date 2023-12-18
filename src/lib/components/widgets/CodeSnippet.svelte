@@ -61,9 +61,9 @@
       select-none
       overflow-hidden
       bg-black
-      bg-gradient-to-r
-      from-fungreen-900/20
-      to-fungreen-700/20;
+      bg-gradient-to-br
+      from-fungreen-950/40
+      to-fungreen-800/30;
   }
 
   .scroller {
@@ -121,31 +121,28 @@
   .ticker-0,
   .ticker-1 {
     @apply relative
-      top-2
-      h-20
+      h-24
       text-8xl
       font-medium
       uppercase
-      opacity-30;
+      opacity-20;
   }
 
   .ticker-1 {
-    @apply -top-5
+    @apply -top-6
       text-5xl
       font-thin
-      text-fungreen-950
-      opacity-75;
+      text-fungreen-900;
   }
 
   :global(.ticker-0 pre),
   :global(.ticker-1 pre) {
-    --delay: 4s;
-    --duration: 32s;
+    --delay: -8s;
+    --duration: 64s;
   }
 
   :global(.ticker-1 pre) {
-    --delay: 0s;
-    --duration: 16s;
+    --duration: 32s;
   }
 
   pre {
