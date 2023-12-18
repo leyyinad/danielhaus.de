@@ -11,7 +11,7 @@
   export let pw = 8.0;
   export let ph = 8.0;
   export let delay = 10;
-  export let isInViewport = true;
+  export let active = true;
 
   export let fn: LedAnimGeneratorComponent = zero;
 
@@ -39,7 +39,7 @@
   const loop = (time: number) => {
     if (!running) return;
 
-    if (isInViewport) {
+    if (active) {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       const mx = Array(count);

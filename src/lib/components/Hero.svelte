@@ -10,8 +10,10 @@
   import ScrollDownArrow from './widgets/ScrollDownArrow.svelte';
   import Typer from './widgets/Typer.svelte';
 
-  const run_engine = true;
-  const engine_only = false;
+  const runEngine = true;
+  const engineOnly = false;
+  let ledsVisible;
+  let cityVisible;
 
   interface TimelineState {
     [key: string]: {
@@ -64,8 +66,6 @@
 
   onMount(init);
   onDestroy(cleanup);
-
-  let engineIsInViewport: boolean;
 </script>
 
 <div class="hero">
@@ -76,13 +76,13 @@
         class:centered={state.led.centered}
         style={`opacity: ${state.led.opacity}`}
       >
-        <InViewport>
-          <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
+        <InViewport let:isInViewport={ledsVisible}>
+          <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} active={ledsVisible} />
         </InViewport>
       </figure>
     {/if}
 
-    {#if !engine_only}
+    {#if !engineOnly}
       <div class="title">
         <div class="signature">
           {#if state.sig.active}
@@ -107,14 +107,14 @@
     {/if}
   </div>
 
-  {#if !engine_only && state.arr.active}
+  {#if !engineOnly && state.arr.active}
     <ScrollDownArrow />
   {/if}
 
-  {#if run_engine && state.cty.active}
-    <InViewport on:viewport={(event) => (engineIsInViewport = event.detail.isInViewport)}>
+  {#if runEngine && state.cty.active}
+    <InViewport let:isInViewport={cityVisible}>
       <div class="ecity" transition:fade={{ duration: 7000 }}>
-        <Engine active={engineIsInViewport} />
+        <Engine active={cityVisible} />
       </div>
     </InViewport>
   {/if}
