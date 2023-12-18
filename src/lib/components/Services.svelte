@@ -22,8 +22,7 @@
   section {
     @apply bg-kashmirgrey-950
       bg-cover
-      text-white
-      drop-shadow-xl;
+      text-white;
 
     background-image: url(/circuit.png);
   }
