@@ -19,10 +19,10 @@
 
 <style lang="postcss">
   section {
-    @apply bg-bluebirth-950
+    @apply bg-[#220D08]
       bg-gradient-to-br
-      from-bluebirth-950
-      to-black
+      from-[#301A0D]
+      to-[#220D08]
       bg-cover
       text-bluebirth-50;
 
