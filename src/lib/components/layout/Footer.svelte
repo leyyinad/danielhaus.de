@@ -81,13 +81,13 @@
         </div>
       </div>
     </div>
-
-    <div class="footer-note">
-      <p>Es gelten die Regeln des gesunden Menschenverstands.</p>
-    </div>
   </div>
   <SquarePattern />
 </footer>
+
+<div class="footnote">
+  <p>Es gelten die Regeln des gesunden Menschenverstands.</p>
+</div>
 
 <style lang="postcss">
   .skramble :global(i) {
@@ -130,14 +130,16 @@
       py-12;
   }
 
-  .footer-note {
-    @apply mt-5
-			border-t
-			border-bluebirth-400/25
-			py-4
-      text-center
-      text-sm
-      opacity-75;
+  .footnote {
+    @apply bg-bluebirth-950
+    p-7
+    text-center
+    text-sm;
+  }
+
+  .footnote p {
+    @apply font-semibold
+      text-bluebirth-400;
   }
 
   .imprint {
