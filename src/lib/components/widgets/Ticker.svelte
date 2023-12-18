@@ -29,11 +29,11 @@
 
   @keyframes scroll-anim {
     0% {
-      @apply translate-x-full;
+      transform: translate(0);
     }
 
     100% {
-      @apply -translate-x-full;
+      transform: translate(-800%);
     }
   }
 </style>

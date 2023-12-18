@@ -30,11 +30,18 @@
       .map((s) => (s < 16 ? '0' : '') + s.toString(16))
       .join(' ');
   }
+
+  const hexCode = hexify(Cube.toString());
 </script>
 
 <section>
   <div class="ticker">
-    <Ticker>{hexify(Cube.toString())}</Ticker>
+    <div class="ticker-0">
+      <Ticker>{hexCode}</Ticker>
+    </div>
+    <div class="ticker-1">
+      <Ticker>{hexCode}</Ticker>
+    </div>
   </div>
 
   {#each scripts as script, i}
@@ -111,11 +118,34 @@
     --duration: 40s;
   }
 
-  .ticker {
-    @apply text-9xl
+  .ticker-0,
+  .ticker-1 {
+    @apply relative
+      top-2
+      h-20
+      text-8xl
+      font-medium
+      uppercase
+      opacity-30;
+  }
+
+  .ticker-1 {
+    @apply -top-5
+      text-5xl
       font-thin
-      text-fungreen-800
-      opacity-5;
+      text-fungreen-950
+      opacity-75;
+  }
+
+  :global(.ticker-0 pre),
+  :global(.ticker-1 pre) {
+    --delay: 4s;
+    --duration: 32s;
+  }
+
+  :global(.ticker-1 pre) {
+    --delay: 0s;
+    --duration: 16s;
   }
 
   pre {
