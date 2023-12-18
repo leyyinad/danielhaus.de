@@ -39,8 +39,8 @@
   section {
     @apply relative
       overflow-hidden
-      border-y
-      border-violetshirt-200
+      border-y-2
+      border-black
       bg-violetshirt-950
       py-8
 			text-violetshirt-400
