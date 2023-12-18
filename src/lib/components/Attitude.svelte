@@ -17,9 +17,7 @@
           Schnelle Ergebnisse machen einen Unterschied. Deswegen investiere ich überdurchschnittlich
           in Tools und Automatisierung.
         </p>
-      </div>
 
-      <div class="column">
         <p>
           Jedes Projekt behandle ich mit größtmöglicher Sorgfalt und Verantwortung und kommuniziere
           dabei offen und proaktiv. Meine Kunden schätzen meine Zuverlässigkeit, meinen Weitblick

@@ -60,10 +60,12 @@
       cursor-default
       select-none
       overflow-hidden
+      border-b-2
+      border-black
       bg-black
       bg-gradient-to-br
-      from-fungreen-950/40
-      to-fungreen-800/30;
+      from-fungreen-950/20
+      to-fungreen-900/10;
   }
 
   .scroller {
@@ -124,15 +126,16 @@
       h-24
       text-8xl
       font-medium
-      uppercase
-      opacity-20;
+      text-fungreen-900
+      opacity-10;
   }
 
   .ticker-1 {
     @apply -top-6
       text-5xl
       font-thin
-      text-fungreen-900;
+      text-fungreen-900
+      opacity-30;
   }
 
   :global(.ticker-0 pre),

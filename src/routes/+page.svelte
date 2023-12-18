@@ -9,7 +9,7 @@
 
 <Hero />
 <About />
-<CodeSnippet />
 <Services />
 <Attitude />
+<CodeSnippet />
 <Projects />
