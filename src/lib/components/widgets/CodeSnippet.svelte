@@ -5,6 +5,7 @@
   import WebGLRenderDriver from '$lib/engine/drivers/webgl/webgl-render-driver';
   import Mesh from '$lib/engine/geom/mesh';
   import EndlessScroller from './EndlessScroller.svelte';
+  import Ticker from './Ticker.svelte';
 
   const scripts = [
     Engine,
@@ -20,9 +21,22 @@
       .replaceAll(/\s+/g, ' ')
       .replaceAll(/([{};])/g, '$1\n');
   }
+
+  function hexify(str: string) {
+    return str
+      .replaceAll(/[\s]+/g, ' ')
+      .split('')
+      .map((s) => s.codePointAt(0) || 0)
+      .map((s) => (s < 16 ? '0' : '') + s.toString(16))
+      .join(' ');
+  }
 </script>
 
 <section>
+  <div class="ticker">
+    <Ticker>{hexify(Cube.toString())}</Ticker>
+  </div>
+
   {#each scripts as script, i}
     <div class={`scroller scroller-${i}`}>
       <EndlessScroller>
@@ -95,6 +109,13 @@
 
     --delay: -12s;
     --duration: 40s;
+  }
+
+  .ticker {
+    @apply text-9xl
+      font-thin
+      text-fungreen-800
+      opacity-5;
   }
 
   pre {
