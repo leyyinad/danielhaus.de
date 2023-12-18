@@ -12,8 +12,11 @@
 
   const runEngine = true;
   const engineOnly = false;
-  let ledsVisible;
-  let cityVisible;
+
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+  let ledsVisible = true;
+  let cityVisible = true;
+  /* eslint-enable @typescript-eslint/no-unused-vars */
 
   interface TimelineState {
     [key: string]: {
