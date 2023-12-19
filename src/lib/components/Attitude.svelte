@@ -1,4 +1,8 @@
 <script lang="ts">
+  import InViewport from './widgets/InViewport.svelte';
+  import Tree from './widgets/Tree.svelte';
+
+  let tree: Tree;
 </script>
 
 <section>
@@ -10,27 +14,30 @@
         <p>
           Vertrauenswürdigkeit, Qualität und Effizienz sind meine Leitprinzipien. Es ist mir
           besonders wichtig, neben den Erwartungen meiner Kunden auch die eigenen Erwartungen an
-          meine Arbeitsergebnisse stetig zu erfüllen und regelmäßig zu übertreffen.
-        </p>
-
-        <p>
-          Schnelle Ergebnisse machen einen Unterschied. Deswegen investiere ich überdurchschnittlich
-          in Tools und Automatisierung.
+          meine Arbeitsergebnisse stetig zu erfüllen und regelmäßig zu übertreffen. Schnelle
+          Ergebnisse machen einen Unterschied. Deswegen investiere ich überdurchschnittlich in
+          Werkzeuge und Automatisierung.
         </p>
 
         <p>
           Jedes Projekt behandle ich mit größtmöglicher Sorgfalt und Verantwortung und kommuniziere
           dabei offen und proaktiv. Meine Kunden schätzen meine Zuverlässigkeit, meinen Weitblick
-          und meine Loyalität.
-        </p>
-
-        <p>
-          Ich bin ein verlässlicher Partner, der auch kurzfristigen Erfolg, vor allem aber
-          langfristige, nachhaltige Ergebnisse anstrebt.
+          und meine Loyalität. Ich bin ein verlässlicher Partner, der auch kurzfristigen Erfolg, vor
+          allem aber langfristige, nachhaltige Ergebnisse anstrebt.
         </p>
       </div>
     </div>
   </article>
+
+  <InViewport>
+    <Tree
+      slot="inViewport"
+      let:isInViewport
+      active={isInViewport}
+      bind:this={tree}
+      on:viewportFull={() => tree.start()}
+    />
+  </InViewport>
 </section>
 
 <style lang="postcss">
@@ -40,8 +47,11 @@
       border-y-2
       border-black
       bg-violetshirt-950
+      bg-gradient-to-br
+			from-violetshirt-950
+      to-black
       py-8
-			text-violetshirt-400
+      text-violetshirt-400
       drop-shadow-2xl;
   }
 
@@ -49,14 +59,18 @@
     @apply container
 			prose
 			prose-invert
+			relative
+			z-10
 			mx-auto
-			max-w-screen-lg
-			hyphens-auto
+      max-w-screen-lg
+      hyphens-auto
 			px-6
-			py-2
-			text-base
+			pb-96
+			pt-2
+      text-base
 			sm:text-xl
-			lg:max-w-5xl;
+			lg:max-w-5xl
+			lg:pb-2;
   }
 
   h4 {
@@ -70,11 +84,11 @@
   .columns-2 {
     @apply grid
 			gap-4
-			md:grid-cols-2;
+			lg:grid-cols-2;
   }
 
   .column:not(:first-child) {
     @apply -mt-8
-			md:mt-0;
+      md:mt-0;
   }
 </style>

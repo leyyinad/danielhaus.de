@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import About from '$lib/components/About.svelte';
   import Attitude from '$lib/components/Attitude.svelte';
   import Hero from '$lib/components/Hero.svelte';
@@ -10,6 +10,6 @@
 <Hero />
 <About />
 <Services />
-<Attitude />
 <CodeSnippet />
+<Attitude />
 <Projects />
