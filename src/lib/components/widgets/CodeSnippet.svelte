@@ -60,8 +60,6 @@
       cursor-default
       select-none
       overflow-hidden
-      border-b-2
-      border-black
       bg-black
       bg-gradient-to-br
       from-fungreen-950/20
@@ -135,7 +133,7 @@
       text-5xl
       font-thin
       text-fungreen-900
-      opacity-30;
+      opacity-20;
   }
 
   :global(.ticker-0 pre),
