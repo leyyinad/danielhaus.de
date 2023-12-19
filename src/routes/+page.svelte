@@ -7,6 +7,14 @@
   import CodeSnippet from '$lib/components/widgets/CodeSnippet.svelte';
 </script>
 
+<svelte:head>
+  <title>Daniel Haus — IT-Berater und Softwareentwickler</title>
+  <meta
+    name="description"
+    content="Mein Name ist Daniel Haus. Ich bin IT-Berater und Softwareentwickler aus dem Rhein-Main-Gebiet."
+  />
+</svelte:head>
+
 <Hero />
 <About />
 <Services />
