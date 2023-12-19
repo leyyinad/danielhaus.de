@@ -24,20 +24,16 @@
 
   const updateIsInViewport = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((currentEntry) => {
-      const inViewport = currentEntry.intersectionRatio > 0;
-
-      console.log(currentEntry.intersectionRatio);
-
-      if (isInViewport !== inViewport) {
-        isInViewport = inViewport;
+      if (currentEntry.isIntersecting !== isInViewport) {
+        isInViewport = currentEntry.isIntersecting;
         dispatch('viewport', { isInViewport });
-      }
 
-      if (currentEntry.intersectionRatio >= 0.8) {
-        dispatch('viewportFull', { ratio: currentEntry.intersectionRatio });
+        if (isInViewport) {
+          dispatch('enter');
+        } else {
+          dispatch('leave');
+        }
       }
-
-      return inViewport;
     });
   };
 

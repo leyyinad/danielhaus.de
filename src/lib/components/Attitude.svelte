@@ -3,6 +3,7 @@
   import Tree from './widgets/Tree.svelte';
 
   let tree: Tree;
+  // $: console.log(tree);
 </script>
 
 <section>
@@ -29,14 +30,8 @@
     </div>
   </article>
 
-  <InViewport>
-    <Tree
-      slot="inViewport"
-      let:isInViewport
-      active={isInViewport}
-      bind:this={tree}
-      on:viewportFull={() => tree.start()}
-    />
+  <InViewport on:enter={() => tree.start()} on:leave={() => tree.pause()}>
+    <Tree slot="inViewport" bind:this={tree} />
   </InViewport>
 </section>
 

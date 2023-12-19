@@ -13,6 +13,9 @@
   const runEngine = true;
   const engineOnly = false;
 
+  let engine: Engine;
+  let leds: Leds;
+
   interface TimelineState {
     [key: string]: {
       active?: boolean;
@@ -74,17 +77,16 @@
         class:centered={state.led.centered}
         style={`opacity: ${state.led.opacity}`}
       >
-        <InViewport>
+        <InViewport on:enter={() => leds.start()} on:leave={() => leds.pause()}>
           <Leds
             slot="inViewport"
-            let:isInViewport
+            bind:this={leds}
             width={64}
             height={64}
             pw={3}
             ph={3}
             gap={1}
             fn={anim}
-            active={isInViewport}
           />
         </InViewport>
       </figure>
@@ -120,9 +122,9 @@
   {/if}
 
   {#if runEngine && state.cty.active}
-    <InViewport>
-      <div slot="inViewport" let:isInViewport class="ecity" transition:fade={{ duration: 7000 }}>
-        <Engine active={isInViewport} />
+    <InViewport on:enter={() => engine.start()} on:leave={() => engine.pause()}>
+      <div slot="inViewport" class="ecity" transition:fade={{ duration: 7000 }}>
+        <Engine bind:this={engine} />
       </div>
     </InViewport>
   {/if}
