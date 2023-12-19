@@ -5,11 +5,12 @@
     <div class="columns-2">
       <div class="column">
         <p>
-          Ich bin <strong>IT-Berater</strong> und <strong>Softwareentwickler</strong> (Full-Stack,
-          Cloud, Web, Mobile, nativ) aus dem Rhein-Main-Gebiet. Als breitgefächerter Spezialist mit
-          Fokus auf <strong>benutzerfreundlicher</strong> und <strong>zuverlässiger</strong>,
-          durchdachter Software habe ich seit den späten 90er Jahren eine Vielzahl
-          überdurchschnittlich erfolgreicher Anwendungen realisiert.
+          Mein Name ist Daniel Haus. Ich bin <strong>IT-Berater</strong> und
+          <strong>Softwareentwickler</strong>
+          (Full-Stack, Cloud, Mobile, nativ) aus dem Rhein-Main-Gebiet. Als breitgefächerter Spezialist
+          mit Fokus auf <strong>benutzerfreundliche</strong> und
+          <strong>zuverlässige</strong>, durchdachte Software habe ich seit den späten 90er Jahren
+          eine Vielzahl überdurchschnittlich erfolgreicher Anwendungen realisiert.
         </p>
       </div>
 
