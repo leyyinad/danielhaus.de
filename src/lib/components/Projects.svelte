@@ -9,7 +9,13 @@
     <ul class="projects">
       {#each projects as project}
         <li>
-          <span class="title">{project.title}</span>
+          <span class="title">
+            {#if project.url}
+              <a href={project.url} target="_blank" rel="noopener">{project.title}</a>
+            {:else}
+              {project.title}
+            {/if}
+          </span>
           <span class="client">{project.client}</span>
         </li>
       {/each}

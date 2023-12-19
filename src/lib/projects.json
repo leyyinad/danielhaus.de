@@ -1,15 +1,18 @@
 [
   {
     "title": "Rheingau.de",
-    "client": "Klickrhein"
+    "client": "Klickrhein",
+    "url": "https://www.rheingau.de/"
   },
   {
     "title": "Shop-System",
-    "client": "Klickrhein"
+    "client": "Klickrhein",
+    "url": "https://www.klickrhein.de/"
   },
   {
     "title": "Kundenportal",
-    "client": "Klickrhein"
+    "client": "Klickrhein",
+    "url": "https://www.klickrhein.de/"
   },
   {
     "title": "Das Adlon",
@@ -21,7 +24,8 @@
   },
   {
     "title": "Kippelemente",
-    "client": "Arte/Planet Schule"
+    "client": "Arte/Planet Schule",
+    "url": "https://www.planet-schule.de/mm/kippelemente/"
   },
   {
     "title": "Machtfaktor Erde",
@@ -105,7 +109,8 @@
   },
   {
     "title": "Video Service Tool",
-    "client": "Viserto"
+    "client": "Viserto",
+    "url": "https://viserto.de/"
   },
   {
     "title": "Kedas intl. Websites",
