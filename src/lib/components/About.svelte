@@ -16,7 +16,7 @@
       <div class="column">
         <p>
           Meine Kunden umfassen bekannte Namen und Marken aus den Bereichen IT, Medien und TV,
-          Werbung, Versicherungen, Banken und Finanzen, Pharma und Medizin, Unternehmensberatung,
+          Werbung, Versicherung, Banken und Finanzen, Pharma und Medizin, Unternehmensberatung,
           High-End Audio, Automotive, Gesundheit, Bildung sowie aus dem öffentlichen Sektor.
         </p>
       </div>
