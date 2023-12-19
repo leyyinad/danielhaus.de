@@ -13,11 +13,6 @@
   const runEngine = true;
   const engineOnly = false;
 
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  let ledsVisible = true;
-  let cityVisible = true;
-  /* eslint-enable @typescript-eslint/no-unused-vars */
-
   interface TimelineState {
     [key: string]: {
       active?: boolean;
@@ -79,8 +74,18 @@
         class:centered={state.led.centered}
         style={`opacity: ${state.led.opacity}`}
       >
-        <InViewport let:isInViewport={ledsVisible}>
-          <Leds width={64} height={64} pw={3} ph={3} gap={1} fn={anim} active={ledsVisible} />
+        <InViewport>
+          <Leds
+            slot="inViewport"
+            let:isInViewport
+            width={64}
+            height={64}
+            pw={3}
+            ph={3}
+            gap={1}
+            fn={anim}
+            active={isInViewport}
+          />
         </InViewport>
       </figure>
     {/if}
@@ -115,9 +120,9 @@
   {/if}
 
   {#if runEngine && state.cty.active}
-    <InViewport let:isInViewport={cityVisible}>
-      <div class="ecity" transition:fade={{ duration: 7000 }}>
-        <Engine active={cityVisible} />
+    <InViewport>
+      <div slot="inViewport" let:isInViewport class="ecity" transition:fade={{ duration: 7000 }}>
+        <Engine active={isInViewport} />
       </div>
     </InViewport>
   {/if}
