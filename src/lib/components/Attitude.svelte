@@ -16,7 +16,7 @@
           Vertrauenswürdigkeit, Qualität und Effizienz sind meine Leitprinzipien. Es ist mir
           besonders wichtig, neben den Erwartungen meiner Kunden auch die eigenen Erwartungen an
           meine Arbeitsergebnisse stetig zu erfüllen und regelmäßig zu übertreffen. Schnelle
-          Ergebnisse machen einen Unterschied. Deswegen investiere ich überdurchschnittlich in
+          Ergebnisse machen einen Unterschied. Deswegen investiere ich viel Zeit und Energie in
           Werkzeuge und Automatisierung.
         </p>
 
