@@ -4,34 +4,40 @@
   import { Engine } from '$lib/engine';
   import WebGLRenderDriver from '$lib/engine/drivers/webgl/webgl-render-driver';
   import Mesh from '$lib/engine/geom/mesh';
+  import { onMount } from 'svelte';
   import EndlessScroller from './EndlessScroller.svelte';
   import Ticker from './Ticker.svelte';
 
-  const scripts = [
-    Engine,
-    [...cityGrid, ...cityGrid, ...cityGrid].join(';'),
-    Cube,
-    WebGLRenderDriver,
-    Mesh
-  ].map(reformat);
+  let scripts: string[] = [];
+  let hexCode = '';
 
-  function reformat(obj: object | string): string {
-    return obj
+  const init = () => {
+    scripts = [
+      Engine,
+      [...cityGrid, ...cityGrid, ...cityGrid].join(';'),
+      Cube,
+      WebGLRenderDriver,
+      Mesh
+    ].map(reformat);
+
+    hexCode = hexify(Cube.toString());
+  };
+
+  const reformat = (obj: object | string) =>
+    obj
       .toString()
       .replaceAll(/\s+/g, ' ')
       .replaceAll(/([{};])/g, '$1\n');
-  }
 
-  function hexify(str: string) {
-    return str
+  const hexify = (str: string) =>
+    str
       .replaceAll(/[\s]+/g, ' ')
       .split('')
       .map((s) => s.codePointAt(0) || 0)
       .map((s) => (s < 16 ? '0' : '') + s.toString(16))
       .join(' ');
-  }
 
-  const hexCode = hexify(Cube.toString());
+  onMount(init);
 </script>
 
 <section>
