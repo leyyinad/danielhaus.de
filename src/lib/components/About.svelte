@@ -6,11 +6,10 @@
       <div class="column">
         <p>
           Mein Name ist Daniel Haus. Ich bin <strong>IT-Berater</strong> und
-          <strong>Softwareentwickler</strong>
-          (Full-Stack, Cloud, Mobile, nativ) aus dem Rhein-Main-Gebiet. Als breitgefächerter Spezialist
-          mit Fokus auf <strong>benutzerfreundliche</strong> und
-          <strong>zuverlässige</strong>, durchdachte Software habe ich seit den späten 90er Jahren
-          eine Vielzahl überdurchschnittlich erfolgreicher Anwendungen realisiert.
+          <strong>Softwareentwickler</strong> aus dem Rhein-Main-Gebiet. Als breitgefächerter
+          Spezialist mit Fokus auf <strong>benutzerfreundliche</strong> und
+          <strong>zuverlässige</strong>, durchdachte Software habe ich in den letzten 25 Jahren
+          viele erfolgreiche Anwendungen realisiert.
         </p>
       </div>
 
@@ -18,7 +17,7 @@
         <p>
           Meine Kunden umfassen bekannte Namen und Marken aus den Bereichen IT, Medien und TV,
           Werbung, Versicherung, Banken und Finanzen, Pharma und Medizin, Unternehmensberatung,
-          High-End Audio, Automotive, Gesundheit, Bildung sowie aus dem öffentlichen Sektor.
+          High-End Audio, Automotive, Gesundheit, Bildung sowie dem öffentlichen Sektor.
         </p>
       </div>
     </div>
@@ -38,7 +37,7 @@
 			mx-auto
 			max-w-screen-lg
 			hyphens-auto
-			px-6
+      px-6
 			py-2
 			text-base
 			sm:text-xl
