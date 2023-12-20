@@ -46,7 +46,7 @@ test:
 deploy_dev:
   stage: deploy
   environment:
-    name: Develop
+    name: Development
   script:
     - echo "Deploying to DEV"
     - apk add lftp
