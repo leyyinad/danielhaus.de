@@ -15,16 +15,19 @@
       top-0
       h-auto;
 
-    animation: scroll-anim var(--duration) linear var(--delay) infinite;
+    --duration: 10s;
+    --delay: 0s;
+
+    animation: var(--duration) linear var(--delay) infinite scroll-anim;
   }
 
   @keyframes scroll-anim {
     0% {
-      @apply translate-y-full;
+      transform: translateY(100%);
     }
 
     100% {
-      @apply -translate-y-full;
+      transform: translateY(-100%);
     }
   }
 </style>

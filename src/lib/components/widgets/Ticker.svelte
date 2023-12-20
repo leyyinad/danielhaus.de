@@ -24,7 +24,7 @@
     --duration: 10s;
     --delay: 4s;
 
-    animation: scroll-anim var(--duration) linear var(--delay) infinite;
+    animation: var(--duration) linear var(--delay) infinite scroll-anim;
   }
 
   @keyframes scroll-anim {
