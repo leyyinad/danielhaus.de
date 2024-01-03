@@ -1,6 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
 import { glslify } from 'vite-plugin-glslify';
-import { defineConfig } from 'vitest/config';
 import { skramble } from './skramble';
 
 export default defineConfig(({ mode }) => ({
