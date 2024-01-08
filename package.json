@@ -17,9 +17,12 @@
     "postinstall": "svelte-kit sync"
   },
   "lint-staged": {
-    "*.{js,ts,svelte,html,json,cjs,css}": [
+    "*.{js,ts,svelte,html,json,cjs}": [
       "prettier --check",
       "eslint"
+    ],
+    "*.{css,scss}": [
+      "prettier --check"
     ]
   },
   "devDependencies": {
@@ -29,7 +32,7 @@
     "@sveltejs/kit": "^1.30.3",
     "@tailwindcss/typography": "^0.5.10",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
-    "@typescript-eslint/parser": "^6.17.0",
+    "@typescript-eslint/parser": "^6.18.0",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.2",
     "eslint": "^8.56.0",
