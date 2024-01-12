@@ -1,13 +1,9 @@
 import tailwindTypography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    fontFamily: {
-      sans: ['Montserrat var', ...defaultTheme.fontFamily.sans]
-    },
     colors: {
       bluebirth: {
         50: '#f1f3ff',
