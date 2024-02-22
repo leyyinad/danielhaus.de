@@ -46,11 +46,10 @@ export default class WebGLRenderDriver implements RenderDriver {
   initShaders() {
     const compiler = new ShaderCompiler(this);
 
-    BaseObject.objects.forEach(
-      (o) =>
-        o
-          .getComponent(Renderer)
-          ?.materials.forEach(({ shader }) => this.compileShader(shader, compiler))
+    BaseObject.objects.forEach((o) =>
+      o
+        .getComponent(Renderer)
+        ?.materials.forEach(({ shader }) => this.compileShader(shader, compiler))
     );
   }
 
