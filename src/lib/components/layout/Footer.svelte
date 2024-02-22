@@ -35,7 +35,7 @@
 
       <p>
         <strong>Daniel Haus</strong><br />
-        IT-Berater &amp; Softwareentwickler
+        IT-Beratung &amp; Softwareentwicklung
       </p>
 
       <div class="columns">
