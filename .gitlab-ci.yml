@@ -2,6 +2,7 @@ image: node:18-alpine
 
 stages:
   - npm
+  - audit
   - lint
   - build
   - test
@@ -23,6 +24,11 @@ npm:
     paths:
       - .svelte-kit/
       - node_modules/
+
+audit:
+  stage: audit
+  script:
+    - npm audit
 
 lint:
   stage: lint
