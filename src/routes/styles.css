@@ -16,7 +16,8 @@ body {
 }
 
 @layer components {
-  body {
+  body,
+  .dark body {
     @apply bg-bluebirth-950 antialiased;
   }
 }
