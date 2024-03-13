@@ -8,7 +8,7 @@ export function animate<T>(
   defaults: T,
   config: T | undefined,
   componentConfig: LedAnimComponentConfig,
-  animatable: [keyof T]
+  animatable: (keyof T)[]
 ): { [_key in keyof T]: number } {
   const cfg = { ...defaults, ...config } as T;
 

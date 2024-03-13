@@ -107,8 +107,8 @@ export type LedAnimScaleConfig = {
 
 export const scaleDefaults: LedAnimScaleConfig = {
   sx: 1.0,
-  cx: (t, config) => config.width * 0.5,
-  cy: (t, config) => config.height * 0.5
+  cx: (_t: number, config: LedAnimComponentConfig) => config.width * 0.5,
+  cy: (_t: number, config: LedAnimComponentConfig) => config.height * 0.5
 };
 
 export const scale =

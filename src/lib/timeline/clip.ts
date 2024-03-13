@@ -6,7 +6,7 @@ export type ClipDesc<T extends ClipState> = [
   number, // start
   number, // end
   T, // stateBegin
-  T?, // stateEnd
+  T? // stateEnd
 ];
 
 export default class Clip<T extends ClipState> {
@@ -16,7 +16,7 @@ export default class Clip<T extends ClipState> {
     public start: number,
     public end: number,
     private stateBegin: T,
-    private stateEnd?: T,
+    private stateEnd?: T
   ) {
     if (start > end) {
       [this.start, this.end] = [end, start];
@@ -30,11 +30,7 @@ export default class Clip<T extends ClipState> {
       return this.stateBegin;
     }
 
-    return this.interpolate(
-      this.stateBegin,
-      this.stateEnd,
-      (time - this.start) / this.length,
-    );
+    return this.interpolate(this.stateBegin, this.stateEnd, (time - this.start) / this.length);
   }
 
   interpolate(a: T, b: T, t: number): T {
