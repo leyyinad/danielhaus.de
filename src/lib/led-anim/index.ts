@@ -1,5 +1,5 @@
 import danielProfileImg from '$lib/images/daniel-profile-64px.png';
-import { image, ledTest, plasma, zero } from './generators';
+import { image, ledTest, plasma } from './generators';
 import { fadeIn, scale, speed, vignette } from './modifiers';
 import { add, loop, multiply, sequence, subtract } from './operators';
 import { fade } from './transitions';
@@ -24,11 +24,9 @@ const logo = scale(
 const scaledLogo = scale(logo, { sx: 0.87 });
 
 export default sequence(
-  [zero, 1],
-
-  [fadeIn(vignette(plasma), 4), 4],
-  [fade(vignette(plasma), multiply(plasma, photo)), 2],
-  [fade(multiply(plasma, photo), photo), 5],
+  [fadeIn(vignette(plasma), 1), 1],
+  [fade(vignette(plasma), multiply(plasma, photo)), 1],
+  [fade(multiply(plasma, photo), photo), 1],
   [
     loop(
       sequence(

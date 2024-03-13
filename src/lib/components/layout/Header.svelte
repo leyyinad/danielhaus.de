@@ -6,7 +6,7 @@
   onMount(() => {
     setTimeout(() => {
       img.classList.remove('logo-hidden');
-    }, 1000);
+    }, 1);
   });
 </script>
 
@@ -38,7 +38,7 @@
       w-auto
       opacity-100
       transition-opacity
-      delay-5000
+      delay-1000
       duration-3000
       ease-in
       md:h-16;

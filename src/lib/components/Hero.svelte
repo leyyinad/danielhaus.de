@@ -27,21 +27,21 @@
   const timeline = new Timeline({
     led: [
       [0, 1, { active: false }, { active: true }],
-      [0.25, 60, { active: true }],
-      [0, 7, { centered: true }, { centered: false }],
-      [7, 9, { opacity: 1.0 }, { opacity: 0.8 }]
+      [0.25, 10, { active: true }],
+      [0, 2, { centered: true }, { centered: false }],
+      [2, 5, { opacity: 1.0 }, { opacity: 0.8 }]
     ],
 
     sig: [
-      [9, 60, { active: true }],
-      [9, 9, { opacity: 1.0 }],
-      [11, 13, { opacity: 1.0 }, { opacity: 0.5 }]
+      [3, 60, { active: true }],
+      [3, 3, { opacity: 1.0 }],
+      [4, 5, { opacity: 1.0 }, { opacity: 0.5 }]
     ],
 
-    nam: [[12, 60, { active: true }]],
-    txt: [[12, 60, { active: true }]],
-    cty: [[12, 60, { active: true }]],
-    arr: [[20, 60, { active: true }]]
+    nam: [[7, 60, { active: true }]],
+    txt: [[5, 60, { active: true }]],
+    cty: [[5, 60, { active: true }]],
+    arr: [[10, 60, { active: true }]]
   });
 
   let state: TimelineState = timeline.state(0) as unknown as TimelineState;
