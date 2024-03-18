@@ -30,7 +30,7 @@ export default sequence(
   [
     loop(
       sequence(
-        [photo, 5],
+        [photo, 10],
         [fade(photo, multiply(plasma, photo)), 2],
         [fade(multiply(plasma, photo), multiply(plasma, scaledLogo)), 2],
         [fade(multiply(plasma, scaledLogo), scaledLogo), 2],
