@@ -47,6 +47,9 @@
             Limburger Str. 36<br />
             65510 Idstein
           </address>
+
+          <h5>USt-IdNr.</h5>
+          <span>DE365921448</span>
         </div>
 
         <div class="kontakt skramble">
