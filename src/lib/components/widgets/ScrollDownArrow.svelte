@@ -45,10 +45,9 @@
       w-9
       -translate-x-7
       rotate-45
+      rounded
       bg-white
       content-[''];
-
-    border-radius: 0.25rem;
   }
 
   .arr::after {
