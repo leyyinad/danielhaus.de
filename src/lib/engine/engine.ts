@@ -10,6 +10,7 @@ export default class Engine {
   scene!: Scene;
   modelView: mat4;
   throttle: number = 0;
+  running: boolean = false;
 
   constructor(public renderDriver: RenderDriver) {
     renderDriver.engine = this;
@@ -30,9 +31,20 @@ export default class Engine {
     this.render();
   }
 
+  run() {
+    this.running = true;
+    this.renderDriver.run((time: DOMHighResTimeStamp) => this.loop(time));
+  }
+
+  stop() {
+    this.running = false;
+  }
+
   loop(time: DOMHighResTimeStamp) {
     this.tick(time);
-    this.renderDriver.loop((time: DOMHighResTimeStamp) => this.loop(time));
+    if (this.running) {
+      this.renderDriver.loop((time: DOMHighResTimeStamp) => this.loop(time));
+    }
   }
 
   resize() {

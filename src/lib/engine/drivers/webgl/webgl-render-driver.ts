@@ -1,3 +1,4 @@
+import Time from '$lib/engine/time';
 import { mat4 } from 'gl-matrix';
 import { UniformType } from '../../../city/materials/wireframe/material';
 import Camera from '../../components/camera/camera';
@@ -63,9 +64,12 @@ export default class WebGLRenderDriver implements RenderDriver {
 
     this.shaders.set(shader, info);
 
-    shader.attributes.forEach((value, key) =>
-      info.attributes.set(key, gl.getAttribLocation(info.program!, value))
-    );
+    shader.attributes.forEach((value, key) => {
+      const attrib = gl.getAttribLocation(info.program!, value);
+      if (attrib >= 0) {
+        info.attributes.set(key, attrib);
+      }
+    });
 
     shader.uniforms.forEach(([value, type], key) =>
       info.uniforms.set(key, [gl.getUniformLocation(info.program!, value)!, type])
@@ -216,13 +220,21 @@ export default class WebGLRenderDriver implements RenderDriver {
 
     for (const bufferType of mesh.buffers) {
       const buffer = this.buffers.get(mesh, bufferType);
-      if (buffer != null) {
-        const attrib = info!.attributes.get(bufferType)!;
-        gl.bindBuffer(this.bufferTarget(bufferType), buffer);
-        if (bufferType !== BufferType.TRIANGLE) {
-          gl.vertexAttribPointer(attrib, mesh.bufferItemSize(bufferType), gl.FLOAT, false, 0, 0);
-          gl.enableVertexAttribArray(attrib);
-        }
+      if (buffer == null) {
+        continue;
+      }
+
+      const attrib = info!.attributes.get(bufferType)!;
+      if (attrib == null) {
+        continue;
+      }
+
+      const bufferTarget = this.bufferTarget(bufferType);
+      gl.bindBuffer(bufferTarget, buffer);
+
+      if (bufferType !== BufferType.TRIANGLE) {
+        gl.vertexAttribPointer(attrib, mesh.bufferItemSize(bufferType), gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(attrib);
       }
     }
   }
@@ -241,6 +253,15 @@ export default class WebGLRenderDriver implements RenderDriver {
               break;
             case 'modelView':
               gl.uniformMatrix4fv(loc, false, this.modelView);
+              break;
+            default:
+          }
+          break;
+
+        case UniformType.FLOAT:
+          switch (key) {
+            case 'time':
+              gl.uniform1f(loc, Time.time);
               break;
             default:
           }
