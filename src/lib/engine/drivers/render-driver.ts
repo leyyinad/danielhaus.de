@@ -8,6 +8,6 @@ export default interface RenderDriver {
   resize(): void;
   clear(): void;
   render(): void;
-  run(callback: FrameRequestCallback): void;
+  run(callback: CallableFunction): void;
   loop(callback: CallableFunction): void;
 }
