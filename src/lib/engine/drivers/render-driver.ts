@@ -1,7 +1,7 @@
-import type Engine from '../engine';
+import type EngineContext from '../context';
 
 export default interface RenderDriver {
-  engine: Engine;
+  engineContext: EngineContext;
   isSupported(): boolean;
   init(): void;
   viewport(x: number, y: number, width: number, height: number): void;

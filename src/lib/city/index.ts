@@ -16,11 +16,10 @@ export default class City {
 
   constructor(public canvas: HTMLCanvasElement) {
     const renderer = new WebGLRenderDriver(canvas);
-    if (renderer.isSupported()) {
-      const scene = this.createScene();
 
+    if (renderer.isSupported()) {
       this.engine = new Engine(renderer);
-      this.engine.scene = scene;
+      this.engine.scene = this.createScene();
       this.engine.init();
     } else {
       console.warn(renderer.constructor.name, 'not supported.');

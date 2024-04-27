@@ -1,23 +1,11 @@
 import type Component from './components/component';
 import Transform from './components/transform';
+import Engine from './engine';
 import type Scene from './scene/scene';
 
 export type ComponentConstructor<T extends Component> = new () => T;
 
-// const components: Component[] = [];
-
-// (new (...args: ConstructorParameters<T>) => T);
-// type Constructor<T> = (new () => T);
-
-// const getComponent = <T extends Component>(type: Constructor<T>): T | undefined => {
-//   return components.find(c => c instanceof type) as T;
-// };
-
-// const e = getComponent(Environment);
-
 export default class BaseObject {
-  static objects: BaseObject[] = [];
-
   name: string;
   components: Component[];
   tags: string[];
@@ -26,20 +14,24 @@ export default class BaseObject {
   active = true;
 
   constructor() {
+    if (Engine.currentContext == null) {
+      throw new Error('No active engine.');
+    }
+
     this.name = this.constructor.name;
     this.transform = new Transform();
     this.components = [this.transform];
     this.tags = [];
 
-    BaseObject.objects.push(this);
+    Engine.currentContext!.objects.push(this);
   }
 
   get children() {
-    return BaseObject.objects.filter((o) => o.transform.parent === this.transform);
+    return Engine.currentContext!.objects.filter((o) => o.transform.parent === this.transform);
   }
 
   static find(name: string) {
-    this.objects.find((o) => o.name === name);
+    return Engine.currentContext!.objects.find((o) => o.name === name);
   }
 
   addComponent(component: Component) {

@@ -1,10 +1,24 @@
+import Engine from './engine';
+
 export default class Time {
   /*  time since start in ms */
-  static time = 0;
+  time = 0;
 
   /* time since last frame in ms */
-  static timeDelta = 0;
+  timeDelta = 0;
 
   /* number of frames since start */
-  static frameCount = 0;
+  frameCount = 0;
+
+  static get time() {
+    return Engine.currentContext?.time.time ?? 0;
+  }
+
+  static get timeDelta() {
+    return Engine.currentContext?.time.timeDelta ?? 0;
+  }
+
+  static get frameCount() {
+    return Engine.currentContext?.time.frameCount ?? 0;
+  }
 }

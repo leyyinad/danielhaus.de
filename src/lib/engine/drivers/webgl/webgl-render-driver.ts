@@ -1,24 +1,24 @@
+import { UniformType } from '$lib/city/materials/wireframe/material';
+import Camera from '$lib/engine/components/camera/camera';
+import MeshFilter from '$lib/engine/components/mesh/mesh-filter';
+import Environment from '$lib/engine/components/renderer/environment';
+import MeshRenderer from '$lib/engine/components/renderer/mesh-renderer';
+import Renderer from '$lib/engine/components/renderer/renderer';
+import type EngineContext from '$lib/engine/context';
+import MatrixStack from '$lib/engine/geom/matrix-stack';
+import type Mesh from '$lib/engine/geom/mesh';
+import { BufferType } from '$lib/engine/geom/mesh';
+import type BaseObject from '$lib/engine/object';
+import type Shader from '$lib/engine/renderer/shader';
 import Time from '$lib/engine/time';
 import { mat4 } from 'gl-matrix';
-import { UniformType } from '../../../city/materials/wireframe/material';
-import Camera from '../../components/camera/camera';
-import MeshFilter from '../../components/mesh/mesh-filter';
-import Environment from '../../components/renderer/environment';
-import MeshRenderer from '../../components/renderer/mesh-renderer';
-import Renderer from '../../components/renderer/renderer';
-import type Engine from '../../engine';
-import MatrixStack from '../../geom/matrix-stack';
-import type Mesh from '../../geom/mesh';
-import { BufferType } from '../../geom/mesh';
-import BaseObject from '../../object';
-import type Shader from '../../renderer/shader';
 import type RenderDriver from '../render-driver';
 import BufferMap from './buffer-map';
 import ShaderCompiler from './shader-compiler';
 import ShaderInfo from './shader-info';
 
 export default class WebGLRenderDriver implements RenderDriver {
-  engine!: Engine;
+  engineContext!: EngineContext;
   context: WebGL2RenderingContext | undefined;
   shaders: Map<Shader, ShaderInfo> = new Map();
   stack: MatrixStack = new MatrixStack();
@@ -27,7 +27,7 @@ export default class WebGLRenderDriver implements RenderDriver {
   projection = mat4.create();
   modelView = mat4.create();
 
-  constructor(public canvas: HTMLCanvasElement) {
+  constructor(public readonly canvas: HTMLCanvasElement) {
     try {
       this.context = canvas.getContext('webgl2')!;
     } catch (e) {
@@ -47,7 +47,7 @@ export default class WebGLRenderDriver implements RenderDriver {
   initShaders() {
     const compiler = new ShaderCompiler(this);
 
-    BaseObject.objects.forEach((o) =>
+    this.engineContext.objects.forEach((o) =>
       o
         .getComponent(Renderer)
         ?.materials.forEach(({ shader }) => this.compileShader(shader, compiler))
@@ -79,7 +79,7 @@ export default class WebGLRenderDriver implements RenderDriver {
   initBuffers() {
     const { gl } = this;
 
-    for (const object of BaseObject.objects) {
+    for (const object of this.engineContext.objects) {
       const mesh = object.getComponent(MeshFilter)?.mesh;
 
       if (mesh == null) continue;
@@ -280,5 +280,9 @@ export default class WebGLRenderDriver implements RenderDriver {
 
   get gl() {
     return this.context!;
+  }
+
+  get engine() {
+    return this.engineContext.engine;
   }
 }

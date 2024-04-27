@@ -1,9 +1,11 @@
-import BaseObject from '../object';
+import Engine from '../engine';
 
 export default class Scene {
   constructor(public name = 'Scene') {}
 
   getRootObjects() {
-    return BaseObject.objects.filter((o) => o.scene === this && o.transform.parent == null);
+    return Engine.currentContext?.objects.filter(
+      (o) => o.scene === this && o.transform.parent == null
+    );
   }
 }

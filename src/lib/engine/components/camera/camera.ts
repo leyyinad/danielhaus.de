@@ -1,9 +1,8 @@
+import Engine from '$lib/engine/engine';
 import { mat4 } from 'gl-matrix';
 import Behaviour from '../behaviour';
 
 export default class Camera extends Behaviour {
-  static main: Camera | undefined;
-
   public fieldOfView = (45 * Math.PI) / 180;
   public zNear = 0.1;
   public zFar = 100.0;
@@ -11,11 +10,21 @@ export default class Camera extends Behaviour {
 
   private _projection: mat4 = mat4.create();
 
+  static get main(): Camera | undefined {
+    return Engine.currentContext?.camera;
+  }
+
   constructor() {
     super();
 
     if (Camera.main == null) {
-      Camera.main = this;
+      this.use();
+    }
+  }
+
+  public use() {
+    if (Engine.currentContext != null) {
+      Engine.currentContext.camera = this;
     }
   }
 

@@ -1,8 +1,8 @@
 import { mat4 } from 'gl-matrix';
 import Camera from './components/camera/camera';
 import ScriptBehaviour from './components/script-behaviour';
+import EngineContext from './context';
 import type RenderDriver from './drivers/render-driver';
-import BaseObject from './object';
 import type Scene from './scene/scene';
 import Time from './time';
 
@@ -11,10 +11,23 @@ export default class Engine {
   modelView: mat4;
   throttle: number = 0;
   running: boolean = false;
+  context: EngineContext;
+
+  static currentContext: EngineContext | undefined;
 
   constructor(public renderDriver: RenderDriver) {
-    renderDriver.engine = this;
     this.modelView = mat4.create();
+
+    this.context = new EngineContext(this);
+    renderDriver.engineContext = this.context;
+
+    if (Engine.currentContext == null) {
+      this.use();
+    }
+  }
+
+  use() {
+    Engine.currentContext = this.context;
   }
 
   init() {
@@ -52,11 +65,12 @@ export default class Engine {
   }
 
   update(time: number) {
-    Time.timeDelta = time - Time.time;
-    Time.time = time;
-    Time.frameCount++;
+    const contextTime = this.context.time;
+    contextTime.timeDelta = time - Time.time;
+    contextTime.time = time;
+    contextTime.frameCount++;
 
-    for (const o of BaseObject.objects) {
+    for (const o of this.context.objects) {
       for (const c of o.getComponents(ScriptBehaviour)) {
         if (c.enabled) {
           if (!c._started) {
