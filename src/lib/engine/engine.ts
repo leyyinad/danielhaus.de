@@ -1,10 +1,8 @@
 import { mat4 } from 'gl-matrix';
-import Camera from './components/camera/camera';
 import ScriptBehaviour from './components/script-behaviour';
 import EngineContext from './context';
 import type RenderDriver from './drivers/render-driver';
 import type Scene from './scene/scene';
-import Time from './time';
 
 export default class Engine {
   scene!: Scene;
@@ -21,12 +19,10 @@ export default class Engine {
     this.context = new EngineContext(this);
     renderDriver.engineContext = this.context;
 
-    if (Engine.currentContext == null) {
-      this.use();
-    }
+    this.activate();
   }
 
-  use() {
+  activate() {
     Engine.currentContext = this.context;
   }
 
@@ -35,11 +31,12 @@ export default class Engine {
   }
 
   viewport(x: number, y: number, width: number, height: number) {
-    Camera.main!.aspect = width / Math.max(height, 1);
+    this.context.camera!.aspect = width / Math.max(height, 1);
     this.renderDriver.viewport(x, y, width, height);
   }
 
   tick(time: DOMHighResTimeStamp) {
+    this.activate();
     this.update(time);
     this.render();
   }
@@ -66,7 +63,7 @@ export default class Engine {
 
   update(time: number) {
     const contextTime = this.context.time;
-    contextTime.timeDelta = time - Time.time;
+    contextTime.timeDelta = time - contextTime.time;
     contextTime.time = time;
     contextTime.frameCount++;
 
