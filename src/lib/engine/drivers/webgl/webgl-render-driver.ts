@@ -42,6 +42,7 @@ export default class WebGLRenderDriver implements RenderDriver {
   init() {
     this.initShaders();
     this.initBuffers();
+    this.resize();
   }
 
   initShaders() {
