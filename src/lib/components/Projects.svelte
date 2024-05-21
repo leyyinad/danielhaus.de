@@ -11,7 +11,7 @@
         <li>
           <span class="title">
             {#if project.url}
-              <a href={project.url} target="_blank" rel="noopener">{project.title}</a>
+              <a href={project.url} target="_blank" rel="external noopener">{project.title}</a>
             {:else}
               {project.title}
             {/if}

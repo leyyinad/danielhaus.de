@@ -4,6 +4,7 @@
   import Hero from '$lib/components/Hero.svelte';
   import Projects from '$lib/components/Projects.svelte';
   import Services from '$lib/components/Services.svelte';
+  import OpenSource from '$lib/components/OpenSource.svelte';
   import CodeSnippet from '$lib/components/widgets/CodeSnippet.svelte';
 </script>
 
@@ -39,4 +40,5 @@
 <Services />
 <CodeSnippet />
 <Attitude />
+<OpenSource />
 <Projects />
