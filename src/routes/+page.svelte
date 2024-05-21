@@ -40,5 +40,5 @@
 <Services />
 <CodeSnippet />
 <Attitude />
-<OpenSource />
 <Projects />
+<OpenSource />
