@@ -4,16 +4,11 @@
 
 <style lang="postcss">
   .outer {
-    @apply relative
-      h-full
-      overflow-hidden;
+    @apply relative h-full overflow-hidden;
   }
 
   .outer > div {
-    @apply absolute
-      left-0
-      top-0
-      h-auto;
+    @apply absolute left-0 top-0 h-auto;
 
     --duration: 10s;
     --delay: 0s;

@@ -132,88 +132,38 @@
 
 <style lang="postcss">
   .hero {
-    @apply relative
-      h-[100vh];
+    @apply relative h-[100vh];
   }
 
   .content {
-    @apply container
-      mx-auto
-      max-w-screen-sm
-      translate-y-[16vh]
-      sm:flex
-      md:translate-y-[33vh]
-      landscape:translate-y-[18vh]
-      landscape:md:translate-y-[33vh];
+    @apply container mx-auto max-w-screen-sm translate-y-[16vh] sm:flex md:translate-y-[33vh] landscape:translate-y-[18vh] landscape:md:translate-y-[33vh];
   }
 
   .profile-image {
-    @apply relative
-      left-[16.6666667%]
-      aspect-square
-      w-2/3
-      translate-y-0
-      transition-[left,transform]
-      duration-1000
-      ease-in-out
-      sm:left-0
-      sm:aspect-square
-      sm:w-[38.2%];
+    @apply relative left-[16.6666667%] aspect-square w-2/3 translate-y-0 transition-[left,transform] duration-1000 ease-in-out sm:left-0 sm:aspect-square sm:w-[38.2%];
   }
 
   .profile-image.centered {
-    @apply translate-y-20
-      sm:left-1/2
-      sm:-translate-x-1/2
-      sm:translate-y-0
-      landscape:md:translate-y-10;
+    @apply translate-y-20 sm:left-1/2 sm:-translate-x-1/2 sm:translate-y-0 landscape:md:translate-y-10;
   }
 
   .title {
-    @apply relative
-      left-[12.5%]
-      w-3/4
-      sm:left-0
-      sm:w-[61.8%]
-      sm:pl-4
-      sm:pr-12;
+    @apply relative left-[12.5%] w-3/4 sm:left-0 sm:w-[61.8%] sm:pl-4 sm:pr-12;
   }
 
   .signature {
-    @apply mb-6
-      aspect-[2.28]
-      -translate-x-3
-      sm:-translate-x-8
-      landscape:md:-translate-x-5;
+    @apply mb-6 aspect-[2.28] -translate-x-3 sm:-translate-x-8 landscape:md:-translate-x-5;
   }
 
   h1 {
-    @apply text-right
-      text-xs
-      tracking-tight
-      text-bluebirth-50
-      opacity-25
-      sm:-mt-3
-      sm:text-sm;
+    @apply text-right text-xs tracking-tight text-bluebirth-50 opacity-25 sm:-mt-3 sm:text-sm;
   }
 
   h2 {
-    @apply mt-4
-      text-3xl
-      font-semibold
-      tracking-tight
-      text-bluebirth-50
-      drop-shadow-[0_0_16px_rgba(241,243,255,.25)]
-      min-[380px]:text-4xl
-      sm:text-4xl;
+    @apply mt-4 text-3xl font-semibold tracking-tight text-bluebirth-50 drop-shadow-[0_0_16px_rgba(241,243,255,.25)] min-[380px]:text-4xl sm:text-4xl;
   }
 
   .ecity {
-    @apply absolute
-      bottom-0
-      left-0
-      right-0
-      top-0
-      z-0;
+    @apply absolute bottom-0 left-0 right-0 top-0 z-0;
   }
 </style>
