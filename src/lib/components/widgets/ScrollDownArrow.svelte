@@ -14,11 +14,17 @@
 
 <style lang="postcss">
   .arrs {
-    @apply absolute left-[50%] top-[82%] scale-75 md:top-[90%] md:scale-100;
+    @apply absolute
+			left-[50%]
+			top-[82%]
+			scale-75
+			md:top-[90%]
+			md:scale-100;
   }
 
   .arr {
-    @apply absolute opacity-0;
+    @apply absolute
+			opacity-0;
 
     animation: 7s linear 1.6s infinite down-anim;
     transform: scale(50%);
@@ -34,11 +40,20 @@
 
   .arr::before,
   .arr::after {
-    @apply block h-2 w-9 -translate-x-7 rotate-45 rounded bg-white content-[''];
+    @apply block
+      h-2
+      w-9
+      -translate-x-7
+      rotate-45
+      rounded
+      bg-white
+      content-[''];
   }
 
   .arr::after {
-    @apply -translate-x-2 -translate-y-2 -rotate-45;
+    @apply -translate-x-2
+      -translate-y-2
+      -rotate-45;
   }
 
   @keyframes down-anim {

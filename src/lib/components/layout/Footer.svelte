@@ -117,7 +117,8 @@
   }
 
   .columns > div {
-    @apply w-full md:w-1/2;
+    @apply w-full
+      md:w-1/2;
   }
 
   footer {
@@ -125,15 +126,23 @@
   }
 
   footer > div {
-    @apply container mx-auto max-w-screen-lg px-6 py-12;
+    @apply container
+      mx-auto
+			max-w-screen-lg
+			px-6
+      py-12;
   }
 
   .footnote {
-    @apply bg-bluebirth-950 p-7 text-center text-sm;
+    @apply bg-bluebirth-950
+    p-7
+    text-center
+    text-sm;
   }
 
   .footnote p {
-    @apply font-semibold text-bluebirth-400;
+    @apply font-semibold
+      text-bluebirth-400;
   }
 
   .imprint {
@@ -141,7 +150,9 @@
   }
 
   h4 {
-    @apply mb-4 text-3xl font-black;
+    @apply mb-4
+			text-3xl
+      font-black;
   }
 
   h5 {
@@ -149,29 +160,38 @@
   }
 
   p {
-    @apply m-0 p-0;
+    @apply m-0
+      p-0;
   }
 
   p,
   .editor {
-    @apply font-light text-kashmirgrey-300;
+    @apply font-light
+      text-kashmirgrey-300;
   }
 
   h5,
   strong {
-    @apply font-bold text-kashmirgrey-100;
+    @apply font-bold
+      text-kashmirgrey-100;
   }
 
   address {
-    @apply my-0 py-0 not-italic;
+    @apply my-0
+		  py-0
+		  not-italic;
   }
 
   .kontakt p span {
-    @apply inline-block w-16 whitespace-nowrap text-kashmirgrey-500;
+    @apply inline-block
+		  w-16
+			whitespace-nowrap
+      text-kashmirgrey-500;
   }
 
   .links {
-    @apply mt-6 md:mt-12;
+    @apply mt-6
+      md:mt-12;
   }
 
   .links a {
@@ -179,6 +199,7 @@
   }
 
   a:hover {
-    @apply underline underline-offset-2;
+    @apply underline
+      underline-offset-2;
   }
 </style>

@@ -61,42 +61,64 @@
 
 <style lang="postcss">
   section {
-    @apply relative h-32 cursor-default select-none overflow-hidden bg-black bg-gradient-to-br from-fungreen-950/20 to-fungreen-900/10;
+    @apply relative
+      h-32
+      cursor-default
+      select-none
+      overflow-hidden
+      bg-black
+      bg-gradient-to-br
+      from-fungreen-950/20
+      to-fungreen-900/10;
   }
 
   .scroller {
-    @apply absolute left-0 top-0 h-full w-full p-2;
+    @apply absolute
+      left-0
+      top-0
+      h-full
+      w-full
+      p-2;
 
     --duration: 10s;
     --delay: 0s;
   }
 
   .scroller-0 {
-    @apply w-1/2 font-bold;
+    @apply w-1/2
+      font-bold;
   }
 
   .scroller-1 {
-    @apply left-1/3 scale-125 opacity-50;
+    @apply left-1/3
+      scale-125
+      opacity-50;
 
     --delay: -4s;
     --duration: 15s;
   }
 
   .scroller-2 {
-    @apply left-2/3 -translate-x-12 opacity-75;
+    @apply left-2/3
+      -translate-x-12
+      opacity-75;
 
     --delay: -9s;
   }
 
   .scroller-3 {
-    @apply left-3/4 scale-150 text-2xl opacity-50;
+    @apply left-3/4
+      scale-150
+      text-2xl
+      opacity-50;
 
     --delay: -7s;
     --duration: 25s;
   }
 
   .scroller-4 {
-    @apply left-3/4 opacity-40;
+    @apply left-3/4
+      opacity-40;
 
     --delay: -12s;
     --duration: 40s;
@@ -104,11 +126,20 @@
 
   .ticker-0,
   .ticker-1 {
-    @apply relative h-24 text-8xl font-medium text-fungreen-900 opacity-10;
+    @apply relative
+      h-24
+      text-8xl
+      font-medium
+      text-fungreen-900
+      opacity-10;
   }
 
   .ticker-1 {
-    @apply -top-6 text-5xl font-thin text-fungreen-900 opacity-20;
+    @apply -top-6
+      text-5xl
+      font-thin
+      text-fungreen-900
+      opacity-20;
   }
 
   :global(.ticker-0 pre),
@@ -122,6 +153,7 @@
   }
 
   pre {
-    @apply text-xs text-fungreen-800;
+    @apply text-xs
+      text-fungreen-800;
   }
 </style>

@@ -18,15 +18,30 @@
 
 <style lang="postcss">
   header {
-    @apply absolute left-0 top-0 z-30 w-full;
+    @apply absolute
+			left-0
+			top-0
+			z-30
+			w-full;
   }
 
   div {
-    @apply container mx-auto max-w-screen-lg p-8;
+    @apply container
+			mx-auto
+			max-w-screen-lg
+			p-8;
   }
 
   .logo {
-    @apply relative h-8 w-auto opacity-100 transition-opacity delay-1000 duration-3000 ease-in md:h-16;
+    @apply relative
+      h-8
+      w-auto
+      opacity-100
+      transition-opacity
+      delay-1000
+      duration-3000
+      ease-in
+      md:h-16;
   }
 
   .logo.logo-hidden {

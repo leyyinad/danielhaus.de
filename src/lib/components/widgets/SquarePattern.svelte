@@ -52,6 +52,8 @@
 
 <style lang="postcss">
   div {
-    @apply h-96 bg-bluebirth-950 bg-repeat-x;
+    @apply h-96
+     bg-bluebirth-950
+     bg-repeat-x;
   }
 </style>

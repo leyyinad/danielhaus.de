@@ -36,22 +36,53 @@
 
 <style lang="postcss">
   section {
-    @apply relative overflow-hidden border-y-2 border-black bg-violetshirt-950 bg-gradient-to-br from-violetshirt-950 to-black py-8 text-violetshirt-400 drop-shadow-2xl;
+    @apply relative
+      overflow-hidden
+      border-y-2
+      border-black
+      bg-violetshirt-950
+      bg-gradient-to-br
+			from-violetshirt-950
+      to-black
+      py-8
+      text-violetshirt-400
+      drop-shadow-2xl;
   }
 
   article {
-    @apply container prose prose-invert relative z-10 mx-auto max-w-screen-lg hyphens-auto px-6 pb-96 pt-2 text-base sm:text-xl lg:max-w-5xl lg:pb-2;
+    @apply container
+			prose
+			prose-invert
+			relative
+			z-10
+			mx-auto
+      max-w-screen-lg
+      hyphens-auto
+			px-6
+			pb-96
+			pt-2
+      text-base
+			sm:text-xl
+			lg:max-w-5xl
+			lg:pb-2;
   }
 
   h4 {
-    @apply mb-0 mt-5 text-3xl font-black md:text-4xl;
+    @apply mb-0
+			mt-5
+			text-3xl
+			font-black
+      md:text-4xl;
   }
 
   .columns-2 {
-    @apply grid gap-4 lg:grid-cols-2;
+    @apply grid
+			gap-4
+			lg:grid-cols-2;
   }
 
   .column:not(:first-child) {
-    @apply -mt-8 md:mt-0;
+    @apply -mt-8
+      md:mt-0;
   }
 </style>

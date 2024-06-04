@@ -180,6 +180,10 @@
 <style lang="postcss">
   div,
   canvas {
-    @apply absolute right-0 top-0 h-full w-full;
+    @apply absolute
+      right-0
+      top-0
+      h-full
+      w-full;
   }
 </style>

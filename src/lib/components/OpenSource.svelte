@@ -24,11 +24,24 @@
 
 <style lang="postcss">
   section {
-    @apply border-y border-y-violetshirt-900 bg-violetshirt-950 py-8;
+    @apply border-y
+      border-y-violetshirt-900
+      bg-violetshirt-950
+      py-8;
   }
 
   article {
-    @apply container prose prose-invert mx-auto max-w-screen-lg hyphens-auto px-6 text-base text-violetshirt-300/80 sm:text-xl lg:max-w-5xl;
+    @apply container
+      prose
+      prose-invert
+      mx-auto
+      max-w-screen-lg
+      hyphens-auto
+      px-6
+      text-base
+      text-violetshirt-300/80
+			sm:text-xl
+			lg:max-w-5xl;
   }
 
   article a {
@@ -36,7 +49,12 @@
   }
 
   h4 {
-    @apply mb-4 mt-5 text-3xl font-black text-violetshirt-300 md:text-4xl;
+    @apply mb-4
+			mt-5
+			text-3xl
+			font-black
+      text-violetshirt-300
+      md:text-4xl;
   }
 
   i {

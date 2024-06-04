@@ -108,6 +108,9 @@
 
 <style lang="postcss">
   canvas {
-    @apply absolute left-1/2 w-full -translate-x-1/2;
+    @apply absolute
+      left-1/2
+      w-full
+      -translate-x-1/2;
   }
 </style>
