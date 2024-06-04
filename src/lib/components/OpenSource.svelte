@@ -21,7 +21,7 @@
 <style lang="postcss">
   section {
     @apply border-y-2
-      border-y-violetshirt-900
+      border-y-black
       bg-violetshirt-950
       py-8;
   }
@@ -58,6 +58,7 @@
 			text-3xl
 			font-black
       text-violetshirt-300
+      drop-shadow
       md:text-4xl;
   }
 </style>
