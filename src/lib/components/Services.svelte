@@ -7,13 +7,18 @@
       <li><strong>Ganzheitliche</strong>, strategische Perspektive</li>
       <li><strong>Kreativität</strong>, Stil und Erfahrung</li>
       <li>Schnelle, <strong>nachhaltige</strong> Softwareentwicklung</li>
+      <li><strong>IT-Security</strong> und <strong>Datenschutz</strong> (DSGVO, BDSG)</li>
       <li><strong>UI/UX</strong>, 2D/3D Grafikprogrammierung</li>
       <li>Audiovisuelle, <strong>interaktive</strong> Anwendungen</li>
       <li><strong>Cloud-native</strong>, Web, Mobile, Desktop, Server</li>
       <li>CMS-Systeme, APIs, Datenbanken</li>
-      <li>Python, PHP, HTML5, JS/TS, CSS, WebGL</li>
       <li>DevSecOps, CI/CD, TDD</li>
-      <li><strong>IT-Security</strong> und <strong>Datenschutz</strong> (DSGVO, BDSG)</li>
+      <li><strong>Python</strong>, <strong>PHP</strong>, HTML5, JS/TS, CSS, WebGL</li>
+      <li><strong>Unity</strong>, <strong>Godot</strong></li>
+      <li>
+        <strong>Affinity Suite</strong>, <strong>Pixelmator Pro</strong>, Apple
+        <strong>Logic Pro</strong>
+      </li>
     </ul>
   </article>
 </section>
