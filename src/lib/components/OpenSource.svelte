@@ -10,13 +10,9 @@
       einseh- und weiterverwendbar.
     </p>
 
-    <p class="mono">
-      <i>https://gitlab.com/</i><a
-        href="https://gitlab.com/leyyinad/danielhaus.de"
-        target="_blank"
-        rel="external noopener"
-      >
-        leyyinad/danielhaus.de
+    <p>
+      <a href="https://gitlab.com/leyyinad/danielhaus.de" target="_blank" rel="external noopener">
+        https://gitlab.com/<strong>leyyinad/danielhaus.de</strong>
       </a>
     </p>
   </article>
@@ -24,7 +20,7 @@
 
 <style lang="postcss">
   section {
-    @apply border-y
+    @apply border-y-2
       border-y-violetshirt-900
       bg-violetshirt-950
       py-8;
@@ -45,7 +41,14 @@
   }
 
   article a {
-    @apply text-violetshirt-200;
+    @apply font-extralight
+      text-violetshirt-500
+      no-underline
+      hover:underline;
+  }
+
+  article a strong {
+    @apply font-normal text-violetshirt-300;
   }
 
   h4 {
@@ -55,17 +58,5 @@
 			font-black
       text-violetshirt-300
       md:text-4xl;
-  }
-
-  i {
-    @apply not-italic text-violetshirt-300/60;
-  }
-
-  .mono {
-    @apply font-mono;
-  }
-
-  .mono a {
-    @apply font-bold;
   }
 </style>
