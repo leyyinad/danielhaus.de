@@ -14,6 +14,10 @@
       <li>CMS-Systeme, APIs, Datenbanken</li>
       <li>DevSecOps, CI/CD, TDD</li>
       <li><strong>Python</strong>, <strong>PHP</strong>, HTML5, JS/TS, CSS, WebGL</li>
+      <li>
+        Unix/Linux, <strong>Vim</strong>, <strong>Git</strong>, Zsh/Bash, <strong>Docker</strong>,
+        <strong>K8s</strong>
+      </li>
       <li><strong>Unity</strong>, <strong>Godot</strong></li>
       <li>
         <strong>Affinity Suite</strong>, <strong>Pixelmator Pro</strong>, Apple
