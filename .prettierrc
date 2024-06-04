@@ -10,6 +10,7 @@
     "prettier-plugin-tailwindcss",
     "prettier-plugin-glsl"
   ],
+  "tailwindPreserveWhitespace": true,
   "overrides": [
     {
       "files": "*.svelte",
