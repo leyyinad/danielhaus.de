@@ -41,14 +41,15 @@
   }
 
   article a {
-    @apply font-extralight
-      text-violetshirt-500
+    @apply font-light
+      text-violetshirt-300/80
       no-underline
-      hover:underline;
+      hover:underline
+      hover:underline-offset-4;
   }
 
   article a strong {
-    @apply font-normal text-violetshirt-300;
+    @apply font-medium text-white;
   }
 
   h4 {
