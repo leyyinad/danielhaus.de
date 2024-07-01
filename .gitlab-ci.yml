@@ -46,7 +46,7 @@ build:
 
 test:
   stage: test
-  image: mcr.microsoft.com/playwright:v1.44.1-jammy
+  image: mcr.microsoft.com/playwright:v1.45.0-jammy
   script:
     - npm test
 
