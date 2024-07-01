@@ -6,4 +6,4 @@ import Scene from './scene/scene';
 import { createObject } from './scene/scene-utils';
 import Time from './time';
 
-export { Camera, Engine, Environment, Scene, ScriptBehaviour, Time, createObject };
+export { Camera, createObject, Engine, Environment, Scene, ScriptBehaviour, Time };
