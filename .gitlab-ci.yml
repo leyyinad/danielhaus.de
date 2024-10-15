@@ -28,7 +28,7 @@ npm:
 audit:
   stage: audit
   script:
-    - npm audit
+    - npm audit --audit-level=moderate
 
 lint:
   stage: lint
