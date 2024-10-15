@@ -14,7 +14,6 @@
     if (target.firstElementChild != null) {
       observer = new IntersectionObserver(updateIsInViewport, { threshold });
       observer.observe(target.firstElementChild);
-      observer.thresholds;
     }
   };
 
