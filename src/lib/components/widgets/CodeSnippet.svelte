@@ -72,6 +72,17 @@
       to-fungreen-900/10;
   }
 
+  section::before {
+    @apply absolute
+      inset-0
+      z-10
+      bg-gradient-to-b
+      from-black/80
+      via-black/20
+      to-black/80
+      content-[''];
+  }
+
   .scroller {
     @apply absolute
       left-0
