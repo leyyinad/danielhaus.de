@@ -21,6 +21,10 @@ const config = {
       precompress: false,
       strict: true
     })
+  },
+
+  compilerOptions: {
+    warningFilter: (warning) => warning.code !== 'css_unused_selector'
   }
 };
 
