@@ -1,31 +1,24 @@
 <script lang="ts">
   import SquarePattern from '../widgets/SquarePattern.svelte';
 
-  const email = import.meta.env.CONTACT_EMAIL;
-  const phone = import.meta.env.CONTACT_PHONE;
+  const decodeLink = (event: Event) => {
+    const target = event.currentTarget as HTMLAnchorElement;
 
-  function unskramble(el: HTMLElement) {
-    return [...el.querySelectorAll('u, b')].map((n) => n.textContent).join('');
-  }
+    let link = ['before', 'after']
+      .map((s) => window.getComputedStyle(target, `:${s}`).content ?? '')
+      .map((s) => s.replaceAll('"', ''))
+      .join(target.textContent ?? '')
+      .replaceAll(/\s+/gi, '');
 
-  function autolink(event: Event) {
-    const a = event.currentTarget as HTMLAnchorElement;
-
-    if (a.classList.contains('autolink')) {
-      const value = unskramble(a).replaceAll(/\s+/gi, '');
-
-      let proto = '';
-      if (a.classList.contains('autolink-email')) {
-        proto = 'mailto:';
-      } else if (a.classList.contains('autolink-phone')) {
-        proto = 'tel:';
-      }
-
-      a.href = proto + value;
-
-      a.classList.remove('autolink');
+    if (target.classList.contains('phone')) {
+      link = link.replace(/^\+/, '00');
+      link = `tel:${link}`;
+    } else if (target.classList.contains('email')) {
+      link = `mailto:${link}`;
     }
-  }
+
+    target.href = link;
+  };
 </script>
 
 <footer>
@@ -52,20 +45,26 @@
           <span>DE365921448</span>
         </div>
 
-        <div class="kontakt skramble">
-          <!-- eslint-disable svelte/no-at-html-tags -->
+        <div class="kontakt">
           <h5>Kontakt</h5>
           <p>
             <span>E-Mail</span>
-            <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-email"
-              >{@html email}</a
+            <a
+              href="/"
+              onfocus={decodeLink}
+              onmouseover={decodeLink}
+              class="no-spam email"
+              aria-label="E-Mail-Adresse">@</a
             ><br />
             <span>Telefon</span>
-            <a href="/" on:focus={autolink} on:mouseover={autolink} class="autolink autolink-phone"
-              >{@html phone}</a
+            <a
+              href="/"
+              onfocus={decodeLink}
+              onmouseover={decodeLink}
+              class="no-spam phone"
+              aria-label="Telefonnummer">&nbsp;</a
             >
           </p>
-          <!-- eslint-enable svelte/no-at-html-tags -->
         </div>
 
         <div class="links">
@@ -93,23 +92,20 @@
 </div>
 
 <style lang="postcss">
-  .skramble :global(i) {
-    display: inline-block;
-    overflow: hidden;
-    height: 1px;
-    width: 1px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.01;
-    user-select: none;
+  .no-spam.email::before {
+    content: 'd';
   }
 
-  .skramble :global(u),
-  .skramble :global(b) {
-    text-decoration: inherit;
-    font-weight: inherit;
-    user-select: text;
+  .no-spam.email::after {
+    content: 'danielhaus.de';
+  }
+
+  .no-spam.phone::before {
+    content: '+49 170';
+  }
+
+  .no-spam.phone::after {
+    content: '9621919';
   }
 
   .columns {

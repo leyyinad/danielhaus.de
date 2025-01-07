@@ -100,9 +100,9 @@
           {/if}
 
           {#if state.nam.active}
-            <h1 transition:fade>D. Haus</h1>
+            <h1 transition:fade>Daniel Haus</h1>
           {:else}
-            <h1 style="opacity: 0">D. Haus</h1>
+            <h1 style="opacity: 0">Daniel Haus</h1>
           {/if}
         </div>
 
@@ -188,12 +188,23 @@
   }
 
   h1 {
-    @apply text-right
+    @apply relative
+      h-5
+      overflow-hidden
+      text-nowrap
+      pl-[100%]
       text-xs
       tracking-tight
       text-bluebirth-50
       opacity-25
+      after:absolute
+      after:right-0
+      after:top-0
+      after:block
+      after:text-nowrap
+      after:content-['D._Haus']
       sm:-mt-3
+      sm:h-4
       sm:text-sm;
   }
 
