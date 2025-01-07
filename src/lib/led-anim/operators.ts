@@ -35,7 +35,9 @@ export const sequence =
   (x: number, y: number, config: LedAnimComponentConfig) => {
     let { t, start } = config;
 
-    const item = sequence.find(([_c, duration]) => {
+    const item = sequence.find((item) => {
+      let duration = item[1];
+
       if (duration == null) {
         duration = Infinity;
       }

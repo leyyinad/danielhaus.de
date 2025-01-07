@@ -30,8 +30,8 @@ export default class WebGLRenderDriver implements RenderDriver {
   constructor(public readonly canvas: HTMLCanvasElement) {
     try {
       this.context = canvas.getContext('webgl2')!;
-    } catch (_e) {
-      return;
+    } catch {
+      // ignore
     }
   }
 
