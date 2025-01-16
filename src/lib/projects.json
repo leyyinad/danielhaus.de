@@ -1,10 +1,5 @@
 [
   {
-    "title": "Website",
-    "client": "Madeleine Haus",
-    "url": "https://madeleinehaus.de/"
-  },
-  {
     "title": "Rheingau.de",
     "client": "Klickrhein",
     "url": "https://www.rheingau.de/"
@@ -13,6 +8,11 @@
     "title": "Shop-System",
     "client": "Klickrhein",
     "url": "https://www.klickrhein.de/"
+  },
+  {
+    "title": "Website",
+    "client": "Madeleine Haus",
+    "url": "https://madeleinehaus.de/"
   },
   {
     "title": "Kundenportal",
