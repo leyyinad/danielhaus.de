@@ -350,11 +350,8 @@
 
   .ecity {
     position: absolute;
-    top: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
     z-index: 0;
+    inset: 0;
 
     /*
     @apply absolute
