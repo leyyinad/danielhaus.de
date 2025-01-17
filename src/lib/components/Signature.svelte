@@ -4,11 +4,11 @@
   import { draw } from 'svelte/transition';
 
   interface Props {
-    opacity: number;
-    visible: boolean;
+    opacity?: number | undefined;
+    visible?: boolean | undefined;
   }
 
-  let { opacity, visible }: Props = $props();
+  let { opacity = 1, visible = true }: Props = $props();
 
   onMount(() => {
     visible = true;

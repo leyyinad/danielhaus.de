@@ -3,9 +3,9 @@
 
   interface Props {
     children: Snippet;
-    delay: number;
-    pauseDelay: number;
-    showCursor: boolean;
+    delay?: number;
+    pauseDelay?: number;
+    showCursor?: boolean;
   }
 
   let { children, delay = 100, pauseDelay = 1200, showCursor = true }: Props = $props();

@@ -3,15 +3,19 @@
   import { quartOut } from 'svelte/easing';
   import TreeRenderer from './TreeRenderer';
 
-  export let delay = 20;
+  interface Props {
+    delay?: number;
+  }
+
+  let { delay = 20 }: Props = $props();
 
   let canvas: HTMLCanvasElement;
   let prevTick = 0;
   let totalTime = 0;
-  let opacity = 0;
+  let opacity = $state(0);
   let running = false;
 
-  let clientWidth: number;
+  let clientWidth: number = $state(0);
 
   export function start() {
     running = true;

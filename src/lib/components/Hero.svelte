@@ -77,17 +77,8 @@
         class:centered={state.led.centered}
         style={`opacity: ${state.led.opacity}`}
       >
-        <InViewport on:enter={() => leds.start()} on:leave={() => leds.pause()}>
-          <Leds
-            slot="inViewport"
-            bind:this={leds}
-            width={64}
-            height={64}
-            pw={3}
-            ph={3}
-            gap={1}
-            fn={anim}
-          />
+        <InViewport enter={() => leds.start()} leave={() => leds.pause()}>
+          <Leds bind:this={leds} width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
         </InViewport>
       </figure>
     {/if}
@@ -122,8 +113,8 @@
   {/if}
 
   {#if runEngine && state.cty.active}
-    <InViewport on:enter={() => engine.start()} on:leave={() => engine.pause()}>
-      <div slot="inViewport" class="ecity" transition:fade={{ duration: 7000 }}>
+    <InViewport enter={() => engine.start()} leave={() => engine.pause()}>
+      <div class="ecity" transition:fade={{ duration: 7000 }}>
         <Engine bind:this={engine} />
       </div>
     </InViewport>
@@ -173,6 +164,10 @@
       width: 38.2%;
     }
 
+    @media (min-width: 768px) {
+      left: -2%;
+    }
+
     &.centered {
       transform: translateY(5rem);
 
@@ -193,7 +188,7 @@
     width: 75%;
 
     @media (min-width: 640px) {
-      left: 0;
+      left: 2%;
       padding-right: 3rem;
       padding-left: 1rem;
       width: 61.8%;

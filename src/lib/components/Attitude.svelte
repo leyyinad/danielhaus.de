@@ -29,8 +29,8 @@
     </div>
   </article>
 
-  <InViewport on:enter={() => tree.start()} on:leave={() => tree.pause()}>
-    <Tree slot="inViewport" bind:this={tree} />
+  <InViewport enter={() => tree.start()} leave={() => tree.pause()}>
+    <Tree bind:this={tree} />
   </InViewport>
 </section>
 

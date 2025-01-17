@@ -1,14 +1,20 @@
 <script lang="ts">
-  import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+  import { onDestroy, onMount, type Snippet } from 'svelte';
 
-  export let threshold = 0.25;
+  interface Props {
+    children: Snippet;
+    threshold?: number;
+    viewport?: ({ isInViewport }: { isInViewport: boolean }) => void | undefined;
+    enter?: () => void | undefined;
+    leave?: () => void | undefined;
+  }
 
-  let isInViewport: boolean;
+  let { children, threshold = 0.1, viewport, enter, leave }: Props = $props();
+
+  let isInViewport: boolean = $state(false);
 
   let observer: IntersectionObserver | undefined;
   let target: HTMLElement;
-
-  const dispatch = createEventDispatcher();
 
   const init = () => {
     if (target.firstElementChild != null) {
@@ -25,12 +31,14 @@
     entries.forEach((currentEntry) => {
       if (currentEntry.isIntersecting !== isInViewport) {
         isInViewport = currentEntry.isIntersecting;
-        dispatch('viewport', { isInViewport });
+        viewport?.({ isInViewport });
 
         if (isInViewport) {
-          dispatch('enter');
+          console.log('enter vp', children);
+          enter?.();
         } else {
-          dispatch('leave');
+          console.log('leave vp', children);
+          leave?.();
         }
       }
     });
@@ -40,4 +48,4 @@
   onDestroy(cleanup);
 </script>
 
-<span bind:this={target}><slot name="inViewport" {isInViewport} /></span>
+<span bind:this={target}>{@render children?.()}</span>
