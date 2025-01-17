@@ -42,7 +42,8 @@
     border-bottom: 2px solid black;
     background-image: linear-gradient(to bottom right, var(--violetshirt-950), black);
     background-color: var(--violetshirt-950);
-    padding: 2rem 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     overflow: hidden;
     color: var(--violetshirt-400);
 
@@ -64,8 +65,8 @@
   article {
     position: relative;
     z-index: 10;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
     padding: 0.5rem 1.5rem 24rem;
     width: var(--container-width);
     max-width: 1024px;

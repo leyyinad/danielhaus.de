@@ -33,7 +33,8 @@
   }
 
   article {
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
     padding: 0.5rem 1.5rem;
     width: var(--container-width);
     max-width: 1024px;
