@@ -1,14 +1,19 @@
 <script lang="ts">
-  import { onDestroy, onMount } from 'svelte';
+  import { onDestroy, onMount, type Snippet } from 'svelte';
 
-  export let delay = 100;
-  export let pauseDelay = 1200;
-  export let showCursor = true;
+  interface Props {
+    children: Snippet;
+    delay: number;
+    pauseDelay: number;
+    showCursor: boolean;
+  }
+
+  let { children, delay = 100, pauseDelay = 1200, showCursor = true }: Props = $props();
 
   let container: HTMLSpanElement;
   let text = '';
   let count = 0;
-  let currentText = '';
+  let currentText = $state('');
   let timer: number | undefined = undefined;
 
   const init = () => {
@@ -66,7 +71,7 @@
 
 <!-- eslint-disable svelte/no-at-html-tags -->
 
-<span bind:this={container}><slot /></span>
+<span bind:this={container}>{@render children?.()}</span>
 <span class="typer"
   >{@html currentText}{#if showCursor}<i></i>{/if}</span
 >
