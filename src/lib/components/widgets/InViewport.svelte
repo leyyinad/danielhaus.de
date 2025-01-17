@@ -34,10 +34,8 @@
         viewport?.({ isInViewport });
 
         if (isInViewport) {
-          console.log('enter vp', children);
           enter?.();
         } else {
-          console.log('leave vp', children);
           leave?.();
         }
       }
