@@ -125,6 +125,7 @@
   .hero {
     position: relative;
     height: 100dvh;
+    min-height: 60rem;
   }
 
   .content {
@@ -136,6 +137,7 @@
 
     @media (min-width: 640px) {
       display: flex;
+      min-height: auto;
     }
 
     @media (orientation: landscape) {
