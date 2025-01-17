@@ -7,7 +7,8 @@
     "prettier-plugin-svelte",
     "prettier-plugin-organize-imports",
     "prettier-plugin-tailwindcss",
-    "prettier-plugin-glsl"
+    "prettier-plugin-glsl",
+    "prettier-plugin-css-order"
   ],
   "tailwindPreserveWhitespace": true,
   "overrides": [
@@ -30,5 +31,6 @@
         "useTabs": false
       }
     }
-  ]
+  ],
+  "cssDeclarationSorterOrder": "concentric-css"
 }
