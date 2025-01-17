@@ -8,7 +8,7 @@
     visible?: boolean | undefined;
   }
 
-  let { opacity = 1, visible = true }: Props = $props();
+  let { opacity = 1, visible = false }: Props = $props();
 
   onMount(() => {
     visible = true;
