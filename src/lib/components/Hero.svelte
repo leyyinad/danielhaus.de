@@ -124,7 +124,7 @@
 <style>
   .hero {
     position: relative;
-    height: 100vh;
+    height: 100dvh;
   }
 
   .content {
@@ -178,6 +178,11 @@
 
       @media (orientation: landscape) and (min-width: 768px) {
         transform: translateY(2.5rem);
+      }
+
+      @media (min-width: 768px) {
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
