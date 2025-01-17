@@ -6,6 +6,9 @@
   import Services from '$lib/components/Services.svelte';
   import OpenSource from '$lib/components/OpenSource.svelte';
   import CodeSnippet from '$lib/components/widgets/CodeSnippet.svelte';
+
+  const title = 'Daniel Haus';
+  const description = 'IT-Berater und Softwareentwickler im Rhein-Main-Gebiet.';
 </script>
 
 <svelte:head>
@@ -17,21 +20,15 @@
 
   <meta property="og:url" content="https://danielhaus.de" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Daniel Haus" />
-  <meta
-    property="og:description"
-    content="IT-Berater und Softwareentwickler im Rhein-Main-Gebiet."
-  />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
   <meta property="og:image" content="https://danielhaus.de/poster.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="twitter:domain" content="danielhaus.de" />
   <meta property="twitter:url" content="https://danielhaus.de" />
-  <meta name="twitter:title" content="Daniel Haus" />
-  <meta
-    name="twitter:description"
-    content="IT-Berater und Softwareentwickler im Rhein-Main-Gebiet."
-  />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://danielhaus.de/poster.png" />
 </svelte:head>
 
