@@ -3,8 +3,12 @@
   import { sineIn } from 'svelte/easing';
   import { draw } from 'svelte/transition';
 
-  export let opacity: number = 1.0;
-  export let visible: boolean = false;
+  interface Props {
+    opacity: number;
+    visible: boolean;
+  }
+
+  let { opacity, visible }: Props = $props();
 
   onMount(() => {
     visible = true;
