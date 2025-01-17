@@ -56,6 +56,7 @@
     }
 
     /*
+    @apply prose prose-invert text-base;
     @apply container
       prose
       prose-invert
@@ -118,10 +119,14 @@
       drop-shadow
       md:text-4xl;
       */
+
+    + p {
+      margin-top: 0;
+    }
   }
 
   p {
-    margin: 1.5rem 0;
+    margin: 1.25em 0;
 
     strong {
       font-weight: 600;
