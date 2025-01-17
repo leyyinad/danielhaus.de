@@ -36,6 +36,17 @@
 
 <style lang="postcss">
   section {
+    position: relative;
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-image: linear-gradient(to bottom right, var(--violetshirt-950), black);
+    background-color: var(--violetshirt-950);
+    padding: 2rem 0;
+    overflow: hidden;
+    color: var(--violetshirt-400);
+
+    /*
     @apply relative
       overflow-hidden
       border-y-2
@@ -47,9 +58,33 @@
       py-8
       text-violetshirt-400
       drop-shadow-2xl;
+      */
   }
 
   article {
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0.5rem 1.5rem 24rem;
+    width: var(--container-width);
+    max-width: 1024px;
+    color: white;
+    font-size: 1rem /* 16px */;
+    line-height: 1.5rem /* 24px */;
+    hyphens: auto;
+
+    @media (min-width: 640px) {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-bottom: 0.5rem;
+      max-width: 64rem;
+    }
+
+    /*
     @apply container
 			prose
 			prose-invert
@@ -65,24 +100,50 @@
 			sm:text-xl
 			lg:max-w-5xl
 			lg:pb-2;
+      */
   }
 
   h4 {
-    @apply mb-0
-			mt-5
-			text-3xl
-			font-black
-      md:text-4xl;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+    font-weight: 900;
+    font-size: 1.875rem /* 30px */;
+    line-height: 2.25rem /* 36px */;
+
+    @media (min-width: 768px) {
+      font-size: 2.25rem /* 36px */;
+      line-height: 2.5rem /* 40px */;
+    }
+
+    /* @apply mb-0 mt-5 text-3xl font-black md:text-4xl; */
+  }
+
+  p {
+    margin: 1.5rem 0;
+
+    strong {
+      font-weight: 600;
+    }
   }
 
   .columns-2 {
-    @apply grid
-			gap-4
-			lg:grid-cols-2;
+    display: grid;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* @apply grid gap-4 lg:grid-cols-2; */
   }
 
   .column:not(:first-child) {
-    @apply -mt-8
-      md:mt-0;
+    margin-top: -2rem;
+
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
+
+    /* @apply -mt-8 md:mt-0; */
   }
 </style>
