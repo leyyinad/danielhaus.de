@@ -130,20 +130,16 @@
   {/if}
 </div>
 
-<style lang="postcss">
+<style>
   .hero {
     position: relative;
     height: 100vh;
-
-    /*
-    @apply relative
-      h-[100vh];
-    */
   }
 
   .content {
-    transform: translateY(33vh);
-    margin: 0 auto;
+    transform: translateY(16vh);
+    margin-right: auto;
+    margin-left: auto;
     width: var(--container-width);
     max-width: 640px;
 
@@ -153,31 +149,21 @@
 
     @media (orientation: landscape) {
       transform: translateY(18vh);
-
-      @media (min-width: 768px) {
-      }
-      transform: translateY(33vh);
     }
 
-    /*
-    @apply container
-      mx-auto
-      max-w-screen-sm
-      translate-y-[16vh]
-      sm:flex
-      md:translate-y-[33vh]
-      landscape:translate-y-[18vh]
-      landscape:md:translate-y-[33vh];
-    */
+    @media (min-width: 768px) {
+      transform: translateY(33vh);
+    }
   }
 
   .profile-image {
     position: relative;
     left: 16.6666667%;
     transform: translateY(0);
-    transition-duration: 1000ms;
+    transition-duration: 1s;
     transition-property: left, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0;
     aspect-ratio: 1 / 1;
     width: 66.666667%;
 
@@ -187,40 +173,18 @@
       width: 38.2%;
     }
 
-    /*
-    @apply relative
-      left-[16.6666667%]
-      aspect-square
-      w-2/3
-      translate-y-0
-      transition-[left,transform]
-      duration-1000
-      ease-in-out
-      sm:left-0
-      sm:aspect-square
-      sm:w-[38.2%];
-      */
-  }
+    &.centered {
+      transform: translateY(5rem);
 
-  .profile-image.centered {
-    transform: translateY(5rem);
+      @media (min-width: 640px) {
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
 
-    @media (min-width: 640px) {
-      left: 50%;
-      transform: translate(-50%, 0);
+      @media (orientation: landscape) and (min-width: 768px) {
+        transform: translateY(2.5rem);
+      }
     }
-
-    @media (orientation: landscape) and (min-width: 768px) {
-      transform: translateY(2.5rem);
-    }
-
-    /*
-    @apply translate-y-20
-      sm:left-1/2
-      sm:-translate-x-1/2
-      sm:translate-y-0
-      landscape:md:translate-y-10;
-      */
   }
 
   .title {
@@ -234,16 +198,6 @@
       padding-left: 1rem;
       width: 61.8%;
     }
-
-    /*
-    @apply relative
-      left-[12.5%]
-      w-3/4
-      sm:left-0
-      sm:w-[61.8%]
-      sm:pl-4
-      sm:pr-12;
-      */
   }
 
   .signature {
@@ -258,14 +212,6 @@
     @media (orientation: landscape) and (min-width: 768px) {
       transform: translateX(-1.25rem);
     }
-
-    /*
-    @apply mb-6
-      aspect-[2.28]
-      -translate-x-3
-      sm:-translate-x-8
-      landscape:md:-translate-x-5;
-      */
   }
 
   h1 {
@@ -295,34 +241,13 @@
       font-size: 0.875rem;
       line-height: 1.25rem;
     }
-
-    /*
-    @apply relative
-      h-5
-      overflow-hidden
-      text-nowrap
-      pl-[100%]
-      text-xs
-      tracking-tight
-      text-bluebirth-50
-      opacity-25
-      after:absolute
-      after:right-0
-      after:top-0
-      after:block
-      after:text-nowrap
-      after:content-['D._Haus']
-      sm:-mt-3
-      sm:h-4
-      sm:text-sm;
-      */
   }
 
   h2 {
+    filter: drop-shadow(0 0 16px rgba(241, 243, 255, 0.25));
     margin-top: 1rem;
-    font-weight: 600;
-    drop-shadow: 0 0 16px rgba(241, 243, 255, 0.25);
     color: var(--bluebirth-50);
+    font-weight: 600;
     font-size: 1.875rem;
     line-height: 2.25rem;
 
@@ -335,31 +260,11 @@
       font-size: 2.25rem;
       line-height: 2.5rem;
     }
-
-    /*
-    @apply mt-4
-      text-3xl
-      font-semibold
-      tracking-tight
-      text-bluebirth-50
-      drop-shadow-[0_0_16px_rgba(241,243,255,.25)]
-      min-[380px]:text-4xl
-      sm:text-4xl;
-      */
   }
 
   .ecity {
     position: absolute;
     z-index: 0;
     inset: 0;
-
-    /*
-    @apply absolute
-      bottom-0
-      left-0
-      right-0
-      top-0
-      z-0;
-    */
   }
 </style>

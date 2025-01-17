@@ -16,21 +16,13 @@
   </div>
 </header>
 
-<style lang="postcss">
+<style>
   header {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 30;
     width: 100%;
-
-    /*
-    @apply absolute
-			left-0
-			top-0
-			z-30
-			w-full;
-      */
   }
 
   div {
@@ -38,13 +30,6 @@
     margin-left: auto;
     padding: 2rem;
     width: var(--container-width);
-
-    /*
-    @apply container
-			mx-auto
-			max-w-screen-lg
-			p-8;
-      */
   }
 
   .logo {
@@ -60,19 +45,8 @@
       height: 4rem;
     }
 
-    /*@apply relative
-      h-8
-      w-auto
-      opacity-100
-      transition-opacity
-      delay-1000
-      duration-3000
-      ease-in
-      md:h-16;*/
-
     &.logo-hidden {
       opacity: 0;
-      /* @apply opacity-0; */
     }
   }
 </style>

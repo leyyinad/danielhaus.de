@@ -77,13 +77,12 @@
   <canvas bind:this={canvas} style={`opacity: ${opacity}`}></canvas>
 </div>
 
-<style lang="postcss">
+<style>
   div,
   canvas {
-    @apply absolute
-      right-0
-      top-0
-      h-full
-      w-full;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 </style>

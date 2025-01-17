@@ -106,11 +106,11 @@
 
 <canvas bind:this={canvas}></canvas>
 
-<style lang="postcss">
+<style>
   canvas {
-    @apply absolute
-      left-1/2
-      w-full
-      -translate-x-1/2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
   }
 </style>

@@ -59,7 +59,7 @@
   {/each}
 </section>
 
-<style lang="postcss">
+<style>
   section {
     position: relative;
     background-image: linear-gradient(
@@ -72,18 +72,6 @@
     height: 8rem;
     overflow: hidden;
     user-select: none;
-
-    /*
-    @apply relative
-      h-32
-      cursor-default
-      select-none
-      overflow-hidden
-      bg-black
-      bg-gradient-to-br
-      from-fungreen-950/20
-      to-fungreen-900/10;
-      */
   }
 
   section::before {
@@ -97,17 +85,6 @@
       rgb(0 0 0 / 80%)
     );
     content: '';
-
-    /*
-    @apply absolute
-      inset-0
-      z-10
-      bg-gradient-to-b
-      from-black/80
-      via-black/20
-      to-black/80
-      content-[''];
-      */
   }
 
   .scroller {
@@ -116,16 +93,6 @@
     padding: 1.5rem;
     width: 100%;
     height: 100%;
-
-    /*
-    @apply absolute
-      left-0
-      top-0
-      h-full
-      w-full
-      p-2;
-      */
-
     --duration: 10s;
     --delay: 0s;
   }
@@ -133,24 +100,12 @@
   .scroller-0 {
     width: 50%;
     font-weight: 700;
-
-    /*
-    @apply w-1/2
-      font-bold;
-      */
   }
 
   .scroller-1 {
     left: 33.333333%;
     transform: scale(1.25);
     opacity: 0.5;
-
-    /*
-    @apply left-1/3
-      scale-125
-      opacity-50;
-      */
-
     --delay: -4s;
     --duration: 15s;
   }
@@ -159,13 +114,6 @@
     left: 66.666667%;
     transform: translateX(-3rem);
     opacity: 0.75;
-
-    /*
-    @apply left-2/3
-      -translate-x-12
-      opacity-75;
-      */
-
     --delay: -9s;
   }
 
@@ -175,14 +123,6 @@
     opacity: 0.5;
     font-size: 1.5rem;
     line-height: 2rem;
-
-    /*
-    @apply left-3/4
-      scale-150
-      text-2xl
-      opacity-50;
-      */
-
     --delay: -7s;
     --duration: 25s;
   }
@@ -190,12 +130,6 @@
   .scroller-4 {
     left: 75%;
     opacity: 0.4;
-
-    /*
-    @apply left-3/4
-      opacity-40;
-      */
-
     --delay: -12s;
     --duration: 40s;
   }
@@ -204,58 +138,31 @@
   .ticker-1 {
     position: relative;
     opacity: 0.1;
+    margin: 0;
+    padding: 0;
     height: 6rem;
     color: var(--fungreen-200);
-    font-weight: 500;
+    font-weight: 300;
     font-size: 6rem;
     line-height: 1;
     letter-spacing: -0.5rem;
-
-    /*
-    @apply relative
-      h-24
-      text-8xl
-      font-medium
-      text-fungreen-900
-      opacity-10;
-      */
+    --delay: -8s;
+    --duration: 64s;
   }
 
   .ticker-1 {
-    top: -0.5rem;
+    top: -1rem;
     opacity: 0.2;
     color: var(--fungreen-500);
     font-weight: 100;
     font-size: 3rem;
     line-height: 1;
-
-    /*
-    @apply -top-6
-      text-5xl
-      font-thin
-      text-fungreen-900
-      opacity-20;
-      */
-  }
-
-  :global(.ticker-0 pre),
-  :global(.ticker-1 pre) {
-    --delay: -8s;
-    --duration: 64s;
-  }
-
-  :global(.ticker-1 pre) {
     --duration: 32s;
   }
 
   pre {
     color: var(--fungreen-800);
-    font-size: 0.75rem /* 12px */;
-    line-height: 1rem /* 16px */;
-
-    /*
-    @apply text-xs
-      text-fungreen-800;
-      */
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 </style>

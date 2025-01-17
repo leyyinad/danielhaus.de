@@ -1,30 +1,31 @@
+<script lang="ts">
+  let { children } = $props();
+</script>
+
 <div>
-  <pre><slot /></pre>
+  <pre>{@render children?.()}</pre>
 </div>
 
-<style lang="postcss">
+<style>
+  div,
+  pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   div {
-    @apply absolute
-      left-0
-      top-0
-      h-full
-      w-full
-      overflow-hidden;
+    overflow: hidden;
   }
 
   pre {
-    @apply absolute
-      left-0
-      top-0
-      h-full
-      w-full
-      translate-x-full
-      whitespace-nowrap;
-
-    --duration: 10s;
-    --delay: 4s;
-
+    transform: translateX(100%);
     animation: var(--duration) linear var(--delay) infinite scroll-anim;
+    white-space: nowrap;
   }
 
   @keyframes scroll-anim {

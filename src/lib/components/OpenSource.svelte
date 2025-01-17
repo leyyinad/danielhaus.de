@@ -18,20 +18,13 @@
   </article>
 </section>
 
-<style lang="postcss">
+<style>
   section {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     background-color: var(--violetshirt-950);
     padding-top: 2rem;
     padding-bottom: 2rem;
-
-    /*
-    @apply border-y-2
-      border-y-black
-      bg-violetshirt-950
-      py-8;
-      */
   }
 
   article {
@@ -54,21 +47,6 @@
     @media (min-width: 1024px) {
       max-width: 64rem /* 1024px */;
     }
-
-    /*
-    @apply prose prose-invert text-base;
-    @apply container
-      prose
-      prose-invert
-      mx-auto
-      max-w-screen-lg
-      hyphens-auto
-      px-6
-      text-base
-      text-violetshirt-300/80
-			sm:text-xl
-			lg:max-w-5xl;
-      */
   }
 
   article a {
@@ -80,20 +58,11 @@
       text-decoration: underline;
       text-underline-offset: 4px;
     }
-
-    /*
-    @apply font-light
-      text-violetshirt-300/80
-      no-underline
-      hover:underline
-      hover:underline-offset-4;*/
   }
 
   article a strong {
     color: white;
     font-weight: 500;
-
-    /* @apply font-medium text-white;*/
   }
 
   h4 {
@@ -109,16 +78,6 @@
       font-size: 2.25rem;
       line-height: 2.5rem;
     }
-
-    /*
-    @apply mb-4
-			mt-5
-			text-3xl
-			font-black
-      text-violetshirt-300
-      drop-shadow
-      md:text-4xl;
-      */
 
     + p {
       margin-top: 0;

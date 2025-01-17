@@ -1,29 +1,3 @@
-@import './colors.css';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-}
-
-.logo {
-  width: 80px;
-  height: auto;
-}
-
-@layer components {
-  body,
-  .dark body {
-    @apply bg-bluebirth-950 antialiased;
-  }
-}
-
 :root {
   --container-width: 100%;
 

@@ -2,23 +2,22 @@
   <div><slot /></div>
 </div>
 
-<style lang="postcss">
+<style>
   .outer {
-    @apply relative
-      h-full
-      overflow-hidden;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
   }
 
   .outer > div {
-    @apply absolute
-      left-0
-      top-0
-      h-auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: var(--duration) linear var(--delay) infinite scroll-anim;
+    height: auto;
 
     --duration: 10s;
     --delay: 0s;
-
-    animation: var(--duration) linear var(--delay) infinite scroll-anim;
   }
 
   @keyframes scroll-anim {

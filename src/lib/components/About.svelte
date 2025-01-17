@@ -24,12 +24,10 @@
   </article>
 </section>
 
-<style lang="postcss">
+<style>
   section {
     background-color: black;
     padding: 2rem 0;
-
-    /* @apply bg-black py-8; */
   }
 
   article {
@@ -52,20 +50,6 @@
     @media (min-width: 1024px) {
       max-width: 64rem;
     }
-
-    /*
-    @apply container
-			prose
-			prose-invert
-			mx-auto
-			max-w-screen-lg
-			hyphens-auto
-      px-6
-			py-2
-			text-base
-			sm:text-xl
-			lg:max-w-5xl;
-      */
   }
 
   h4 {
@@ -79,8 +63,6 @@
       font-size: 2.25rem /* 36px */;
       line-height: 2.5rem /* 40px */;
     }
-
-    /* @apply mb-0 mt-5 text-3xl font-black md:text-4xl; */
   }
 
   p {
@@ -98,8 +80,6 @@
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    /* @apply grid gap-4 md:grid-cols-2; */
   }
 
   .column:not(:first-child) {
@@ -108,7 +88,5 @@
     @media (min-width: 768px) {
       margin-top: 0;
     }
-
-    /* @apply -mt-8 md:mt-0; */
   }
 </style>

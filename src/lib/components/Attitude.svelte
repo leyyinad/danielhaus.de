@@ -34,7 +34,7 @@
   </InViewport>
 </section>
 
-<style lang="postcss">
+<style>
   section {
     position: relative;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
@@ -46,20 +46,6 @@
     padding-bottom: 2rem;
     overflow: hidden;
     color: var(--violetshirt-400);
-
-    /*
-    @apply relative
-      overflow-hidden
-      border-y-2
-      border-black
-      bg-violetshirt-950
-      bg-gradient-to-br
-			from-violetshirt-950
-      to-black
-      py-8
-      text-violetshirt-400
-      drop-shadow-2xl;
-      */
   }
 
   article {
@@ -71,8 +57,8 @@
     width: var(--container-width);
     max-width: 1024px;
     color: white;
-    font-size: 1rem /* 16px */;
-    line-height: 1.5rem /* 24px */;
+    font-size: 1rem;
+    line-height: 1.5rem;
     hyphens: auto;
 
     @media (min-width: 640px) {
@@ -84,24 +70,6 @@
       padding-bottom: 0.5rem;
       max-width: 64rem;
     }
-
-    /*
-    @apply container
-			prose
-			prose-invert
-			relative
-			z-10
-			mx-auto
-      max-w-screen-lg
-      hyphens-auto
-			px-6
-			pb-96
-			pt-2
-      text-base
-			sm:text-xl
-			lg:max-w-5xl
-			lg:pb-2;
-      */
   }
 
   h4 {
@@ -115,16 +83,10 @@
       font-size: 2.25rem /* 36px */;
       line-height: 2.5rem /* 40px */;
     }
-
-    /* @apply mb-0 mt-5 text-3xl font-black md:text-4xl; */
   }
 
   p {
     margin: 1.5rem 0;
-
-    strong {
-      font-weight: 600;
-    }
   }
 
   .columns-2 {
@@ -134,8 +96,6 @@
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    /* @apply grid gap-4 lg:grid-cols-2; */
   }
 
   .column:not(:first-child) {
@@ -144,7 +104,5 @@
     @media (min-width: 768px) {
       margin-top: 0;
     }
-
-    /* @apply -mt-8 md:mt-0; */
   }
 </style>

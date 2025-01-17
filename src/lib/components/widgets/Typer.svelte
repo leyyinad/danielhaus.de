@@ -71,18 +71,18 @@
   >{@html currentText}{#if showCursor}<i></i>{/if}</span
 >
 
-<style lang="postcss">
+<style>
   .typer {
     animation: 2s typing;
   }
 
   i {
-    animation: 1s step-start 0s infinite blink;
-    border-left: 3px solid white;
     display: inline;
+    animation: 1s step-start 0s infinite blink;
+    margin-left: 0.1em;
+    border-left: 3px solid white;
     height: 1em;
     line-height: 1;
-    margin-left: 0.1em;
   }
 
   @keyframes typing {

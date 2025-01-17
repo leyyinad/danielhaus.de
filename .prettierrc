@@ -6,11 +6,9 @@
   "plugins": [
     "prettier-plugin-svelte",
     "prettier-plugin-organize-imports",
-    "prettier-plugin-tailwindcss",
     "prettier-plugin-glsl",
     "prettier-plugin-css-order"
   ],
-  "tailwindPreserveWhitespace": true,
   "overrides": [
     {
       "files": "*.svelte",

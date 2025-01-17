@@ -12,7 +12,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<style lang="postcss">
+<style>
   .arrs {
     position: absolute;
     top: 82%;
@@ -23,19 +23,10 @@
       top: 90%;
       transform: scale(1);
     }
-
-    /*
-    @apply absolute
-			left-[50%]
-			top-[82%]
-			scale-75
-			md:top-[90%]
-			md:scale-100;*/
   }
 
   .arr {
     position: absolute;
-    /*  @apply absolute opacity-0;*/
     transform: scale(50%);
     opacity: 0;
     animation: 7s linear 1.6s infinite down-anim;
@@ -58,25 +49,10 @@
     width: 2.25rem;
     height: 0.5rem;
     content: '';
-
-    /*
-    @apply block
-      h-2
-      w-9
-      -translate-x-7
-      rotate-45
-      rounded
-      bg-white
-      content-[''];
-    */
   }
 
   .arr::after {
     transform: translate(-0.5rem, -0.5rem) rotate(-45deg);
-
-    /*@apply -translate-x-2
-      -translate-y-2
-      -rotate-45;*/
   }
 
   @keyframes down-anim {

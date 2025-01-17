@@ -50,10 +50,10 @@
   style={pattern ? `background-image: url('data:image/svg+xml;base64,${pattern}')` : undefined}
 ></div>
 
-<style lang="postcss">
+<style>
   div {
-    @apply h-96
-     bg-bluebirth-950
-     bg-repeat-x;
+    background-repeat: repeat-x;
+    background-color: var(--bluebirth-950);
+    height: 24rem;
   }
 </style>
