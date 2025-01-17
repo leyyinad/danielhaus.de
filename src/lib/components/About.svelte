@@ -79,17 +79,11 @@
       line-height: 2.5rem /* 40px */;
     }
 
-    /*
-    @apply mb-0
-			mt-5
-			text-3xl
-			font-black
-      md:text-4xl;
-      */
+    /* @apply mb-0 mt-5 text-3xl font-black md:text-4xl; */
   }
 
   p {
-    margin: 1.25rem 0;
+    margin: 1.5rem 0;
 
     strong {
       font-weight: 600;
@@ -104,11 +98,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /*
-    @apply grid
-			gap-4
-			md:grid-cols-2;
-      */
+    /* @apply grid gap-4 md:grid-cols-2; */
   }
 
   .column:not(:first-child) {
@@ -118,9 +108,6 @@
       margin-top: 0;
     }
 
-    /*
-    @apply -mt-8
-			md:mt-0;
-    */
+    /* @apply -mt-8 md:mt-0; */
   }
 </style>
