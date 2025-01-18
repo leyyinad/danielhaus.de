@@ -9,12 +9,13 @@
   import Leds from './widgets/Leds.svelte';
   import ScrollDownArrow from './widgets/ScrollDownArrow.svelte';
   import Typer from './widgets/Typer.svelte';
+  import { dev } from '$app/environment';
 
   const runEngine = true;
   const engineOnly = false;
 
-  let engine: Engine;
-  let leds: Leds;
+  let engine: Engine | undefined = $state(undefined);
+  let leds: Leds | undefined = $state(undefined);
 
   interface TimelineState {
     [key: string]: {
@@ -44,13 +45,13 @@
     arr: [[10, 60, { active: true }]]
   });
 
-  let state: TimelineState = timeline.state(0) as unknown as TimelineState;
+  let timelineState: TimelineState = $state(timeline.state(0) as unknown as TimelineState);
 
   let timer: number | undefined;
   let t0 = 0;
 
   const tick = () => {
-    state = timeline.state((new Date().getTime() - t0) * 0.001);
+    timelineState = timeline.state((new Date().getTime() - t0) * 0.001);
   };
 
   const init = () => {
@@ -71,13 +72,13 @@
 
 <div class="hero">
   <div class="content">
-    {#if state.led.active}
+    {#if timelineState.led.active}
       <figure
         class="profile-image"
-        class:centered={state.led.centered}
-        style={`opacity: ${state.led.opacity}`}
+        class:centered={timelineState.led.centered}
+        style={`opacity: ${timelineState.led.opacity}`}
       >
-        <InViewport enter={() => leds.start()} leave={() => leds.pause()}>
+        <InViewport enter={() => leds?.start()} leave={() => leds?.pause()}>
           <Leds bind:this={leds} width={64} height={64} pw={3} ph={3} gap={1} fn={anim} />
         </InViewport>
       </figure>
@@ -86,18 +87,18 @@
     {#if !engineOnly}
       <div class="title">
         <div class="signature">
-          {#if state.sig.active}
-            <Signature opacity={state.sig.opacity} />
+          {#if timelineState.sig.active}
+            <Signature opacity={timelineState.sig.opacity} />
           {/if}
 
-          {#if state.nam.active}
+          {#if timelineState.nam.active}
             <h1 transition:fade>Daniel Haus</h1>
           {:else}
             <h1 style="opacity: 0">Daniel Haus</h1>
           {/if}
         </div>
 
-        {#if state.txt.active}
+        {#if timelineState.txt.active}
           <h2>
             <Typer>
               IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
@@ -108,12 +109,12 @@
     {/if}
   </div>
 
-  {#if !engineOnly && state.arr.active}
+  {#if !engineOnly && timelineState.arr.active}
     <ScrollDownArrow />
   {/if}
 
-  {#if runEngine && state.cty.active}
-    <InViewport enter={() => engine.start()} leave={() => engine.pause()}>
+  {#if runEngine && timelineState.cty.active}
+    <InViewport enter={() => engine?.start()} leave={() => engine?.pause()}>
       <div class="ecity" transition:fade={{ duration: 7000 }}>
         <Engine bind:this={engine} />
       </div>
@@ -125,7 +126,7 @@
   .hero {
     position: relative;
     height: 100dvh;
-    min-height: 60rem;
+    min-height: 40rem;
   }
 
   .content {
@@ -151,17 +152,19 @@
 
   .profile-image {
     position: relative;
-    left: 16.6666667%;
-    transform: translateY(0);
+    left: 50%;
+    transform: translate(-50%, 0);
     transition-duration: 1s;
     transition-property: left, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     margin: 0;
     aspect-ratio: 1 / 1;
     width: 66.666667%;
+    max-width: 40vh;
 
     @media (min-width: 640px) {
       left: 0;
+      transform: translate(0, 0);
       aspect-ratio: 1 / 1;
       width: 38.2%;
     }
@@ -171,10 +174,10 @@
     }
 
     &.centered {
-      transform: translateY(5rem);
+      left: 50%;
+      transform: translate(-50%, 5rem);
 
       @media (min-width: 640px) {
-        left: 50%;
         transform: translate(-50%, 0);
       }
 
@@ -191,11 +194,19 @@
 
   .title {
     position: relative;
-    left: 12.5%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 75%;
+
+    @media (min-width: 480px) {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+    }
 
     @media (min-width: 640px) {
       left: 2%;
+      transform: translateX(0);
       padding-right: 3rem;
       padding-left: 1rem;
       width: 61.8%;
@@ -206,6 +217,7 @@
     transform: translateX(-0.75rem);
     margin-bottom: 1.5rem;
     aspect-ratio: 2.28;
+    max-width: 60vh;
 
     @media (min-width: 640px) {
       transform: translateX(-2rem);
@@ -254,6 +266,11 @@
     line-height: 2.25rem;
 
     @media (min-width: 380px) {
+      font-size: 2.1rem;
+      line-height: 2.1rem;
+    }
+
+    @media (min-width: 480px) {
       font-size: 2.25rem;
       line-height: 2.5rem;
     }
