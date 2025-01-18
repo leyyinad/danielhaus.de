@@ -9,7 +9,6 @@
   import Leds from './widgets/Leds.svelte';
   import ScrollDownArrow from './widgets/ScrollDownArrow.svelte';
   import Typer from './widgets/Typer.svelte';
-  import { dev } from '$app/environment';
 
   const runEngine = true;
   const engineOnly = false;
