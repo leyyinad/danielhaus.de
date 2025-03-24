@@ -10,15 +10,16 @@
 
   let { children, delay = 100, pauseDelay = 1200, showCursor = true }: Props = $props();
 
-  let container: HTMLSpanElement;
+  let showContainer = $state(true);
+  let container: HTMLSpanElement | undefined = $state(undefined);
   let text = '';
   let count = 0;
   let currentText = $state('');
   let timer: number | undefined = undefined;
 
   const init = () => {
-    text = container.innerText;
-    container.remove();
+    text = container?.innerText ?? '';
+    showContainer = false;
 
     timer = window.setTimeout(loop, 100);
   };
@@ -71,7 +72,10 @@
 
 <!-- eslint-disable svelte/no-at-html-tags -->
 
-<span bind:this={container}>{@render children?.()}</span>
+{#if showContainer}
+  <span bind:this={container}>{@render children?.()}</span>
+{/if}
+
 <span class="typer"
   >{@html currentText}{#if showCursor}<i></i>{/if}</span
 >

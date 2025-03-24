@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  {#each scripts as script, i}
+  {#each scripts as script, i (i)}
     <div class={`scroller scroller-${i}`}>
       <EndlessScroller>
         <pre>{script}</pre>
