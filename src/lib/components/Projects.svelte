@@ -7,7 +7,7 @@
     <h4>Projekte</h4>
 
     <ul class="projects">
-      {#each projects as project (project.title)}
+      {#each projects as project (project)}
         <li>
           <span class="title">
             {#if project.url}
