@@ -22,7 +22,7 @@ export default {
   },
 
   test: {
-    workspace: [
+    projects: [
       {
         extends: './vite.config.ts',
         plugins: [svelteTesting()],
