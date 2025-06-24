@@ -1,15 +1,7 @@
 <script lang="ts">
-  import type { Thing, WithContext } from 'schema-dts';
+  const { linkedData } = $props();
 
-  type Schema = Thing | WithContext<Thing>;
-
-  const {
-    linkedData
-  }: {
-    linkedData: Schema;
-  } = $props();
-
-  const serializeSchema = (schema: Schema) =>
+  const serializeSchema = (schema: object) =>
     `<script type="application/ld+json">${JSON.stringify(schema, undefined, 2)}</` + `script>`;
 </script>
 
