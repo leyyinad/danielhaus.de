@@ -6,17 +6,18 @@
   import Services from '$lib/components/Services.svelte';
   import OpenSource from '$lib/components/OpenSource.svelte';
   import CodeSnippet from '$lib/components/widgets/CodeSnippet.svelte';
+  import JsonLd from '$lib/components/JsonLd.svelte';
+  import linkedData from './linked-data.json';
 
   const title = 'Daniel Haus';
-  const description = 'IT-Berater und Softwareentwickler im Rhein-Main-Gebiet.';
+  const description = 'IT-Berater und Softwareentwickler in Idstein';
 </script>
 
 <svelte:head>
   <title>Daniel Haus — IT-Berater und Softwareentwickler</title>
-  <meta
-    name="description"
-    content="Mein Name ist Daniel Haus. Ich bin IT-Berater und Softwareentwickler aus dem Rhein-Main-Gebiet."
-  />
+  <meta name="description" content="IT-Beratung und Softwareentwicklung in Idstein" />
+
+  <meta name="thumbnail" content="https://danielhaus.de/static/favicon.png" />
 
   <meta property="og:url" content="https://danielhaus.de" />
   <meta property="og:type" content="website" />
@@ -39,3 +40,5 @@
 <Attitude />
 <Projects />
 <OpenSource />
+
+<JsonLd {linkedData} />

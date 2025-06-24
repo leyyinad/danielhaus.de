@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Daniel Haus — IT-Berater und Softwareentwickler",
+  "description": "IT-Beratung und Softwareentwicklung in Idstein",
+  "url": "https://danielhaus.de",
+  "logo": "https://danielhaus.de/favicon.png",
+  "image": "https://danielhaus.de/favicon.png",
+  "founder": {
+    "@type": "Person",
+    "name": "Daniel Haus",
+    "jobTitle": "IT-Berater und Softwareentwickler",
+    "description": "IT-Beratung und Softwareentwicklung in Idstein"
+  },
+  "serviceType": ["IT-Beratung", "Softwareentwicklung"],
+  "areaServed": {
+    "@type": "Place",
+    "name": "Rhein-Main-Gebiet"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "https://danielhaus.de/"
+  },
+  "sameAs": [],
+  "hasOfferCatalog": {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Dienstleistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "IT-Beratung",
+          "description": "IT-Beratung"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Softwareentwicklung",
+          "description": "Softwareentwicklung"
+        }
+      }
+    ]
+  }
+}
