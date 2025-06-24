@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   "name": "Daniel Haus — IT-Berater und Softwareentwickler",
   "description": "IT-Beratung und Softwareentwicklung in Idstein",
   "url": "https://danielhaus.de",
