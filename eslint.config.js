@@ -24,11 +24,25 @@ export default ts.config(
   },
   {
     files: ['**/*.svelte'],
-
     languageOptions: {
       parserOptions: {
         parser: ts.parser
       }
+    }
+  },
+  {
+    files: ['**/*.svelte', '**/*.ts', '**/*.js'],
+    rules: {
+      // TODO: check for updates
+      'svelte/no-navigation-without-resolve': [
+        'error',
+        {
+          ignoreGoto: true,
+          ignoreLinks: true,
+          ignorePushState: false,
+          ignoreReplaceState: false
+        }
+      ]
     }
   }
 );
