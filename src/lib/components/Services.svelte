@@ -1,6 +1,6 @@
 <section>
   <article>
-    <h4>Dienstleistungen</h4>
+    <h4>Leistungen</h4>
 
     <ul>
       <li><strong>Effiziente</strong> und <strong>effektive</strong> IT-Lösungen</li>
@@ -18,7 +18,7 @@
         Unix/Linux, <strong>Vim</strong>, <strong>Git</strong>, Zsh/Bash, <strong>Docker</strong>,
         <strong>K8s</strong>
       </li>
-      <li><strong>Unity</strong>, <strong>Godot</strong></li>
+      <li><strong>Godot</strong>, <strong>Unity</strong>, Game Design, Game Development</li>
       <li>
         <strong>Affinity Suite</strong>, <strong>Pixelmator Pro</strong>, Apple
         <strong>Logic Pro</strong>

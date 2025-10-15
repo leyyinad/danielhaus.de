@@ -13,7 +13,7 @@
       <div class="column">
         <p>
           Vertrauenswürdigkeit, Qualität und Effizienz sind meine Leitprinzipien. Es ist mir
-          besonders wichtig neben den Erwartungen meiner Kunden auch die eigenen Erwartungen an
+          besonders wichtig neben den Erwartungen meiner Klienten auch die eigenen Erwartungen an
           meine Arbeitsergebnisse stetig zu erfüllen und regelmäßig zu übertreffen. Schnelle
           Ergebnisse machen einen Unterschied. Daher investiere ich viel Zeit und Energie in
           Werkzeuge und Automatisierung.
@@ -21,7 +21,7 @@
 
         <p>
           Jedes Projekt behandle ich mit größtmöglicher Sorgfalt und Verantwortung. Ich kommuniziere
-          offen und proaktiv. Meine Kunden schätzen meine Zuverlässigkeit, meinen Weitblick und
+          offen und proaktiv. Meine Klienten schätzen meine Zuverlässigkeit, meinen Weitblick und
           meine Loyalität. Ich bin ein verlässlicher Partner, der neben kurzfristigen Lösungen, vor
           allem gemeinsamen langfristigen und nachhaltigen Erfolg anstrebt.
         </p>
