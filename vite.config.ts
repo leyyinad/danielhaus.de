@@ -5,7 +5,7 @@ import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
 import type { UserConfig } from 'vite';
 import glsl from 'vite-plugin-glsl';
-import type { UserConfig as VitestUserConfig } from 'vitest/node';
+import type { TestUserConfig } from 'vitest/node';
 
 export default {
   plugins: [enhancedImages(), sveltekit(), glsl()],
@@ -48,4 +48,4 @@ export default {
       }
     ]
   }
-} satisfies UserConfig | { test: VitestUserConfig };
+} satisfies UserConfig | { test: TestUserConfig };
