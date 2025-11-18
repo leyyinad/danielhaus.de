@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: danelhaus-de-staging
+  name: danielhaus-de-staging
   namespace: danielhaus
   labels:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: staging
 spec:
   replicas: 1
@@ -13,17 +13,17 @@ spec:
   #runAsUser: ?
   selector:
     matchLabels:
-      app: danelhaus-de
+      app: danielhaus-de
       environment: staging
   template:
     metadata:
       labels:
-        app: danelhaus-de
+        app: danielhaus-de
         environment: staging
     spec:
       containers:
-        - name: danelhaus-de
-          image: code.d7c.de/danielhaus/danelhaus-de:staging # {"$imagepolicy": "danielhaus:danelhaus-de-staging"}
+        - name: danielhaus-de
+          image: code.d7c.de/danielhaus/danielhaus.de:staging # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -41,14 +41,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: danelhaus-de-staging
+  name: danielhaus-de-staging
   namespace: danielhaus
   labels:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: staging
 spec:
   selector:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: staging
   ports:
     - name: web
@@ -58,10 +58,10 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: danelhaus-de-staging
+  name: danielhaus-de-staging
   namespace: danielhaus
   labels:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: staging
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
@@ -69,28 +69,28 @@ metadata:
 spec:
   tls:
     - hosts:
-        - danelhaus.de.staging.d7c.de
-      secretName: danelhaus-de-staging-d7c-de-tls
+        - danielhaus.de.staging.d7c.de
+      secretName: danielhaus-de-staging-d7c-de-tls
   rules:
-    - host: danelhaus.de.staging.d7c.de
+    - host: danielhaus.de.staging.d7c.de
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: danelhaus-de-staging
+                name: danielhaus-de-staging
                 port:
                   number: 3000
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: danelhaus-de-staging
+  name: danielhaus-de-staging
   namespace: danielhaus
 spec:
   imageRepositoryRef:
-    name: danelhaus-de
+    name: danielhaus.de
   filterTags:
     pattern: '^staging-[a-fA-F0-9]+-(?P<ts>.*)'
     extract: '$ts'

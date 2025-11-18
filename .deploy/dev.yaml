@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: danelhaus-de-dev
+  name: danielhaus-de-dev
   namespace: danielhaus
   labels:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: development
 spec:
   replicas: 1
@@ -13,17 +13,17 @@ spec:
   #runAsUser: ?
   selector:
     matchLabels:
-      app: danelhaus-de
+      app: danielhaus-de
       environment: development
   template:
     metadata:
       labels:
-        app: danelhaus-de
+        app: danielhaus-de
         environment: development
     spec:
       containers:
-        - name: danelhaus-de
-          image: code.d7c.de/danielhaus/danelhaus-de:main # {"$imagepolicy": "danielhaus:danelhaus-de-dev"}
+        - name: danielhaus-de
+          image: code.d7c.de/danielhaus/danielhaus.de:main # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -41,14 +41,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: danelhaus-de-dev
+  name: danielhaus-de-dev
   namespace: danielhaus
   labels:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: development
 spec:
   selector:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: development
   ports:
     - name: web
@@ -58,10 +58,10 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: danelhaus-de-dev
+  name: danielhaus-de-dev
   namespace: danielhaus
   labels:
-    app: danelhaus-de
+    app: danielhaus-de
     environment: development
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
@@ -69,28 +69,28 @@ metadata:
 spec:
   tls:
     - hosts:
-        - danelhaus.de.dev.d7c.de
-      secretName: danelhaus-de-dev-d7c-de-tls
+        - danielhaus.de.dev.d7c.de
+      secretName: danielhaus-de-dev-d7c-de-tls
   rules:
-    - host: danelhaus.de.dev.d7c.de
+    - host: danielhaus.de.dev.d7c.de
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: danelhaus-de-dev
+                name: danielhaus-de-dev
                 port:
                   number: 3000
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: danelhaus-de-dev
+  name: danielhaus-de-dev
   namespace: danielhaus
 spec:
   imageRepositoryRef:
-    name: danelhaus-de
+    name: danielhaus.de
   filterTags:
     pattern: '^main-[a-fA-F0-9]+-(?P<ts>.*)'
     extract: '$ts'
