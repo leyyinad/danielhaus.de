@@ -23,9 +23,9 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'npm'
+          cache: "npm"
 
-      - run: npm install --no-save @semantic-release/git-config @semantic-release/git @semantic-release/changelog
+      - run: npm install --no-save @semantic-release/git @semantic-release/changelog
 
       - id: semrel
         run: |
