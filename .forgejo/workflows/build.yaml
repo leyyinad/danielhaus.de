@@ -37,13 +37,14 @@ jobs:
     if: forge.event_name == 'push'
 
     container:
-      image: node:20-slim
+      image: ghcr.io/catthehacker/ubuntu:js-latest
 
     env:
       REGISTRY: code.d7c.de
       ACTIONS_USER: actions
 
     steps:
+      - uses: actions/setup-node
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
