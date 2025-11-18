@@ -11,7 +11,7 @@ jobs:
     runs-on: docker
 
     container:
-      image: ghcr.io/catthehacker/ubuntu:act-latest
+      image: ghcr.io/catthehacker/ubuntu:js-latest
 
     env:
       REGISTRY: code.d7c.de
