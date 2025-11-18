@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:staging-45cddab-1763484747 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
+          image: code.d7c.de/danielhaus/danielhaus.de:staging-b4fa4dc-1763486966 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
           imagePullPolicy: Always
           ports:
             - name: web
