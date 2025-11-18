@@ -7,13 +7,13 @@ on:
       - main
       - staging
     paths-ignore:
-      - ".deploy/**"
+      - '.deploy/**'
 
 env:
   PUBLIC_GITHUB_REF_NAME: ${{ vars.GITHUB_REF_NAME }}
   PUBLIC_GITHUB_SHA: ${{ vars.GITHUB_SHA }}
-  PUBLIC_GITHUB_RELEASE_VERSION: ""
-  PUBLIC_BUILD_DATE: ""
+  PUBLIC_GITHUB_RELEASE_VERSION: ''
+  PUBLIC_BUILD_DATE: ''
 
 jobs:
   test:
