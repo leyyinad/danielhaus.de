@@ -29,7 +29,7 @@ jobs:
 
       - id: semrel
         run: |
-          SEMREL_OUTPUT=$(npx semantic-release --branches release)
+          SEMREL_OUTPUT=$(npx semantic-release --branches release -p git -p changelog)
           echo $SEMREL_OUTPUT
           RELEASE_VERSION=$(echo "$SEMREL_OUTPUT" | awk '/The next release version is/ { print $NF }')
           echo $RELEASE_VERSION
