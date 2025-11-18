@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danelhaus-de-dev
+  namespace: danielhaus
+  labels:
+    app: danelhaus-de
+    environment: development
+spec:
+  replicas: 1
+  # securityContext:
+  #runAsNonRoot: true
+  #runAsUser: ?
+  selector:
+    matchLabels:
+      app: danelhaus-de
+      environment: development
+  template:
+    metadata:
+      labels:
+        app: danelhaus-de
+        environment: development
+    spec:
+      containers:
+        - name: danelhaus-de
+          image: code.d7c.de/danielhaus/danelhaus-de:main # {"$imagepolicy": "danielhaus:danelhaus-de-dev"}
+          imagePullPolicy: Always
+          ports:
+            - name: web
+              containerPort: 3000
+          # securityContext:
+          #   readOnlyRootFilesystem: true
+          resources:
+            requests:
+              cpu: 10m
+            limits:
+              memory: '256Mi'
+      imagePullSecrets:
+        - name: org-registry-access-token
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: danelhaus-de-dev
+  namespace: danielhaus
+  labels:
+    app: danelhaus-de
+    environment: development
+spec:
+  selector:
+    app: danelhaus-de
+    environment: development
+  ports:
+    - name: web
+      port: 3000
+      targetPort: web
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: danelhaus-de-dev
+  namespace: danielhaus
+  labels:
+    app: danelhaus-de
+    environment: development
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.className: traefik
+spec:
+  tls:
+    - hosts:
+        - danelhaus.de.dev.d7c.de
+      secretName: danelhaus-de-dev-d7c-de-tls
+  rules:
+    - host: danelhaus.de.dev.d7c.de
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: danelhaus-de-dev
+                port:
+                  number: 3000
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: danelhaus-de-dev
+  namespace: danielhaus
+spec:
+  imageRepositoryRef:
+    name: danelhaus-de
+  filterTags:
+    pattern: '^main-[a-fA-F0-9]+-(?P<ts>.*)'
+    extract: '$ts'
+  policy:
+    numerical:
+      order: asc
