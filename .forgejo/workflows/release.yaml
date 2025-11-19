@@ -20,6 +20,19 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - run: |
+          echo <<EOF >.releaserc
+          {
+            "branches": ["release"],
+            "plugins": [
+              "@semantic-release/commit-analyzer",
+              "@semantic-release/release-notes-generator",
+              "@semantic-release/npm",
+              "@semantic-release/git"
+            ]
+          }
+          EOF
+
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -29,7 +42,7 @@ jobs:
 
       - id: semrel
         run: |
-          SEMREL_OUTPUT=$(npx semantic-release --branches release)
+          SEMREL_OUTPUT=$(npx semantic-release)
           echo $SEMREL_OUTPUT
           RELEASE_VERSION=$(echo "$SEMREL_OUTPUT" | awk '/The next release version is/ { print $NF }')
           echo $RELEASE_VERSION
