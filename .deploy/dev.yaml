@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:main-c808d86-1763486792 # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
+          image: code.d7c.de/danielhaus/danielhaus.de:main-396895e-1763540106 # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -66,6 +66,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.className: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: danielhaus-danielhaus-de-dev-auth@kubernetescrd
 spec:
   tls:
     - hosts:
@@ -82,6 +83,30 @@ spec:
                 name: danielhaus-de-dev
                 port:
                   number: 3000
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: danielhaus-de-dev-credentials
+  namespace: danielhaus
+spec:
+  encryptedData:
+    users: AgAmYLLTmyX7hiUrH+VJxvERMtBNy6DKdN00O/A2ikzeaOaylHZ+gLYS5LTFqHXhag52wSWLQTox4njCaUiWHugmqaspmBMozSiLIPw8j5kxf+w1I4yC7Wq4w7MKOuySSQzuA0X+VaM7BuM2UscIuwqrIvNokXTWRPeihlfkaB7/03HFsHne6/N+0lHUE/RQOFNw5HCaRHjjUh0jl3YjGtiRCqV5tNk+hW1ty8WzTOB6udfb5qHw6CStjliXTfESKGyK/G61TqzVUDjFrGfsofsaVfT9yBZXGO17ZdYMlc4U7l4TLdskoMQ8ZiSNINS9VoVMvQYH63mwptMkTeIMwLVZrRzkSmL5IGDfWtRdtSRt3+7DltfGDieSinWS/wYEoSyp9oqmRwj55IlSn0EURqOZ+zBnqPyRvzgmkqPWS1OIqFNJudgDcskp6G+y8QhzV23aZyjSGDQ++ViMceMQxDl1BGxWgPTVMTGZGqVAtjJqc6JH38pVG+YG3X7tYhmr0Ax08vwsp9znRh+smgYVANsStTLSBU8/YxIxnZV9TmKyN4Pmax9LUtNcEmxKJ0DIFSDPkop22khLZ8YuDTJx/27Ewyf8jRHdr+hmrdaPaMB5RbfqBUxFKUfVRuE8VCFLWYzlOk8M+ZnSm2HXVB690IeYXxlug7yTyU7aHzin4e1N1HanIj332DEezcGWYq8mobXcPz+QELka0n7BtwhxbGyRVLKWn/T74Bf8JannDf1MpDmMQjIiP0a1CEVUPO5K
+  template:
+    metadata:
+      name: danielhaus-de-dev-credentials
+      namespace: danielhaus
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: danielhaus-de-dev-auth
+  namespace: danielhaus
+spec:
+  basicAuth:
+    secret: danielhaus-de-dev-credentials
+    realm: 'danielhaus.de (dev)'
+    removeHeader: true
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
