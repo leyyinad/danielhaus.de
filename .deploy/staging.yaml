@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:staging-45cddab-1763484747 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
+          image: code.d7c.de/danielhaus/danielhaus.de:staging-b4fa4dc-1763486966 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -66,6 +66,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.className: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: danielhaus-danielhaus-de-staging-auth@kubernetescrd
 spec:
   tls:
     - hosts:
@@ -82,6 +83,30 @@ spec:
                 name: danielhaus-de-staging
                 port:
                   number: 3000
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: danielhaus-de-staging-credentials
+  namespace: danielhaus
+spec:
+  encryptedData:
+    users: AgAvlDFiO40xXO3R9rjJNJCJEmC96/SFxQ9X3ZhSKs0/FZ3c7zGK4MA//q/Ilw8G5sI7DBJmOYl9jzWVG61Wo3HIp+Dclzd4YQsC9XNk8w7mPbxBfQRiWWhU9MLlviC6lbU9GUwOytJYAgZflCssa82nkAXYoRcsNluPJpbZrIKIEB6e62u6vc/YlWyAXEXfYFLRwnxUk0K8kJNo3o2i3llKzpZYSFKViqQ9nZ+7MKzSKkwQ/W1kUG5pnQVLYpplosp72W4bRpuWc6JWojTU1eDeIwoI53yO7ICzZ7iFhI35Af4VRAnYuElR2lEaP9jX5/M0VX/D5h6Dl/aMKnbZf/9ed2XOiteJnAPbMVoo2zpMb+OrCFxxP0P0zWkY+eq0CmF4RIgshwa5/e/I+4ENFDHYCJZgfiyU1I29jHJo8Knpam7QP95/jDR1A2eWlmhoL2vTWsJ2GEJO/aIJISZgnotfMB1sPIP4YMVKUyWCXc4NjgTQRRMAnKqQJ2lCeYmUcrb+F9DVE5xJpDl8nZhFyFwKlCSGTLFULeUt2wRtyEVLatdQ56H+YfBso/b9TQCQ+ZVVdVl1eWmGfIxxgfHMmM4F5WaKcuEzawTG//ngNHmeoiDHs13sMTMg/3lHhurm6nBahT1Ututy6I9WYyStvMO6TuTTrEIRDyUUhHETUrGczYYI32WUUCPFqndkabBN7CVahdLOR8UouuaH+erybKJMbMdwcXYoR2IlQPriHKqksUVKiI/y+/3cPqELOMn+
+  template:
+    metadata:
+      name: danielhaus-de-staging-credentials
+      namespace: danielhaus
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: danielhaus-de-staging-auth
+  namespace: danielhaus
+spec:
+  basicAuth:
+    secret: danielhaus-de-staging-credentials
+    realm: 'danielhaus.de (staging)'
+    removeHeader: true
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
