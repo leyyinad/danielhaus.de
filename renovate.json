@@ -11,6 +11,11 @@
       "matchDepTypes": ["devDependencies"],
       "automerge": true,
       "automergeType": "branch"
+    },
+    {
+      "matchDatasources": ["forgejo-tags"],
+      "matchPackageNames": ["actions/forgejo-release"],
+      "registryUrls": ["https://code.forgejo.org"]
     }
   ]
 }

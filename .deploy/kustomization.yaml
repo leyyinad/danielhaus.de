@@ -1,4 +1,4 @@
 resources:
   - dev.yaml
   - staging.yaml
-  # - prod.yaml
+  - prod.yaml
