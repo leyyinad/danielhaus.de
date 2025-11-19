@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://code.d7c.de/danielhaus/danielhaus.de.git"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
