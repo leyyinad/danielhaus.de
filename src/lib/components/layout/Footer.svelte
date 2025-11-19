@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { version } from '$lib/version';
+
   import SquarePattern from '../widgets/SquarePattern.svelte';
 
   const decodeLink = (event: Event) => {
@@ -65,6 +67,9 @@
               aria-label="Telefonnummer">&nbsp;</a
             >
           </p>
+
+          <h5>Version</h5>
+          <p>{version}</p>
         </div>
 
         <div class="links">
@@ -190,11 +195,19 @@
     font-style: normal;
   }
 
-  .kontakt p span {
-    display: inline-block;
-    width: 4rem;
-    color: var(--kashmirgrey-500);
-    white-space: nowrap;
+  .kontakt {
+    @media (min-width: 768px) {
+      p:first-of-type {
+        margin-bottom: 3rem;
+      }
+    }
+
+    p span {
+      display: inline-block;
+      width: 4rem;
+      color: var(--kashmirgrey-500);
+      white-space: nowrap;
+    }
   }
 
   a {
