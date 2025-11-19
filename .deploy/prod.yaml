@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danielhaus-de
+  namespace: danielhaus
+  labels:
+    app: danielhaus-de
+    environment: production
+spec:
+  replicas: 1
+  # securityContext:
+  #runAsNonRoot: true
+  #runAsUser: ?
+  selector:
+    matchLabels:
+      app: danielhaus-de
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: danielhaus-de
+        environment: production
+    spec:
+      containers:
+        - name: danielhaus-de
+          image: code.d7c.de/danielhaus/danielhaus.de:1.2.0
+          imagePullPolicy: Always
+          ports:
+            - name: web
+              containerPort: 3000
+          # securityContext:
+          #   readOnlyRootFilesystem: true
+          resources:
+            requests:
+              cpu: 10m
+            limits:
+              memory: '256Mi'
+      imagePullSecrets:
+        - name: org-registry-access-token
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: danielhaus-de-prod
+  namespace: danielhaus
+  labels:
+    app: danielhaus-de
+    environment: production
+spec:
+  selector:
+    app: danielhaus-de
+    environment: production
+  ports:
+    - name: web
+      port: 3000
+      targetPort: web
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: danielhaus-de-prod
+  namespace: danielhaus
+  labels:
+    app: danielhaus-de
+    environment: production
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.className: traefik
+    traefik.ingress.kubernetes.io/redirect-permanent: 'true'
+    traefik.ingress.kubernetes.io/redirect-regex: '^https://www.(.*)'
+    traefik.ingress.kubernetes.io/redirect-replacement: 'https://$1'
+spec:
+  tls:
+    - hosts:
+        - danielhaus.de
+        - www.danielhaus.de
+      secretName: danielhaus-de-prod-d7c-de-tls
+  rules:
+    - host: danielhaus.de
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: danielhaus-de-prod
+                port:
+                  number: 3000
+    - host: www.danielhaus.de
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: danielhaus-de-prod
+                port:
+                  number: 3000
