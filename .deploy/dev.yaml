@@ -34,7 +34,7 @@ spec:
             requests:
               cpu: 10m
             limits:
-              memory: "256Mi"
+              memory: '256Mi'
       imagePullSecrets:
         - name: org-registry-access-token
 ---
@@ -105,7 +105,7 @@ metadata:
 spec:
   basicAuth:
     secret: danielhaus-de-dev-credentials
-    realm: "danielhaus.de (dev)"
+    realm: 'danielhaus.de (dev)'
     removeHeader: true
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
@@ -117,8 +117,8 @@ spec:
   imageRepositoryRef:
     name: danielhaus.de
   filterTags:
-    pattern: "^main-[a-fA-F0-9]+-(?P<ts>.*)"
-    extract: "$ts"
+    pattern: '^main-[a-fA-F0-9]+-(?P<ts>.*)'
+    extract: '$ts'
   policy:
     numerical:
       order: asc
