@@ -20,6 +20,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - run: npm install --no-save @semantic-release/git @semantic-release/changelog
+
       - run: |
           echo <<EOF >.releaserc
           {
@@ -33,12 +40,7 @@ jobs:
           }
           EOF
 
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: 'npm'
-
-      - run: npm install --no-save @semantic-release/git @semantic-release/changelog
+      - run: ls -lha
 
       - id: semrel
         run: |
