@@ -19,6 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v6
         with:
@@ -26,21 +28,6 @@ jobs:
           cache: 'npm'
 
       - run: npm install --no-save @semantic-release/git @semantic-release/changelog
-
-      - run: |
-          echo <<EOF >.releaserc
-          {
-            "branches": ["release"],
-            "plugins": [
-              "@semantic-release/commit-analyzer",
-              "@semantic-release/release-notes-generator",
-              "@semantic-release/npm",
-              "@semantic-release/git"
-            ]
-          }
-          EOF
-
-      - run: ls -lha
 
       - id: semrel
         run: |
@@ -73,7 +60,6 @@ jobs:
           build-args: |
             GITHUB_REF_NAME=""
             GITHUB_SHA=${{ env.GITHUB_SHA }}
-            GITHUB_RELEASE_VERSION=${{ steps.semrel.outputs.RELEASE_VERSION }}
 
       - run: |
           mkdir -p dist/release
