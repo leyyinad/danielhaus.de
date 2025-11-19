@@ -25,13 +25,13 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'npm'
+          cache: "npm"
 
       - run: npm install --no-save @semantic-release/git @semantic-release/changelog
 
       - id: semrel
         run: |
-          SEMREL_OUTPUT=$(npx semantic-release)
+          SEMREL_OUTPUT=$(npx semantic-release --branches release)
           echo $SEMREL_OUTPUT
           RELEASE_VERSION=$(echo "$SEMREL_OUTPUT" | awk '/The next release version is/ { print $NF }')
           echo $RELEASE_VERSION
