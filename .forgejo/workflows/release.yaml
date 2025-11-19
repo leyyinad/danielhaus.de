@@ -60,6 +60,7 @@ jobs:
           build-args: |
             GITHUB_REF_NAME=""
             GITHUB_SHA=${{ env.GITHUB_SHA }}
+            GITHUB_RELEASE_VERSION=${{ steps.semrel.outputs.RELEASE_VERSION }}
 
       - run: |
           mkdir -p dist/release
