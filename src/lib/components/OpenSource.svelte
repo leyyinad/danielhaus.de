@@ -11,8 +11,8 @@
     </p>
 
     <p>
-      <a href="https://gitlab.com/leyyinad/danielhaus.de" target="_blank" rel="external noopener">
-        https://gitlab.com/<strong>leyyinad/danielhaus.de</strong>
+      <a href="https://github.com/leyyinad/danielhaus.de" target="_blank" rel="external noopener">
+        https://github.com/<strong>leyyinad/danielhaus.de</strong>
       </a>
     </p>
   </article>
