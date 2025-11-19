@@ -94,7 +94,7 @@ spec:
     users: AgB0UZ3fFdhvhcEG4vbQ4Jp6inJs4UVP+hwRrBFSXESp5NKB2AVz/GbIW+FvuzotqZyXeuEe2boXqGIFp2DNcMc/ppA/iELy8eLLJ4o2Q2nwx7JAxoplloMgB5/iE09eNbGu5fZHFWMaFe/bHGRSW5dm4SogiN4YwIAW1e9TmqZM3w/Rei4SR7Tv3bBbkw+pMQ/fD7+YMlwEMnAzDZl3GPoVcAxbz0LHIYYxtBR5s5z2VwiPBfG616bpkDPbAmPVHWa49tEJDmgdyP6B4DPfd/V+GAjxm7lKrKK/lW+Fq+gBQju3gpmG/TZnJ3XuPe1P+qTI9ZM19Ipc4GASWqcE8FPGuj23oN9yOyqvLgVauVMH2GCsM5YXSSySuEwc3u8/32be17Ez1myJtTkoMM6F3E/8luV1i1vBLOb9p4x1In04gaARY3mPYwgf0LECwpbpafjzIu73WeNyxQtB1O2Xl2sSgOsUl3OZgB5R4VwWrewwjRNNI6jDedsthoK64g0LoIULxfYRPya7cuL52X0xk5YkOeswhG2d0Hjgt8NPZxeGBIghJa0+a7O67PYFY3PVhQj4400MdyYIoHccewQPnhJHboxCUiAQXLkj75G6zkraYpfRrC3LdZVR+Sb2AfPYgfxHC9S5gGFqSl0R+uzaNkYYlAIzp6I0z60+cusmBPID0kbabNcvavt1i8h7HXeqYjORscFG7URKzHP69Mqsfc9S4WzJu/kuiTK2OjAzItCtE/o6POQQHEDQayOWcg==
   template:
     metadata:
-      name: danielhaus-staging-credentials
+      name: danielhaus-de-staging-credentials
       namespace: danielhaus
 ---
 apiVersion: traefik.io/v1alpha1
