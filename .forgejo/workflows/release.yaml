@@ -19,19 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-
-      - run: |
-          echo <<EOF >.releaserc
-          {
-            "branches": ["release"],
-            "plugins": [
-              "@semantic-release/commit-analyzer",
-              "@semantic-release/release-notes-generator",
-              "@semantic-release/npm",
-              "@semantic-release/git"
-            ]
-          }
-          EOF
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v6
         with:
@@ -71,7 +60,6 @@ jobs:
           build-args: |
             GITHUB_REF_NAME=""
             GITHUB_SHA=${{ env.GITHUB_SHA }}
-            GITHUB_RELEASE_VERSION=${{ steps.semrel.outputs.RELEASE_VERSION }}
 
       - run: |
           mkdir -p dist/release
