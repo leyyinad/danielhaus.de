@@ -4,6 +4,13 @@
   "name": "Daniel Haus — IT-Berater und Softwareentwickler",
   "description": "IT-Beratung und Softwareentwicklung in Idstein",
   "url": "https://danielhaus.de",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Limburger Straße 36",
+    "addressLocality": "Idstein",
+    "postalCode": "65510",
+    "addressCountry": "DE"
+  },
   "logo": "https://danielhaus.de/favicon.png",
   "image": "https://danielhaus.de/favicon.png",
   "founder": {
