@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:main-6d60e2f-1768804945 # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
+          image: code.d7c.de/danielhaus/danielhaus.de:main-5d8fb5f-1772222900 # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -91,7 +91,7 @@ metadata:
   namespace: danielhaus
 spec:
   encryptedData:
-    users: AgAmYLLTmyX7hiUrH+VJxvERMtBNy6DKdN00O/A2ikzeaOaylHZ+gLYS5LTFqHXhag52wSWLQTox4njCaUiWHugmqaspmBMozSiLIPw8j5kxf+w1I4yC7Wq4w7MKOuySSQzuA0X+VaM7BuM2UscIuwqrIvNokXTWRPeihlfkaB7/03HFsHne6/N+0lHUE/RQOFNw5HCaRHjjUh0jl3YjGtiRCqV5tNk+hW1ty8WzTOB6udfb5qHw6CStjliXTfESKGyK/G61TqzVUDjFrGfsofsaVfT9yBZXGO17ZdYMlc4U7l4TLdskoMQ8ZiSNINS9VoVMvQYH63mwptMkTeIMwLVZrRzkSmL5IGDfWtRdtSRt3+7DltfGDieSinWS/wYEoSyp9oqmRwj55IlSn0EURqOZ+zBnqPyRvzgmkqPWS1OIqFNJudgDcskp6G+y8QhzV23aZyjSGDQ++ViMceMQxDl1BGxWgPTVMTGZGqVAtjJqc6JH38pVG+YG3X7tYhmr0Ax08vwsp9znRh+smgYVANsStTLSBU8/YxIxnZV9TmKyN4Pmax9LUtNcEmxKJ0DIFSDPkop22khLZ8YuDTJx/27Ewyf8jRHdr+hmrdaPaMB5RbfqBUxFKUfVRuE8VCFLWYzlOk8M+ZnSm2HXVB690IeYXxlug7yTyU7aHzin4e1N1HanIj332DEezcGWYq8mobXcPz+QELka0n7BtwhxbGyRVLKWn/T74Bf8JannDf1MpDmMQjIiP0a1CEVUPO5K
+    users: AgAjU8mXOj7LA47ZID7bh7HvaK4DHmbiGuPHnBAaTLiWTJzQt869RMf66WHiObAM7fUTxosSBSSWQFtP1nkJFklunv6tLjjxKiHZU5Fjmjoq+ZZUc97lPBt3xzIcQecTwR8WjDP15dVKEgbCscttX/NhTMVdQcdo3UzqrJuSpTNYX2rSj4tCEUpoBn0HftkUZErBo2np0wkNG5SA6iUJ5lzRTIjXVkT42mlwxljQZmJOyNuAsDxTvELAv4sXy0Nb4tUG+1HfVW4O0FcamBXhNYXBVBsUHid9hJ1i3cKdtSzgcJ8oUUjnIMemzYC4oX+BzgT+s40Y5HRf3Gf0S6DA3WOSWTBh4Vof8tKW89vgkpow25vNJjB0x1TePbOlqg5uDy9q4rsmqipGJE3AcCL8OVGUHN7UXib70p88iHJ8x9EzFofO5ronDM53O/0icU1m++vFIgYVO8zYDLm83/Dp1r/6t1q9zhnfssIFz9KOAzmVJxrgRTgL/v9nhY7cZRU74o8+ja6Htz77738dHNyM4tMl+3CxB6C2iFhi4Uo/rLhA1CYQQb6newtF7/flVlexB7ujiTa7TqnsAyRTdpI5nVZ6OiImkZLS/UyKgsWsv6nYEk+NbI59gOTyjhgeY2n0MmlG+I0jvc4hOpfKvwciH1NYOiMHK6cUrYv82zTuqR0tukEpWLYhScPxwtCNM6weO8VEdBsg1yCry+LyfKHyTERQY+s383mkCV1RaEMqjxXtZTwjNzgVjNI/+cd2IXgT
   template:
     metadata:
       name: danielhaus-de-dev-credentials

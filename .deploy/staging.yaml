@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:staging-1b46595-1767776324 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
+          image: code.d7c.de/danielhaus/danielhaus.de:staging-48a7126-1768828996 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -91,7 +91,7 @@ metadata:
   namespace: danielhaus
 spec:
   encryptedData:
-    users: AgAvlDFiO40xXO3R9rjJNJCJEmC96/SFxQ9X3ZhSKs0/FZ3c7zGK4MA//q/Ilw8G5sI7DBJmOYl9jzWVG61Wo3HIp+Dclzd4YQsC9XNk8w7mPbxBfQRiWWhU9MLlviC6lbU9GUwOytJYAgZflCssa82nkAXYoRcsNluPJpbZrIKIEB6e62u6vc/YlWyAXEXfYFLRwnxUk0K8kJNo3o2i3llKzpZYSFKViqQ9nZ+7MKzSKkwQ/W1kUG5pnQVLYpplosp72W4bRpuWc6JWojTU1eDeIwoI53yO7ICzZ7iFhI35Af4VRAnYuElR2lEaP9jX5/M0VX/D5h6Dl/aMKnbZf/9ed2XOiteJnAPbMVoo2zpMb+OrCFxxP0P0zWkY+eq0CmF4RIgshwa5/e/I+4ENFDHYCJZgfiyU1I29jHJo8Knpam7QP95/jDR1A2eWlmhoL2vTWsJ2GEJO/aIJISZgnotfMB1sPIP4YMVKUyWCXc4NjgTQRRMAnKqQJ2lCeYmUcrb+F9DVE5xJpDl8nZhFyFwKlCSGTLFULeUt2wRtyEVLatdQ56H+YfBso/b9TQCQ+ZVVdVl1eWmGfIxxgfHMmM4F5WaKcuEzawTG//ngNHmeoiDHs13sMTMg/3lHhurm6nBahT1Ututy6I9WYyStvMO6TuTTrEIRDyUUhHETUrGczYYI32WUUCPFqndkabBN7CVahdLOR8UouuaH+erybKJMbMdwcXYoR2IlQPriHKqksUVKiI/y+/3cPqELOMn+
+    users: AgAjU8mXOj7LA47ZID7bh7HvaK4DHmbiGuPHnBAaTLiWTJzQt869RMf66WHiObAM7fUTxosSBSSWQFtP1nkJFklunv6tLjjxKiHZU5Fjmjoq+ZZUc97lPBt3xzIcQecTwR8WjDP15dVKEgbCscttX/NhTMVdQcdo3UzqrJuSpTNYX2rSj4tCEUpoBn0HftkUZErBo2np0wkNG5SA6iUJ5lzRTIjXVkT42mlwxljQZmJOyNuAsDxTvELAv4sXy0Nb4tUG+1HfVW4O0FcamBXhNYXBVBsUHid9hJ1i3cKdtSzgcJ8oUUjnIMemzYC4oX+BzgT+s40Y5HRf3Gf0S6DA3WOSWTBh4Vof8tKW89vgkpow25vNJjB0x1TePbOlqg5uDy9q4rsmqipGJE3AcCL8OVGUHN7UXib70p88iHJ8x9EzFofO5ronDM53O/0icU1m++vFIgYVO8zYDLm83/Dp1r/6t1q9zhnfssIFz9KOAzmVJxrgRTgL/v9nhY7cZRU74o8+ja6Htz77738dHNyM4tMl+3CxB6C2iFhi4Uo/rLhA1CYQQb6newtF7/flVlexB7ujiTa7TqnsAyRTdpI5nVZ6OiImkZLS/UyKgsWsv6nYEk+NbI59gOTyjhgeY2n0MmlG+I0jvc4hOpfKvwciH1NYOiMHK6cUrYv82zTuqR0tukEpWLYhScPxwtCNM6weO8VEdBsg1yCry+LyfKHyTERQY+s383mkCV1RaEMqjxXtZTwjNzgVjNI/+cd2IXgT
   template:
     metadata:
       name: danielhaus-de-staging-credentials
