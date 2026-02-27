@@ -34,7 +34,7 @@ spec:
             requests:
               cpu: 10m
             limits:
-              memory: '256Mi'
+              memory: "256Mi"
       imagePullSecrets:
         - name: org-registry-access-token
 ---
@@ -91,7 +91,7 @@ metadata:
   namespace: danielhaus
 spec:
   encryptedData:
-    users: AgAvlDFiO40xXO3R9rjJNJCJEmC96/SFxQ9X3ZhSKs0/FZ3c7zGK4MA//q/Ilw8G5sI7DBJmOYl9jzWVG61Wo3HIp+Dclzd4YQsC9XNk8w7mPbxBfQRiWWhU9MLlviC6lbU9GUwOytJYAgZflCssa82nkAXYoRcsNluPJpbZrIKIEB6e62u6vc/YlWyAXEXfYFLRwnxUk0K8kJNo3o2i3llKzpZYSFKViqQ9nZ+7MKzSKkwQ/W1kUG5pnQVLYpplosp72W4bRpuWc6JWojTU1eDeIwoI53yO7ICzZ7iFhI35Af4VRAnYuElR2lEaP9jX5/M0VX/D5h6Dl/aMKnbZf/9ed2XOiteJnAPbMVoo2zpMb+OrCFxxP0P0zWkY+eq0CmF4RIgshwa5/e/I+4ENFDHYCJZgfiyU1I29jHJo8Knpam7QP95/jDR1A2eWlmhoL2vTWsJ2GEJO/aIJISZgnotfMB1sPIP4YMVKUyWCXc4NjgTQRRMAnKqQJ2lCeYmUcrb+F9DVE5xJpDl8nZhFyFwKlCSGTLFULeUt2wRtyEVLatdQ56H+YfBso/b9TQCQ+ZVVdVl1eWmGfIxxgfHMmM4F5WaKcuEzawTG//ngNHmeoiDHs13sMTMg/3lHhurm6nBahT1Ututy6I9WYyStvMO6TuTTrEIRDyUUhHETUrGczYYI32WUUCPFqndkabBN7CVahdLOR8UouuaH+erybKJMbMdwcXYoR2IlQPriHKqksUVKiI/y+/3cPqELOMn+
+    users: AgAvzeLr6UTAbKd5zHpbOyLsguyYwA6NpME/yva/Nt5biHsl5JlNX45JV+0nZzVxBIyi1SB1mJGuQYfwSUk92hE1dry/B0Hr4A/AtiKoTWvR5OM3wBU8Dog/rvrh5mWOYD8p15ETXdT7OEw4BzwVOcv8mbgeGlzx8eJfoEVZ8bMVA0t7aCn6EQkBTF5SvxXPnDn487Y/HUrWQB5hCno4bNuHaoiPGDcHLOGz69zmGoQnHUn5UfoWTQ4G9ACsNr1zBp4xST4NAgXe9Zh2RCI/AYlCdz5szbt3eWowfy46LBHSiBoJDM7gINbrf0nHZhTSOePftpKeVG2q+8dNqmWlRg853EoEZRvov7I01Bp7PXYNtrKdti7on73IR4NHbk+WHTl2kzki7dRu3zFihuI1/XtEAhXhcc9k40Hjxtfvw82XbXGKNE2Ve33GxIP7Doff1n2jOYyeTVMHXOOKIpCmgLkKSxVpjOVFjPAfnoRTiwLya3+TKWfq9iRhcDBCutOx+gpb+HARnhySmxFbpzQECWCKj+8mREdzUtOPLX3NJXyL+5QNLIunHxp6m7uW5qrLNjb2beFhyfZGYctd0H+FuRPeS67u8YO92qeSNonfLHWa73W2Zb/cPTHgqNES7wg+Sq8SDO/pgblSHjI5+OZBhKeXKy1kJPEhJb0otvTbJjp3eFrepi8T4LsUl0lVnTSj7g5PQCBoIbvxFbKIctgwlqog7RoUrs10dY9f15q62+2MOvVaJnHaDH+PdYG0vCFV
   template:
     metadata:
       name: danielhaus-de-staging-credentials
@@ -105,7 +105,7 @@ metadata:
 spec:
   basicAuth:
     secret: danielhaus-de-staging-credentials
-    realm: 'danielhaus.de (staging)'
+    realm: "danielhaus.de (staging)"
     removeHeader: true
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
@@ -117,8 +117,8 @@ spec:
   imageRepositoryRef:
     name: danielhaus.de
   filterTags:
-    pattern: '^staging-[a-fA-F0-9]+-(?P<ts>.*)'
-    extract: '$ts'
+    pattern: "^staging-[a-fA-F0-9]+-(?P<ts>.*)"
+    extract: "$ts"
   policy:
     numerical:
       order: asc

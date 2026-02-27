@@ -34,7 +34,7 @@ spec:
             requests:
               cpu: 10m
             limits:
-              memory: '256Mi'
+              memory: "256Mi"
       imagePullSecrets:
         - name: org-registry-access-token
 ---
@@ -91,7 +91,7 @@ metadata:
   namespace: danielhaus
 spec:
   encryptedData:
-    users: AgAmYLLTmyX7hiUrH+VJxvERMtBNy6DKdN00O/A2ikzeaOaylHZ+gLYS5LTFqHXhag52wSWLQTox4njCaUiWHugmqaspmBMozSiLIPw8j5kxf+w1I4yC7Wq4w7MKOuySSQzuA0X+VaM7BuM2UscIuwqrIvNokXTWRPeihlfkaB7/03HFsHne6/N+0lHUE/RQOFNw5HCaRHjjUh0jl3YjGtiRCqV5tNk+hW1ty8WzTOB6udfb5qHw6CStjliXTfESKGyK/G61TqzVUDjFrGfsofsaVfT9yBZXGO17ZdYMlc4U7l4TLdskoMQ8ZiSNINS9VoVMvQYH63mwptMkTeIMwLVZrRzkSmL5IGDfWtRdtSRt3+7DltfGDieSinWS/wYEoSyp9oqmRwj55IlSn0EURqOZ+zBnqPyRvzgmkqPWS1OIqFNJudgDcskp6G+y8QhzV23aZyjSGDQ++ViMceMQxDl1BGxWgPTVMTGZGqVAtjJqc6JH38pVG+YG3X7tYhmr0Ax08vwsp9znRh+smgYVANsStTLSBU8/YxIxnZV9TmKyN4Pmax9LUtNcEmxKJ0DIFSDPkop22khLZ8YuDTJx/27Ewyf8jRHdr+hmrdaPaMB5RbfqBUxFKUfVRuE8VCFLWYzlOk8M+ZnSm2HXVB690IeYXxlug7yTyU7aHzin4e1N1HanIj332DEezcGWYq8mobXcPz+QELka0n7BtwhxbGyRVLKWn/T74Bf8JannDf1MpDmMQjIiP0a1CEVUPO5K
+    users: AgAvzeLr6UTAbKd5zHpbOyLsguyYwA6NpME/yva/Nt5biHsl5JlNX45JV+0nZzVxBIyi1SB1mJGuQYfwSUk92hE1dry/B0Hr4A/AtiKoTWvR5OM3wBU8Dog/rvrh5mWOYD8p15ETXdT7OEw4BzwVOcv8mbgeGlzx8eJfoEVZ8bMVA0t7aCn6EQkBTF5SvxXPnDn487Y/HUrWQB5hCno4bNuHaoiPGDcHLOGz69zmGoQnHUn5UfoWTQ4G9ACsNr1zBp4xST4NAgXe9Zh2RCI/AYlCdz5szbt3eWowfy46LBHSiBoJDM7gINbrf0nHZhTSOePftpKeVG2q+8dNqmWlRg853EoEZRvov7I01Bp7PXYNtrKdti7on73IR4NHbk+WHTl2kzki7dRu3zFihuI1/XtEAhXhcc9k40Hjxtfvw82XbXGKNE2Ve33GxIP7Doff1n2jOYyeTVMHXOOKIpCmgLkKSxVpjOVFjPAfnoRTiwLya3+TKWfq9iRhcDBCutOx+gpb+HARnhySmxFbpzQECWCKj+8mREdzUtOPLX3NJXyL+5QNLIunHxp6m7uW5qrLNjb2beFhyfZGYctd0H+FuRPeS67u8YO92qeSNonfLHWa73W2Zb/cPTHgqNES7wg+Sq8SDO/pgblSHjI5+OZBhKeXKy1kJPEhJb0otvTbJjp3eFrepi8T4LsUl0lVnTSj7g5PQCBoIbvxFbKIctgwlqog7RoUrs10dY9f15q62+2MOvVaJnHaDH+PdYG0vCFV
   template:
     metadata:
       name: danielhaus-de-dev-credentials
@@ -105,7 +105,7 @@ metadata:
 spec:
   basicAuth:
     secret: danielhaus-de-dev-credentials
-    realm: 'danielhaus.de (dev)'
+    realm: "danielhaus.de (dev)"
     removeHeader: true
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
@@ -117,8 +117,8 @@ spec:
   imageRepositoryRef:
     name: danielhaus.de
   filterTags:
-    pattern: '^main-[a-fA-F0-9]+-(?P<ts>.*)'
-    extract: '$ts'
+    pattern: "^main-[a-fA-F0-9]+-(?P<ts>.*)"
+    extract: "$ts"
   policy:
     numerical:
       order: asc
