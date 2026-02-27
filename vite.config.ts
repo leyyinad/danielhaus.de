@@ -1,14 +1,14 @@
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { svelteTesting } from '@testing-library/svelte/vite';
+import { playwright } from '@vitest/browser-playwright';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
-import type { UserConfig } from 'vite';
+import devtoolsJson from 'vite-plugin-devtools-json';
 import glsl from 'vite-plugin-glsl';
-import type { TestUserConfig } from 'vitest/node';
+import { defineConfig } from 'vitest/config';
 
-export default {
-  plugins: [enhancedImages(), sveltekit(), glsl()],
+export default defineConfig({
+  plugins: [enhancedImages(), sveltekit(), glsl(), devtoolsJson()],
 
   css: {
     transformer: 'lightningcss',
@@ -22,23 +22,23 @@ export default {
   },
 
   test: {
+    expect: { requireAssertions: true },
     projects: [
       {
         extends: './vite.config.ts',
-        plugins: [svelteTesting()],
-
         test: {
           name: 'client',
-          environment: 'jsdom',
-          clearMocks: true,
+          browser: {
+            enabled: true,
+            provider: playwright(),
+            instances: [{ browser: 'chromium', headless: true }]
+          },
           include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-          exclude: ['src/lib/server/**'],
-          setupFiles: ['./vitest-setup-client.ts']
+          exclude: ['src/lib/server/**']
         }
       },
       {
         extends: './vite.config.ts',
-
         test: {
           name: 'server',
           environment: 'node',
@@ -48,4 +48,4 @@ export default {
       }
     ]
   }
-} satisfies UserConfig | { test: TestUserConfig };
+});
