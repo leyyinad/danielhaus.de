@@ -108,7 +108,7 @@ spec:
     realm: 'danielhaus.de (staging)'
     removeHeader: true
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta2
+apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImagePolicy
 metadata:
   name: danielhaus-de-staging
