@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:main-6d60e2f-1768804945 # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
+          image: code.d7c.de/danielhaus/danielhaus.de:main-5d8fb5f-1772222900 # {"$imagepolicy": "danielhaus:danielhaus-de-dev"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -91,7 +91,7 @@ metadata:
   namespace: danielhaus
 spec:
   encryptedData:
-    users: AgAmYLLTmyX7hiUrH+VJxvERMtBNy6DKdN00O/A2ikzeaOaylHZ+gLYS5LTFqHXhag52wSWLQTox4njCaUiWHugmqaspmBMozSiLIPw8j5kxf+w1I4yC7Wq4w7MKOuySSQzuA0X+VaM7BuM2UscIuwqrIvNokXTWRPeihlfkaB7/03HFsHne6/N+0lHUE/RQOFNw5HCaRHjjUh0jl3YjGtiRCqV5tNk+hW1ty8WzTOB6udfb5qHw6CStjliXTfESKGyK/G61TqzVUDjFrGfsofsaVfT9yBZXGO17ZdYMlc4U7l4TLdskoMQ8ZiSNINS9VoVMvQYH63mwptMkTeIMwLVZrRzkSmL5IGDfWtRdtSRt3+7DltfGDieSinWS/wYEoSyp9oqmRwj55IlSn0EURqOZ+zBnqPyRvzgmkqPWS1OIqFNJudgDcskp6G+y8QhzV23aZyjSGDQ++ViMceMQxDl1BGxWgPTVMTGZGqVAtjJqc6JH38pVG+YG3X7tYhmr0Ax08vwsp9znRh+smgYVANsStTLSBU8/YxIxnZV9TmKyN4Pmax9LUtNcEmxKJ0DIFSDPkop22khLZ8YuDTJx/27Ewyf8jRHdr+hmrdaPaMB5RbfqBUxFKUfVRuE8VCFLWYzlOk8M+ZnSm2HXVB690IeYXxlug7yTyU7aHzin4e1N1HanIj332DEezcGWYq8mobXcPz+QELka0n7BtwhxbGyRVLKWn/T74Bf8JannDf1MpDmMQjIiP0a1CEVUPO5K
+    users: AgAFSt64G2l9bm05JpkNPS8aYb99C9UsbeMOitfbqobp0dzExt0mOGqWAZwq9lRLW4ost7j/t/gbm4zv9/kGRWX/6Lzek/HxVyVVdgdwkjQ5dLSJesWpZmPwsqTi8PtgMtTDTwNwlvxPR8u+nN7B3fFo3rQim/djXH+32X3iIhAkdVX1FIhSO0BS+foJ5c2ZSOTXGi1nVYgQhtzmstN/uwlrfGAbt39D79xgfIyjLn2Q1bTnre8QiW7n+0trwFLNi/9dVoz2PdC/DwJ427LuqEYrFWGT9tXtRLn+pZBJAu4YFwCGqvK/8VdQ2rEYWMGXF09Gf2KhnCjUGlM5sfb6v6myjRrpkboBqewV/Mzi/APDk/3Skdx+79bSNd/SsfEGLPpRG7j7lj8U7aGIZm5dHMeR4nYmlZhvDK/o+L6+V4OAIbqIK+ra7cnLF6p1j6RSebIgiGdTEc2uSx8ghs7suC1y/IGdCBJALZ+Dhn3N5snMI776Fj8uWIzB77Jvb5cafnEQq3dp9FZR3Fub2jKVGAdd+d8gimJHfN9UY/u9oZwo7RhjgpuuJWulrGUc9CxmDP/OAAIu/2T+MzePkOd4J+uGlwdYOTE0y8uG8UGg/COz3SGjNdpKsRsHOcQ4unNVVBpYbx377lyrVmg+kzipZKpBHdY4u7AfqN5LPG2pn00rzdI8jrz87b1sKNzH7uZ8MRNpdoZ1+T7st8KYPhEBPPIAQk5A2Anl+IESIFnEdD8wBEZEVwv6Gebn6hlA2AX/
   template:
     metadata:
       name: danielhaus-de-dev-credentials
@@ -108,7 +108,7 @@ spec:
     realm: 'danielhaus.de (dev)'
     removeHeader: true
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta2
+apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImagePolicy
 metadata:
   name: danielhaus-de-dev

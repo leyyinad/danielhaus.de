@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:staging-48a7126-1768828996 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
+          image: code.d7c.de/danielhaus/danielhaus.de:staging-27d44f0-1772226543 # {"$imagepolicy": "danielhaus:danielhaus-de-staging"}
           imagePullPolicy: Always
           ports:
             - name: web
@@ -91,7 +91,7 @@ metadata:
   namespace: danielhaus
 spec:
   encryptedData:
-    users: AgAvlDFiO40xXO3R9rjJNJCJEmC96/SFxQ9X3ZhSKs0/FZ3c7zGK4MA//q/Ilw8G5sI7DBJmOYl9jzWVG61Wo3HIp+Dclzd4YQsC9XNk8w7mPbxBfQRiWWhU9MLlviC6lbU9GUwOytJYAgZflCssa82nkAXYoRcsNluPJpbZrIKIEB6e62u6vc/YlWyAXEXfYFLRwnxUk0K8kJNo3o2i3llKzpZYSFKViqQ9nZ+7MKzSKkwQ/W1kUG5pnQVLYpplosp72W4bRpuWc6JWojTU1eDeIwoI53yO7ICzZ7iFhI35Af4VRAnYuElR2lEaP9jX5/M0VX/D5h6Dl/aMKnbZf/9ed2XOiteJnAPbMVoo2zpMb+OrCFxxP0P0zWkY+eq0CmF4RIgshwa5/e/I+4ENFDHYCJZgfiyU1I29jHJo8Knpam7QP95/jDR1A2eWlmhoL2vTWsJ2GEJO/aIJISZgnotfMB1sPIP4YMVKUyWCXc4NjgTQRRMAnKqQJ2lCeYmUcrb+F9DVE5xJpDl8nZhFyFwKlCSGTLFULeUt2wRtyEVLatdQ56H+YfBso/b9TQCQ+ZVVdVl1eWmGfIxxgfHMmM4F5WaKcuEzawTG//ngNHmeoiDHs13sMTMg/3lHhurm6nBahT1Ututy6I9WYyStvMO6TuTTrEIRDyUUhHETUrGczYYI32WUUCPFqndkabBN7CVahdLOR8UouuaH+erybKJMbMdwcXYoR2IlQPriHKqksUVKiI/y+/3cPqELOMn+
+    users: AgCE571W/RIklSG+dp3Eza0NUuHnA3bSz1mWX30nF7gm72++ZCSX1MV8dbmzgCMS3/gPGdCXN+qBdFBsw0BBwFG9iRwEbi8Hhz7v0sPI/6Lz56pYu95+4g/tN6o5xWPR3Gk9FHXU0OCmOBJ5igCRUP2gdkQVpIgRtRD6ECkgyORDbw0S62rGtGiZh/TeJxwS/sBAsBXQNC1OUExPpqzV4fobV9WfxlekgadhCuEj14NDDs71epZ6UdMKpLlTKcofMSIdfaIAJkseVAA2Otzv3OIIfe2/CbvjSLiARsMfGuXRIK/qKEsN0EwA2kkTiyykOG7vcqMZJDmh+UGS9zX1zT8Ptntdp6qxvQVYssVvWRfvQhRgZ/Pi0xoPkKBIV1rcaUEXi6kbNiEBBdVa1qkmVZz8OlBiUod9u7/4MbfsiUe6InVE00H2KxTGLHrtuF4ve0iFGhbkhw9sBk8YT3EGZTAk2NHYlQWWVj2VzpGolJqnmDlDnJy0P4SnSa6q3YAFuMsgR9ZMULDe4ndfkuDeHNUvYP3hNX1igi2bDStZO6VIeV+8fCrCWi14lyADJsvmVi/wQE7YiRSmsX8RxeeR9DtzeUVNWsj3vr3JQd+Tus63I8K+HKkKVylMba5uqU+WfkpLKIozNL5Kp9/+jbKDHNymuSM1H2/u4pMDagkCdbEfcEIGLcE2/lAZcRvJUY4ZVgQCAdceTlHD2cFxnXiILK4xAcdKbYkkfGSfZfULe3q8J4kRH3a/OvqAv0mDPEBu
   template:
     metadata:
       name: danielhaus-de-staging-credentials
@@ -108,7 +108,7 @@ spec:
     realm: 'danielhaus.de (staging)'
     removeHeader: true
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta2
+apiVersion: image.toolkit.fluxcd.io/v1
 kind: ImagePolicy
 metadata:
   name: danielhaus-de-staging
