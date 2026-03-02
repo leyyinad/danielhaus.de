@@ -28,7 +28,8 @@
 
 <style>
   section {
-    background-image: url('$lib/images/circuit.png');
+    background-image: url('$lib/images/circuits.jpg');
+    background-position: center;
     background-size: cover;
     background-color: var(--kashmirgrey-950);
     color: white;
@@ -39,6 +40,7 @@
     padding: 3.5rem 1.5rem;
     width: var(--container-width);
     max-width: 1024px;
+    text-shadow: 0px 0px 0.2em black;
 
     @media (min-width: 640px) {
       font-size: 1.25rem;
