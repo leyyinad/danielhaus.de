@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Daniel Haus — IT-Berater und Softwareentwickler",
-  "description": "IT-Beratung und Softwareentwicklung in Idstein",
+  "name": "Daniel Haus — Senior Software Developer",
+  "description": "Senior Software Developer/Architect in Idstein",
   "url": "https://danielhaus.de",
   "address": {
     "@type": "PostalAddress",
@@ -16,10 +16,18 @@
   "founder": {
     "@type": "Person",
     "name": "Daniel Haus",
-    "jobTitle": "IT-Berater und Softwareentwickler",
-    "description": "IT-Beratung und Softwareentwicklung in Idstein"
+    "jobTitle": "Senior Software Developer",
+    "description": "Senior Software Developer/Architect in Idstein"
   },
-  "serviceType": ["IT-Beratung", "Softwareentwicklung"],
+  "serviceType": [
+    "Softwareentwicklung",
+    "Software-Architektur",
+    "Software-Lösungen",
+    "Web-Development",
+    "IT-Beratung",
+    "Game-Design",
+    "Game-Development"
+  ],
   "areaServed": {
     "@type": "Place",
     "name": "Rhein-Main-Gebiet"
