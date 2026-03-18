@@ -74,7 +74,7 @@ jobs:
             echo 'EOF'
           } >> $GITHUB_OUTPUT
 
-      - uses: actions/forgejo-release@v2.7.3
+      - uses: actions/forgejo-release@v2.11.3
         with:
           direction: upload
           url: ${{ env.GITHUB_SERVER_URL }}

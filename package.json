@@ -1,6 +1,6 @@
 {
   "name": "danielhaus.de",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "type": "module",
   "private": true,
   "repository": {
@@ -22,7 +22,7 @@
     "test:e2e": "playwright test"
   },
   "lint-staged": {
-    "*.{js,ts,svelte,html,json,cjs}": [
+    "*.{js,ts,svelte,html,json,cjs,yaml}": [
       "prettier --write .",
       "eslint ."
     ],
