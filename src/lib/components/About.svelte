@@ -5,9 +5,9 @@
     <div class="columns-2">
       <div class="column">
         <p>
-          Mein Name ist Daniel Haus. Ich bin Senior <strong>Softwareentwickler</strong>
-          und <strong>IT-Generalist</strong> aus dem Rhein-Main-Gebiet. Als breitgefächerter
-          Spezialist mit Fokus auf <strong>benutzerfreundliche</strong>
+          Mein Name ist Daniel Haus. Ich bin <strong>Senior Softwareentwickler</strong>
+          und IT-Generalist aus dem Rhein-Main-Gebiet. Als breitgefächerter Spezialist mit Fokus auf
+          <strong>benutzerfreundliche</strong>
           und <strong>zuverlässige</strong>, durchdachte Software habe ich in über 25 Jahren viele
           erfolgreiche Anwendungen realisiert.
         </p>
