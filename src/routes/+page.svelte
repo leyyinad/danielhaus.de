@@ -10,12 +10,12 @@
   import linkedData from './linked-data.json';
 
   const title = 'Daniel Haus';
-  const description = 'IT-Berater und Softwareentwickler in Idstein';
+  const description = '"Senior Software Developer/Architect in Idstein"';
 </script>
 
 <svelte:head>
-  <title>Daniel Haus — IT-Berater und Softwareentwickler</title>
-  <meta name="description" content="IT-Beratung und Softwareentwicklung in Idstein" />
+  <title>Daniel Haus — Softwareentwickler</title>
+  <meta name="description" content={description} />
 
   <meta name="thumbnail" content="https://danielhaus.de/static/favicon.png" />
 

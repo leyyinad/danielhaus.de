@@ -100,7 +100,7 @@
         {#if timelineState.txt.active}
           <h2>
             <Typer>
-              IT-Berater<span class="opacity-25">,</span><br />Softwareentwickler
+              Softwareentwickler<span class="opacity-25">,</span><br />IT-Generalist
             </Typer>
           </h2>
         {/if}
@@ -263,6 +263,10 @@
     font-weight: 600;
     font-size: 1.875rem;
     line-height: 2.25rem;
+
+    .opacity-25 {
+      opacity: 0.25;
+    }
 
     @media (min-width: 380px) {
       font-size: 2.1rem;
