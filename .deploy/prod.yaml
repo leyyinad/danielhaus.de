@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:1.4.3
+          image: code.d7c.de/danielhaus/danielhaus.de:1.5.0
           imagePullPolicy: Always
           ports:
             - name: web
@@ -34,7 +34,7 @@ spec:
             requests:
               cpu: 10m
             limits:
-              memory: '256Mi'
+              memory: "256Mi"
       imagePullSecrets:
         - name: org-registry-access-token
 ---
@@ -66,9 +66,9 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.className: traefik
-    traefik.ingress.kubernetes.io/redirect-permanent: 'true'
-    traefik.ingress.kubernetes.io/redirect-regex: '^https://www.(.*)'
-    traefik.ingress.kubernetes.io/redirect-replacement: 'https://$1'
+    traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    traefik.ingress.kubernetes.io/redirect-regex: "^https://www.(.*)"
+    traefik.ingress.kubernetes.io/redirect-replacement: "https://$1"
 spec:
   tls:
     - hosts:
