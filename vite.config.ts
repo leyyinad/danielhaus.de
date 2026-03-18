@@ -3,12 +3,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { playwright } from '@vitest/browser-playwright';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
-import devtoolsJson from 'vite-plugin-devtools-json';
 import glsl from 'vite-plugin-glsl';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [enhancedImages(), sveltekit(), glsl(), devtoolsJson()],
+  plugins: [enhancedImages(), sveltekit(), glsl()],
 
   css: {
     transformer: 'lightningcss',
