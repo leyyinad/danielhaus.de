@@ -100,7 +100,8 @@
         {#if timelineState.txt.active}
           <h2>
             <Typer>
-              Softwareentwickler<span class="opacity-25">,</span><br />IT-Generalist
+              Softwareentwickler<span class="opacity-25">,</span><br />
+              IT-Generalist
             </Typer>
           </h2>
         {/if}
