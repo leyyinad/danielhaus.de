@@ -37,7 +37,7 @@ jobs:
     if: forge.event_name == 'push'
 
     container:
-      image: ghcr.io/catthehacker/ubuntu:js-latest
+      image: ghcr.io/catthehacker/ubuntu:act-latest
 
     env:
       REGISTRY: code.d7c.de
