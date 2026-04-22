@@ -7,20 +7,23 @@
       <li><strong>Ganzheitliche</strong>, strategische Perspektive</li>
       <li><strong>Kreativität</strong>, Stil und Erfahrung</li>
       <li>Schnelle, <strong>nachhaltige</strong> Softwareentwicklung</li>
-      <li><strong>IT-Security</strong> und <strong>Datenschutz</strong> (DSGVO, BDSG)</li>
+      <li><strong>IT-Security</strong> und <strong>Datenschutz</strong>, DSGVO</li>
       <li><strong>UX/UI</strong>, 2D/3D-Grafikprogrammierung</li>
-      <li>Audiovisuelle, <strong>interaktive</strong> Anwendungen</li>
+      <li><strong>Interaktive</strong>, audiovisuelle, Anwendungen</li>
       <li><strong>Cloud-native</strong>, Web, Mobile, Desktop, Server</li>
-      <li>CMS, APIs, Datenbanken</li>
+      <li>CMS, APIs, Datenbanken, Shell-Scripting</li>
       <li>DevOps, CI/CD, TDD</li>
-      <li><strong>Python</strong>, <strong>PHP</strong>, HTML5, JS/TS, CSS, WebGL</li>
+      <li>
+        <strong>Python</strong>, <strong>PHP</strong>, <strong>TypeScript</strong>, JavaScript,
+        HTML5, CSS, WebGL, <strong>SvelteKit</strong>
+      </li>
       <li>
         Unix/Linux, <strong>Vim</strong>, <strong>Git</strong>, Zsh/Bash, <strong>Docker</strong>,
-        <strong>K8s</strong>
+        <strong>Kubernetes</strong>
       </li>
-      <li><strong>Godot</strong>, <strong>Unity</strong>, Game Design, Game Development</li>
+      <li><strong>Godot</strong>, Game Design, Game Development</li>
       <li>
-        <strong>Affinity</strong>, <strong>Pixelmator Pro</strong>, <strong>Logic Pro</strong>
+        <strong>Affinity</strong> Suite, <strong>Logic Pro</strong>
       </li>
     </ul>
   </article>
