@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: danielhaus-de
-          image: code.d7c.de/danielhaus/danielhaus.de:1.6.0
+          image: code.d7c.de/danielhaus/danielhaus.de:1.7.0
           imagePullPolicy: Always
           ports:
             - name: web
