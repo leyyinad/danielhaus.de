@@ -5,7 +5,7 @@
     <div class="columns-2">
       <div class="column">
         <p>
-          Mein Name ist Daniel Haus. Ich bin <strong>Senior Softwareentwickler</strong>
+          Mein Name ist Daniel Haus. Ich bin <strong>Softwareentwickler</strong>
           aus dem Rhein-Main-Gebiet. Als breitgefächerter Spezialist mit Fokus auf
           <strong>benutzerfreundliche</strong> und <strong>zuverlässige</strong>, durchdachte
           Software habe ich in über 25 Jahren viele erfolgreiche Anwendungen realisiert.

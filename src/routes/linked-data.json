@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Daniel Haus — Senior Software Developer",
-  "description": "Senior Software Developer/Architect in Idstein",
+  "name": "Daniel Haus — Software Developer",
+  "description": "Software Developer in Idstein",
   "url": "https://danielhaus.de",
   "address": {
     "@type": "PostalAddress",
@@ -16,8 +16,8 @@
   "founder": {
     "@type": "Person",
     "name": "Daniel Haus",
-    "jobTitle": "Senior Software Developer",
-    "description": "Senior Software Developer/Architect in Idstein"
+    "jobTitle": "Software Developer",
+    "description": "Software Developer in Idstein"
   },
   "serviceType": [
     "Softwareentwicklung",
