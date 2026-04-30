@@ -5,18 +5,18 @@
     <div class="columns-2">
       <div class="column">
         <p>
-          Mein Name ist Daniel Haus. Ich bin <strong>Softwareentwickler</strong>
-          aus dem Rhein-Main-Gebiet. Als breitgefächerter Spezialist mit Fokus auf
-          <strong>benutzerfreundliche</strong> und <strong>zuverlässige</strong>, durchdachte
-          Software habe ich in über 25 Jahren viele erfolgreiche Anwendungen realisiert.
+          Ich bin Daniel Haus, <strong>Softwareentwickler</strong> aus dem Rhein-Main-Gebiet. Als
+          breitgefächerter Spezialist mit Fokus auf <strong>benutzerfreundliche</strong>
+          und <strong>zuverlässige</strong>, durchdachte Software habe ich in über 25 Jahren viele
+          erfolgreiche Anwendungen realisiert.
         </p>
       </div>
 
       <div class="column">
         <p>
           Meine Klienten umfassen bekannte Namen und Marken aus den Bereichen IT, Medien und TV,
-          Werbung, Versicherung, Banken und Finanzen, Pharma und Medizin, Unternehmensberatung,
-          High-End Audio, Automotive, Gesundheit, Bildung sowie dem öffentlichen Sektor.
+          Werbung, Versicherung und Banken, Gesundheit, Unternehmensberatung, High-End Audio,
+          Automotive, Gesundheit, Bildung sowie dem öffentlichen Sektor.
         </p>
       </div>
     </div>
