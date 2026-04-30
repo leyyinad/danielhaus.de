@@ -10,7 +10,7 @@
   import linkedData from './linked-data.json';
 
   const title = 'Daniel Haus';
-  const description = '"Senior Software Developer/Architect in Idstein"';
+  const description = '"Software Developer in Idstein"';
 </script>
 
 <svelte:head>
