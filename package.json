@@ -50,7 +50,7 @@
     "globals": "^17.5.0",
     "husky": "^9.1.7",
     "lightningcss": "^1.32.0",
-    "lint-staged": "^16.4.0",
+    "lint-staged": "^17.0.0",
     "modern-normalize": "^3.0.1",
     "node-addon-api": "^8.7.0",
     "node-gyp": "^12.3.0",
