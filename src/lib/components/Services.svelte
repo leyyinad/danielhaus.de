@@ -15,7 +15,7 @@
       <li>DevOps, CI/CD, TDD</li>
       <li>
         <strong>Python</strong>, <strong>PHP</strong>, <strong>TypeScript</strong>, JavaScript,
-        Java, HTML5, CSS, WebGL, <strong>SvelteKit</strong>, <strong>Angluar</strong>,
+        Java, HTML5, CSS, WebGL, <strong>SvelteKit</strong>, <strong>Angular</strong>,
         <strong>React</strong>
       </li>
       <li>
