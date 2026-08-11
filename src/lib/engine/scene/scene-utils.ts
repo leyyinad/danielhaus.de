@@ -11,8 +11,7 @@ export type ComponentSpecWithConfig<T extends Component> = [
 ];
 
 export type ComponentSpec<T extends Component> =
-  | ComponentConstructor<T>
-  | ComponentSpecWithConfig<T>;
+  ComponentConstructor<T> | ComponentSpecWithConfig<T>;
 
 export type BaseObjectSpec = {
   name?: string;
