@@ -1,8 +1,8 @@
-import { Camera, Engine, Environment, Scene, createObject } from '$lib/engine';
-import MeshFilter from '$lib/engine/components/mesh/mesh-filter';
-import MeshRenderer from '$lib/engine/components/renderer/mesh-renderer';
-import Renderer from '$lib/engine/components/renderer/renderer';
-import WebGLRenderDriver from '$lib/engine/drivers/webgl/webgl-render-driver';
+import MeshFilter from '#lib/engine/components/mesh/mesh-filter.js';
+import MeshRenderer from '#lib/engine/components/renderer/mesh-renderer.js';
+import Renderer from '#lib/engine/components/renderer/renderer.js';
+import WebGLRenderDriver from '#lib/engine/drivers/webgl/webgl-render-driver.js';
+import { Camera, Engine, Environment, Scene, createObject } from '#lib/engine/index.js';
 import { vec4 } from 'gl-matrix';
 import cityGrid from './city-grid';
 import wireframeMaterial from './materials/wireframe/material';

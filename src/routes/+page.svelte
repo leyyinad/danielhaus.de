@@ -1,12 +1,12 @@
 <script lang="ts">
-  import About from '$lib/components/About.svelte';
-  import Attitude from '$lib/components/Attitude.svelte';
-  import Hero from '$lib/components/Hero.svelte';
-  import Projects from '$lib/components/Projects.svelte';
-  import Services from '$lib/components/Services.svelte';
-  import OpenSource from '$lib/components/OpenSource.svelte';
-  import CodeSnippet from '$lib/components/widgets/CodeSnippet.svelte';
-  import JsonLd from '$lib/components/JsonLd.svelte';
+  import About from '#lib/components/About.svelte';
+  import Attitude from '#lib/components/Attitude.svelte';
+  import Hero from '#lib/components/Hero.svelte';
+  import Projects from '#lib/components/Projects.svelte';
+  import Services from '#lib/components/Services.svelte';
+  import OpenSource from '#lib/components/OpenSource.svelte';
+  import CodeSnippet from '#lib/components/widgets/CodeSnippet.svelte';
+  import JsonLd from '#lib/components/JsonLd.svelte';
   import linkedData from './linked-data.json';
 
   const title = 'Daniel Haus';

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import cityGrid from '$lib/city/city-grid';
-  import Cube from '$lib/city/models/cube';
-  import { Engine } from '$lib/engine';
-  import WebGLRenderDriver from '$lib/engine/drivers/webgl/webgl-render-driver';
-  import Mesh from '$lib/engine/geom/mesh';
+  import cityGrid from '#lib/city/city-grid.js';
+  import Cube from '#lib/city/models/cube.js';
+  import { Engine } from '#lib/engine/index.js';
+  import WebGLRenderDriver from '#lib/engine/drivers/webgl/webgl-render-driver.js';
+  import Mesh from '#lib/engine/geom/mesh.js';
   import { onMount } from 'svelte';
   import EndlessScroller from './EndlessScroller.svelte';
   import Ticker from './Ticker.svelte';

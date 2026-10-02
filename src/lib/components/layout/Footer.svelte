@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { version } from '$lib/version';
+  import { version } from '#lib/version.js';
 
   import SquarePattern from '../widgets/SquarePattern.svelte';
 

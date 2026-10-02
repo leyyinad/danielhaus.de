@@ -1,4 +1,4 @@
-import Transform from '$lib/engine/components/transform';
+import Transform from '#lib/engine/components/transform.js';
 import { mat4, quat, vec3 } from 'gl-matrix';
 import { describe, expect, it } from 'vitest';
 

@@ -1,4 +1,4 @@
-import danielProfileImg from '$lib/images/daniel-profile-64px.png';
+import danielProfileImg from '#lib/images/daniel-profile-64px.png';
 import { image, ledTest, plasma } from './generators';
 import { fadeIn, scale, speed, vignette } from './modifiers';
 import { add, loop, multiply, sequence, subtract } from './operators';

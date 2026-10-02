@@ -25,7 +25,7 @@
 
 <style>
   section {
-    background-image: url('$lib/images/holz.jpg');
+    background-image: url('../images/holz.jpg');
     background-size: cover;
     background-color: #220d08;
     color: var(--bluebirth-50);

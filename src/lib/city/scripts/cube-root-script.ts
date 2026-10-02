@@ -1,7 +1,7 @@
-import { Camera } from '$lib/engine';
-import Renderer from '$lib/engine/components/renderer/renderer';
-import ScriptBehaviour from '$lib/engine/components/script-behaviour';
-import Time from '$lib/engine/time';
+import Renderer from '#lib/engine/components/renderer/renderer.js';
+import ScriptBehaviour from '#lib/engine/components/script-behaviour.js';
+import { Camera } from '#lib/engine/index.js';
+import Time from '#lib/engine/time.js';
 import CameraScript from './camera-script';
 import CubeScript from './cube-script';
 
