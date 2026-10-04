@@ -32,7 +32,7 @@
 
 <style>
   section {
-    background-image: url('$lib/images/circuits.jpg');
+    background-image: url('../images/circuits.jpg');
     background-position: center;
     background-size: cover;
     background-color: var(--kashmirgrey-950);

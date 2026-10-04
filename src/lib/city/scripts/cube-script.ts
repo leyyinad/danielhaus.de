@@ -1,5 +1,5 @@
-import ScriptBehaviour from '$lib/engine/components/script-behaviour';
-import Time from '$lib/engine/time';
+import ScriptBehaviour from '#lib/engine/components/script-behaviour.js';
+import Time from '#lib/engine/time.js';
 
 export default class CubeScript extends ScriptBehaviour {
   enabled = false;

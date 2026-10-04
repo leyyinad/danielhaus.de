@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
-  import { zero } from '$lib/led-anim';
-  import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from '$lib/led-anim/types';
-  import { OFF, ON } from '$lib/led-anim/utils';
+  import { browser } from '$app/env';
+  import { zero } from '#lib/led-anim/index.js';
+  import type { LedAnimComponentConfig, LedAnimGeneratorComponent } from '#lib/led-anim/types.js';
+  import { OFF, ON } from '#lib/led-anim/utils.js';
   import { onDestroy, onMount } from 'svelte';
 
   export let width = 8;

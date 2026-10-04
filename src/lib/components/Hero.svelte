@@ -1,6 +1,6 @@
 <script lang="ts">
-  import anim from '$lib/led-anim';
-  import Timeline from '$lib/timeline';
+  import anim from '#lib/led-anim/index.js';
+  import Timeline from '#lib/timeline/index.js';
   import { onDestroy, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Signature from './Signature.svelte';
@@ -122,8 +122,7 @@
 <style>
   .hero {
     position: relative;
-    height: 100vh;
-    min-height: 40rem;
+    min-height: calc(100lvh + 60px);
   }
 
   .content {
