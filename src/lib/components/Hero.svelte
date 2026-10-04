@@ -122,8 +122,7 @@
 <style>
   .hero {
     position: relative;
-    height: 100vh;
-    min-height: 40rem;
+    min-height: calc(100lvh + 60px);
   }
 
   .content {
