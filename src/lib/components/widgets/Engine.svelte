@@ -1,5 +1,5 @@
 <script lang="ts">
-  import City from '$lib/city/index';
+  import City from '#lib/city/index.js';
   import { onDestroy, onMount } from 'svelte';
 
   let canvas: HTMLCanvasElement;

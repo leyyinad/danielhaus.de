@@ -1,4 +1,4 @@
-import Engine from '$lib/engine/engine';
+import Engine from '#lib/engine/engine.js';
 import { mat4 } from 'gl-matrix';
 import Behaviour from '../behaviour';
 

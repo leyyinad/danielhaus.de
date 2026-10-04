@@ -3,7 +3,7 @@ import {
   PUBLIC_GITHUB_REF_NAME,
   PUBLIC_GITHUB_RELEASE_VERSION,
   PUBLIC_GITHUB_SHA
-} from '$env/static/public';
+} from '$app/env/public';
 
 const release = PUBLIC_GITHUB_RELEASE_VERSION;
 const branch = PUBLIC_GITHUB_REF_NAME;
