@@ -154,8 +154,16 @@
     "client": "Formgrad"
   },
   {
+    "title": "Ring of Hearts",
+    "client": "Ring"
+  },
+  {
     "title": "GenAI Ecom Grader",
     "client": "Cleverbridge"
+  },
+  {
+    "title": "HR Solution Finder",
+    "client": "HR-Tech"
   },
   {
     "title": "Shop-System",
