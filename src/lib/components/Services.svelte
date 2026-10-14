@@ -11,7 +11,6 @@
       <li><strong>UX/UI</strong>, 2D/3D-Grafikprogrammierung</li>
       <li><strong>Interaktive</strong>, audiovisuelle, Anwendungen</li>
       <li><strong>Cloud-native</strong>, Web, Mobile, Desktop, Server</li>
-      <li>CMS, APIs, Datenbanken, Shell-Scripting</li>
       <li>DevOps, CI/CD, TDD</li>
       <li>
         <strong>Python</strong>, <strong>PHP</strong>, <strong>TypeScript</strong>, JavaScript,
@@ -19,12 +18,12 @@
         <strong>React</strong>
       </li>
       <li>
-        Unix/Linux, <strong>Vim</strong>, <strong>Git</strong>, Zsh/Bash, <strong>Docker</strong>,
-        <strong>Kubernetes</strong>
+        Unix/Linux, <strong>Git</strong>, Kubernetes, Docker, Vim
       </li>
-      <li><strong>Godot</strong>, Game Design, Game Development</li>
+      <li>Game Design, Game Development</li>
       <li>
-        <strong>Affinity</strong> Suite, <strong>Logic Pro</strong>
+        <strong>Godot</strong>, <strong>Blender</strong>, <strong>Affinity</strong>,
+        <strong>Logic Pro</strong>
       </li>
     </ul>
   </article>
