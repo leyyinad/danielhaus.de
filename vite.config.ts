@@ -17,6 +17,7 @@ export default defineConfig({
     }),
     glsl()
   ],
+
   css: {
     transformer: 'lightningcss',
     lightningcss: {
@@ -25,7 +26,8 @@ export default defineConfig({
   },
 
   build: {
-    cssMinify: 'lightningcss'
+    cssMinify: 'lightningcss',
+    sourcemap: true
   },
 
   test: {
