@@ -57,25 +57,11 @@ jobs:
             GITHUB_SHA=${{ env.GITHUB_SHA }}
             GITHUB_RELEASE_VERSION=${{ steps.semrel.outputs.RELEASE_VERSION }}
 
-      - run: |
-          mkdir -p dist/release
-          cp README.md CHANGELOG.md dist/release/
-
-      - id: changelog
-        run: |
-          {
-            echo 'changelog<<EOF'
-            awk '/^## /{ p++ } p == 2 { exit } p >= 1' CHANGELOG.md
-            echo 'EOF'
-          } >> $GITHUB_OUTPUT
-
-      - uses: actions/forgejo-release@v2.11.3
+      - uses: actions/forgejo-release@2
         with:
           direction: upload
           url: ${{ env.GITHUB_SERVER_URL }}
           repo: ${{ env.GITHUB_REPOSITORY }}
-          release-dir: dist/release
           tag: v${{ steps.semrel.outputs.RELEASE_VERSION }}
           sha: ${{ steps.semrel.outputs.RELEASE_SHA }}
-          release-notes: ${{ steps.changelog.outputs.changelog }}
           token: ${{ secrets.FORGEJO_TOKEN }}
