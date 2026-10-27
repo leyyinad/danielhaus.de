@@ -5,7 +5,7 @@
     <ul>
       <li><strong>Effiziente</strong> und <strong>effektive</strong> IT-Lösungen</li>
       <li><strong>Ganzheitliche</strong>, strategische Perspektive</li>
-      <li><strong>Kreativität</strong>, Stil und Erfahrung</li>
+      <li><strong>Kreativität</strong>, Erfahrung und Stil</li>
       <li>Schnelle, <strong>nachhaltige</strong> Softwareentwicklung</li>
       <li><strong>IT-Security</strong> und <strong>Datenschutz</strong>, DSGVO</li>
       <li><strong>UX/UI</strong>, 2D/3D-Grafikprogrammierung</li>
@@ -14,7 +14,8 @@
       <li>DevOps, CI/CD, TDD</li>
       <li>
         <strong>Python</strong>, <strong>PHP</strong>, <strong>TypeScript</strong>, JavaScript,
-        Java, HTML5, CSS, WebGL, <strong>SvelteKit</strong>, <strong>Angular</strong>,
+        <strong>Rust</strong>, Java, HTML5, CSS, WebGL, <strong>SvelteKit</strong>,
+        <strong>Angular</strong>,
         <strong>React</strong>
       </li>
       <li>
@@ -71,7 +72,7 @@
     margin: 0;
     padding: 0;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       columns: 2;
     }
 
