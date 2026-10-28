@@ -56,12 +56,3 @@ jobs:
             GITHUB_REF_NAME=""
             GITHUB_SHA=${{ env.GITHUB_SHA }}
             GITHUB_RELEASE_VERSION=${{ steps.semrel.outputs.RELEASE_VERSION }}
-
-      - uses: actions/forgejo-release@v2
-        with:
-          direction: upload
-          url: ${{ env.GITHUB_SERVER_URL }}
-          repo: ${{ env.GITHUB_REPOSITORY }}
-          tag: v${{ steps.semrel.outputs.RELEASE_VERSION }}
-          sha: ${{ steps.semrel.outputs.RELEASE_SHA }}
-          token: ${{ secrets.FORGEJO_TOKEN }}
